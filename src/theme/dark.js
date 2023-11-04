@@ -4,6 +4,10 @@ const darkTheme = {
       secondary: 'darkgray',
       background: 'black',
       text: 'white',
+      homeScreen:{
+        background:'red',
+        text:'orange'
+      }
     },
     typography: {
       fontFamily: 'Helvetica, sans-serif',

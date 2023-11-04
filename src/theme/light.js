@@ -4,6 +4,10 @@ const lightTheme = {
       secondary: 'gray',
       background: 'white',
       text: 'black',
+      homeScreen:{
+        background:'blue',
+        text:'cyan'
+      }
     },
     typography: {
       fontFamily: 'Arial, sans-serif',

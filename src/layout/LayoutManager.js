@@ -60,6 +60,7 @@ const sidebarStyles = (theme) => {
     sidebarContainer: {
       width: 160,
       backgroundColor: theme.colors.background,
+    
     },
   });
 };
