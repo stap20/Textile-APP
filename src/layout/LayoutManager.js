@@ -4,12 +4,13 @@ import {View, StyleSheet} from 'react-native';
 import Sidebar from './Sidebar';
 import SidebarScreen from '@screens/sidebar/SidebarScreen'; // Import your screen components
 import HomeScreen from '@screens/sidebar/HomeScreen';
+import OrdersScreen from '@screens/sidebar/orders/OrdersScreen';
 import LocalizationManager from '@localization/LocalizationManager'; // Import the LocalizationManager
-import { useTheme } from '@theme/ThemeProvider';
+import {useTheme} from '@theme/ThemeProvider';
 
 const LayoutManager = () => {
   const [selectedScreen, setSelectedScreen] = useState('Home');
-  const { theme, toggleTheme, themeStyles } = useTheme();
+  const {theme, toggleTheme, themeStyles} = useTheme();
   const styles = sidebarStyles(themeStyles);
 
   const changeLanguage = language => {
@@ -31,19 +32,24 @@ const LayoutManager = () => {
   return (
     <View style={[styles.container, styles.ltrContainer]}>
       <View style={styles.sidebarContainer}>
-        <Sidebar selectScreen={selectScreen} toggleLayout={toggleLayout} toggleTheme={toggleTheme}/>
+        <Sidebar
+          selectScreen={selectScreen}
+          toggleLayout={toggleLayout}
+          toggleTheme={toggleTheme}
+        />
       </View>
 
       <View style={styles.mainContainer}>
         {selectedScreen === 'Side' && <SidebarScreen />}
         {selectedScreen === 'Home' && <HomeScreen />}
+        {selectedScreen === 'Orders' && <OrdersScreen />}
         {/* Add more screens as needed */}
       </View>
     </View>
   );
 };
 
-const sidebarStyles = (theme) => {
+const sidebarStyles = theme => {
   return StyleSheet.create({
     container: {
       height: '100%',
@@ -60,12 +66,8 @@ const sidebarStyles = (theme) => {
     sidebarContainer: {
       width: 160,
       backgroundColor: theme.colors.background,
-    
     },
   });
 };
-
-
-
 
 export default LayoutManager;
