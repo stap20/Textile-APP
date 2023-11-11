@@ -3,11 +3,8 @@ const lightTheme = {
       primary: 'blue',
       secondary: 'gray',
       background: 'white',
+      sidebar_background: "gray",
       text: 'black',
-      homeScreen:{
-        background:'blue',
-        text:'cyan'
-      }
     },
     typography: {
       fontFamily: 'Arial, sans-serif',
