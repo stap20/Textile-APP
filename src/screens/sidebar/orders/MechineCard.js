@@ -7,6 +7,7 @@ import {
   ordersStyle,
 } from '@styles/orders';
 import {useTheme} from '@theme/ThemeProvider';
+import {convertToPxLayout} from '@styles/globalStyles';
 
 export default function MechineCard({info, style}) {
   const {theme, toggleTheme, themeStyles} = useTheme();
@@ -21,8 +22,10 @@ export default function MechineCard({info, style}) {
         <View style={styles.header}>
           <View style={header.orderNumContainer}>
             <Text style={header.orderNumText}>
-              Order Number <Text style={{fontSize: 25}}>: </Text>
-              <Text style={{fontWeight: '500', fontSize: 18}}>
+              Order Number{' '}
+              <Text style={{fontSize: convertToPxLayout(25)}}>: </Text>
+              <Text
+                style={{fontWeight: '500', fontSize: convertToPxLayout(18)}}>
                 {info.order_number}
               </Text>
             </Text>
@@ -37,16 +40,18 @@ export default function MechineCard({info, style}) {
         <View style={styles.details}>
           <View style={details.startContainer}>
             <Text style={details.startText}>
-              Start <Text style={{fontSize: 25}}>:</Text>{' '}
-              <Text style={{fontWeight: '500', fontSize: 18}}>
+              Start <Text style={{fontSize: convertToPxLayout(25)}}>:</Text>{' '}
+              <Text
+                style={{fontWeight: '500', fontSize: convertToPxLayout(18)}}>
                 {info.start_date}
               </Text>
             </Text>
           </View>
           <View style={details.EndContainer}>
             <Text style={details.EndText}>
-              End <Text style={{fontSize: 25}}>:</Text>{' '}
-              <Text style={{fontWeight: '500', fontSize: 18}}>
+              End <Text style={{fontSize: convertToPxLayout(25)}}>:</Text>{' '}
+              <Text
+                style={{fontWeight: '500', fontSize: convertToPxLayout(18)}}>
                 {info.end_date}
               </Text>
             </Text>
@@ -84,7 +89,7 @@ export default function MechineCard({info, style}) {
                 trackColor="#E9E9E9" // temp
                 value={info.progress_percent / 100}
                 variant="determinate"
-                style={{borderRadius: 100}}
+                style={{borderRadius: convertToPxLayout(100)}}
               />
             </View>
             <View style={bottom.progressSpeed}>
@@ -176,7 +181,7 @@ export default function MechineCard({info, style}) {
 //     height: 43,
 //     flexDirection: 'row-reverse',
 //     alignSelf: 'center',
-//     backgroundColor: 'rgba(25, 135, 84, 0.2)',
+//     backgroundColor: 'rgba(convertToPxLayout(25), 135, 84, 0.2)',
 //     // justifyContent: "space-evenly",
 //     alignItems: 'center',
 //     paddingHorizontal: 12,

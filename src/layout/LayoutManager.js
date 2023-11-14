@@ -7,7 +7,7 @@ import HomeScreen from '@screens/sidebar/HomeScreen';
 import OrdersScreen from '@screens/sidebar/orders/OrdersScreen';
 import LocalizationManager from '@localization/LocalizationManager'; // Import the LocalizationManager
 import {useTheme} from '@theme/ThemeProvider';
-
+import {convertToPxLayout} from '@styles/globalStyles';
 const LayoutManager = () => {
   const [selectedScreen, setSelectedScreen] = useState('Home');
   const {theme, toggleTheme, themeStyles} = useTheme();
@@ -64,7 +64,7 @@ const sidebarStyles = theme => {
       flex: 1, // Take up remaining space in the container
     },
     sidebarContainer: {
-      width: 160,
+      width: convertToPxLayout(160),
       backgroundColor: theme.colors.background,
     },
   });

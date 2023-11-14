@@ -1,31 +1,30 @@
 import {Dimensions, StyleSheet} from 'react-native';
+import {convertToPxLayout} from '../globalStyles';
+// const wWidth = Dimensions.get('window').width;
+// const wHeight = Dimensions.get('window').height;
 
-const wWidth = Dimensions.get('window').width;
-const wHeight = Dimensions.get('window').height;
+// const Wper = 0.2695;
+// const Hper = 0.275;
+// const t = null;
 
-const Wper = 0.2695;
-const Hper = 0.275;
-const t = null;
-
-const cardWidth = wWidth * Wper * t || 539; // 539
-const cardHeight = wHeight * Hper * t || 330; // 330
-const cardRadius = 50;
+const cardWidth = convertToPxLayout(539); // 539
+const cardHeight = convertToPxLayout(330); // 330
+const cardRadius = convertToPxLayout(50);
 const fontfamily = 'Roboto';
-
-const cardStatus = true;
 
 const ordersStyle = theme => {
   return StyleSheet.create({
     container: {},
     content: {
-      flex: 1,
+      // flex: 1,
       maxWidth: cardWidth,
       minWidth: cardWidth,
       maxHeight: cardHeight,
       minHeight: cardHeight,
       borderRadius: cardRadius,
-      padding: 30,
+      padding: convertToPxLayout(30),
       backgroundColor: theme.colors.background,
+      // backgroundColor: 'yellow',
     },
     header: {
       flex: 2,
@@ -46,7 +45,7 @@ const bottom = theme => {
   return StyleSheet.create({
     progressContainer: {
       flex: 2,
-      marginRight: 66,
+      marginRight: convertToPxLayout(66),
       justifyContent: 'center',
     },
     progressIndicatorInfo: {
@@ -61,33 +60,33 @@ const bottom = theme => {
     progressText: {
       fontFamily: fontfamily,
       fontWeight: '600',
-      fontSize: 20,
+      fontSize: convertToPxLayout(20),
       color: '#3C4446', // TODO:
     },
     progressTextPer: {
       fontFamily: fontfamily,
       fontWeight: '600',
-      fontSize: 20,
+      fontSize: convertToPxLayout(20),
       color: '#3C4446', // TODO:
     },
     progressSpeedText: {
       fontFamily: fontfamily,
       fontWeight: '500',
-      fontSize: 12,
+      fontSize: convertToPxLayout(12),
       color: '#3C4446', // TODO:
     },
 
     viewOrderAction: {
       flex: 1,
       backgroundColor: '#3C4446', //TODO:
-      borderRadius: 10,
+      borderRadius: convertToPxLayout(10),
       justifyContent: 'center',
       alignItems: 'center',
     },
     actionText: {
       fontFamily: fontfamily,
       fontWeight: '600',
-      fontSize: 16,
+      fontSize: convertToPxLayout(16),
       color: '#FFFFFF', // TODO:
     },
   });
@@ -100,7 +99,7 @@ const details = theme => {
     },
     startText: {
       fontFamily: fontfamily,
-      fontSize: 30,
+      fontSize: convertToPxLayout(30),
       fontWeight: '700',
       color: '#3C4446',
     },
@@ -110,9 +109,9 @@ const details = theme => {
     },
     EndText: {
       fontFamily: fontfamily,
-      fontSize: 30,
+      fontSize: convertToPxLayout(30),
       fontWeight: '700',
-      color: 'rgba(60, 68, 70, 1)',
+      color: '#3C4446',
     },
 
     moreContainer: {
@@ -120,78 +119,77 @@ const details = theme => {
       flexDirection: 'row',
       justifyContent: 'flex-start',
       alignItems: 'center',
-      // backgroundColor: "#ffffff",
     },
     PausedContainer: {
       flexDirection: 'row',
       justifyContent: 'space-evenly',
       alignItems: 'center',
       backgroundColor: 'rgba(60, 68, 70, 0.1)',
-      paddingHorizontal: 12,
-      height: 43,
-      width: 116,
-      borderRadius: 15,
+      paddingHorizontal: convertToPxLayout(12),
+      height: convertToPxLayout(43),
+      width: convertToPxLayout(116),
+      borderRadius: convertToPxLayout(15),
     },
     PausedIcon: {
-      width: 15,
-      height: 15,
-      borderRadius: 999,
+      width: convertToPxLayout(15),
+      height: convertToPxLayout(15),
+      borderRadius: convertToPxLayout(999),
       backgroundColor: '#F29B26', // temp
-      marginRight: 10,
+      marginRight: convertToPxLayout(10),
     },
     PausedText: {
       fontFamily: fontfamily,
       fontWeight: '600',
       textAlign: 'left',
-      fontSize: 15,
+      fontSize: convertToPxLayout(15),
     },
     WorkingContainer: {
       flexDirection: 'row',
       justifyContent: 'space-evenly',
       alignItems: 'center',
       backgroundColor: 'rgba(60, 68, 70, 0.1)',
-      paddingHorizontal: 12,
-      height: 43,
-      width: 116,
-      borderRadius: 15,
-      marginHorizontal: 5,
+      paddingHorizontal: convertToPxLayout(12),
+      height: convertToPxLayout(43),
+      width: convertToPxLayout(116),
+      borderRadius: convertToPxLayout(15),
+      marginHorizontal: convertToPxLayout(5),
     },
     WorkingIcon: {
-      width: 15,
-      height: 15,
-      borderRadius: 999,
+      width: convertToPxLayout(15),
+      height: convertToPxLayout(15),
+      borderRadius: convertToPxLayout(999),
       backgroundColor: '#F29B26', // temp
-      marginRight: 10,
+      marginRight: convertToPxLayout(10),
     },
     WorkingText: {
       fontFamily: fontfamily,
       fontWeight: '600',
       textAlign: 'left',
-      fontSize: 15,
+      fontSize: convertToPxLayout(15),
     },
     infoContainer: {
       flexDirection: 'row',
       justifyContent: 'space-evenly',
       alignItems: 'center',
       backgroundColor: 'rgba(60, 68, 70, 0.1)',
-      paddingHorizontal: 12,
+      paddingHorizontal: convertToPxLayout(12),
       // paddingLeft: 0,
-      height: 43,
-      width: 116,
-      borderRadius: 15,
+      height: convertToPxLayout(43),
+      width: convertToPxLayout(116),
+      borderRadius: convertToPxLayout(15),
     },
     infoIcon: {
-      width: 15,
-      height: 15,
-      borderRadius: 999,
+      width: convertToPxLayout(15),
+      height: convertToPxLayout(15),
+      borderRadius: convertToPxLayout(999),
       backgroundColor: '#F29B26', // temp
-      marginRight: 10,
+      marginRight: convertToPxLayout(10),
     },
     infoText: {
       fontFamily: fontfamily,
       fontWeight: '600',
       textAlign: 'left',
-      fontSize: 15,
+      fontSize: convertToPxLayout(15),
     },
   });
 };
@@ -220,40 +218,41 @@ const header = (theme, status) => {
     orderNumContainer: {
       justifyContent: 'center',
       alignItems: 'center',
-      paddingHorizontal: 6,
+      paddingHorizontal: convertToPxLayout(6),
     },
     orderNumText: {
       width: '100%',
       fontFamily: fontfamily,
       fontWeight: '700',
       textAlign: 'left',
-      fontSize: 30,
+      fontSize: convertToPxLayout(25),
+      color: '#3C4446',
     },
     statusContainer: {
-      height: 43,
+      height: convertToPxLayout(43),
       flexDirection: 'row-reverse',
       alignSelf: 'center',
       backgroundColor: bgColor, // green
       alignItems: 'center',
-      paddingHorizontal: 12,
-      borderRadius: 15,
+      paddingHorizontal: convertToPxLayout(12),
+      borderRadius: convertToPxLayout(15),
     },
     status: {
-      marginLeft: 12,
+      marginLeft: convertToPxLayout(12),
     },
     statusText: {
       fontFamily: fontfamily,
-      fontSize: 16,
+      fontSize: convertToPxLayout(16),
       fontWeight: '700',
-      lineHeight: 19.36,
+      lineHeight: convertToPxLayout(19.36),
       textAlign: 'left',
       color: contentColor,
       // temp
     },
     statusIcon: {
-      width: 15,
-      height: 15,
-      borderRadius: 999,
+      width: convertToPxLayout(15),
+      height: convertToPxLayout(15),
+      borderRadius: convertToPxLayout(999),
       backgroundColor: contentColor,
       // temp
     },
