@@ -5,6 +5,7 @@ import Sidebar from './Sidebar';
 import SidebarScreen from '@screens/sidebar/SidebarScreen'; // Import your screen components
 import HomeScreen from '@screens/sidebar/HomeScreen';
 import OrdersScreen from '@screens/sidebar/orders/OrdersScreen';
+import MachinesScreen from '@screens/sidebar/machines/MachinesScreen';
 import LocalizationManager from '@localization/LocalizationManager'; // Import the LocalizationManager
 import {useTheme} from '@theme/ThemeProvider';
 import {convertToPxLayout} from '@styles/globalStyles';
@@ -43,6 +44,7 @@ const LayoutManager = () => {
         {selectedScreen === 'Side' && <SidebarScreen />}
         {selectedScreen === 'Home' && <HomeScreen />}
         {selectedScreen === 'Orders' && <OrdersScreen />}
+        {selectedScreen === 'Machines' && <MachinesScreen />}
         {/* Add more screens as needed */}
       </View>
     </View>

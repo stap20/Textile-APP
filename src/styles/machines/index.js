@@ -1,11 +1,5 @@
 import {Dimensions, StyleSheet} from 'react-native';
 import {convertToPxLayout} from '../globalStyles';
-// const wWidth = Dimensions.get('window').width;
-// const wHeight = Dimensions.get('window').height;
-
-// const Wper = 0.2695;
-// const Hper = 0.275;
-// const t = null;
 
 const cardWidth = convertToPxLayout(539); // 539
 const cardHeight = convertToPxLayout(330); // 330
@@ -76,7 +70,7 @@ const bottom = theme => {
       color: '#3C4446', // TODO:
     },
 
-    viewOrderAction: {
+    viewProfileAction: {
       flex: 1,
       backgroundColor: '#3C4446', //TODO:
       borderRadius: convertToPxLayout(10),
@@ -94,30 +88,45 @@ const bottom = theme => {
 
 const details = theme => {
   return StyleSheet.create({
-    startContainer: {
+    orderContainer: {
       flex: 1,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      paddingRight: convertToPxLayout(63),
     },
-    startText: {
+    orderText: {
       fontFamily: fontfamily,
       fontSize: convertToPxLayout(30),
       fontWeight: '700',
       color: '#3C4446',
     },
 
-    EndContainer: {
+    speedRateContainer: {
       flex: 1,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      // paddingRight: convertToPxLayout(30),
     },
-    EndText: {
+    speedRateText: {
       fontFamily: fontfamily,
       fontSize: convertToPxLayout(30),
       fontWeight: '700',
+      color: '#3C4446',
+    },
+
+    numText: {
+      fontFamily: fontfamily,
+      fontSize: convertToPxLayout(18),
+      fontWeight: '500',
       color: '#3C4446',
     },
 
     moreContainer: {
       flex: 1,
       flexDirection: 'row',
-      justifyContent: 'flex-start',
+      justifyContent: 'space-between',
       alignItems: 'center',
     },
     PausedContainer: {
@@ -143,6 +152,7 @@ const details = theme => {
       textAlign: 'left',
       fontSize: convertToPxLayout(15),
     },
+
     WorkingContainer: {
       flexDirection: 'row',
       justifyContent: 'space-evenly',
@@ -167,13 +177,13 @@ const details = theme => {
       textAlign: 'left',
       fontSize: convertToPxLayout(15),
     },
+
     infoContainer: {
       flexDirection: 'row',
       justifyContent: 'space-evenly',
       alignItems: 'center',
       backgroundColor: 'rgba(60, 68, 70, 0.1)',
       paddingHorizontal: convertToPxLayout(12),
-      // paddingLeft: 0,
       height: convertToPxLayout(43),
       width: convertToPxLayout(116),
       borderRadius: convertToPxLayout(15),
@@ -186,6 +196,30 @@ const details = theme => {
       marginRight: convertToPxLayout(10),
     },
     infoText: {
+      fontFamily: fontfamily,
+      fontWeight: '600',
+      textAlign: 'left',
+      fontSize: convertToPxLayout(15),
+    },
+
+    qualityContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-evenly',
+      alignItems: 'center',
+      backgroundColor: 'rgba(60, 68, 70, 0.1)',
+      paddingHorizontal: convertToPxLayout(12),
+      height: convertToPxLayout(43),
+      width: convertToPxLayout(116),
+      borderRadius: convertToPxLayout(15),
+    },
+    qualityIcon: {
+      width: convertToPxLayout(15),
+      height: convertToPxLayout(15),
+      borderRadius: convertToPxLayout(999),
+      backgroundColor: '#F29B26', // temp
+      marginRight: convertToPxLayout(10),
+    },
+    qualityText: {
       fontFamily: fontfamily,
       fontWeight: '600',
       textAlign: 'left',
