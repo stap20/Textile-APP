@@ -1,19 +1,37 @@
-import React, { useState } from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import React from 'react';
 
+import {View, StyleSheet} from 'react-native';
+import {SidebarTab} from '@components';
 
-const Sidebar = ({toggleLayout,selectScreen,toggleTheme}) => {
-  const { t } = useTranslation();
-  return (
-    <View>
-      <Text>{t('Sidola')}</Text>
-      <Button title="Toggle Layout" onPress={toggleLayout} />
-      <Button title="Home" onPress={()=>{selectScreen("Home")}} />
-      <Button title="Side" onPress={()=>{selectScreen("Side")}} />
-      <Button title="Toggle Theme" onPress={toggleTheme} />
-    </View>
-  );
-};
+export default function Sidebar(props) {
+  const {changeLanguage, toggleTheme, navigation, descriptors} = props;
+  const {routes, index} = navigation.getState();
 
-export default Sidebar;
+  const SidebarTabs = routes.map((route, tabIndex) => {
+    const name = descriptors[route.key].options.tabName ?? route.name;
+    const icon = descriptors[route.key].options.icon ?? 'star';
+    const isActive = tabIndex == index;
+    const onPress = () => navigation.navigate(route.name);
+
+    return (
+      <SidebarTab
+        key={route.key}
+        {...{
+          name,
+          icon,
+          isActive,
+          onPress,
+        }}
+      />
+    );
+  });
+
+  return <View style={styles.tabContainer}>{SidebarTabs}</View>;
+}
+
+const styles = StyleSheet.create({
+  tabContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});

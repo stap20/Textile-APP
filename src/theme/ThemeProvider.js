@@ -33,7 +33,7 @@ const ThemeProvider = ({children}) => {
   }, [theme]);
 
   return (
-    <ThemeContext.Provider value={{theme, toggleTheme, themeStyles}}>
+    <ThemeContext.Provider value={{theme: themeStyles, toggleTheme}}>
       {children}
     </ThemeContext.Provider>
   );

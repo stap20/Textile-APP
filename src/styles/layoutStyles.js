@@ -1,22 +1,21 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet} from 'react-native';
+import {convertPxToDp} from '@utils';
 
-export default layoutStyles = (theme) => {
+export default layoutStyles = theme => {
   return StyleSheet.create({
     container: {
       height: '100%',
-    },
-    ltrContainer: {
-      flexDirection: 'row', // Left-to-Right (LTR) layout
-    },
-    rtlContainer: {
-      flexDirection: 'row-reverse', // Right-to-Left (RTL) layout
+      flexDirection: 'row',
     },
     mainContainer: {
-      flex: 1, // Take up remaining space in the container
+      flex: 1,
+      backgroundColor: theme.backgroundColors.main_container,
     },
     sidebarContainer: {
-      width: 160,
-      backgroundColor: theme.colors.sidebar_background,   
+      paddingVertical: convertPxToDp(73),
+      paddingHorizontal: convertPxToDp(17),
+      width: convertPxToDp(160),
+      backgroundColor: theme.backgroundColors.sidebar,
     },
   });
 };
