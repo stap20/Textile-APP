@@ -26,6 +26,12 @@ const Sidebar = ({toggleLayout, selectScreen, toggleTheme}) => {
           selectScreen('Orders');
         }}
       />
+      <Button
+        title="Machines"
+        onPress={() => {
+          selectScreen('Machines');
+        }}
+      />
       <Button title="Toggle Theme" onPress={toggleTheme} />
     </View>
   );

@@ -6,128 +6,6 @@ const cardHeight = convertToPxLayout(330); // 330
 const cardRadius = convertToPxLayout(50);
 const fontfamily = 'Inter';
 
-const orderScreen = theme => {
-  return StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#E6EAED',
-    },
-    header: {
-      width: '100%',
-      flexDirection: 'row',
-      height: convertToPxLayout(120),
-      paddingLeft: convertToPxLayout(82),
-      paddingRight: convertToPxLayout(81),
-      backgroundColor: 'red',
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-
-    showTypeContainer: {
-      position: 'absolute',
-
-      flexDirection: 'row',
-      backgroundColor: '#DDE3E5',
-      justifyContent: 'space-between',
-      paddingRight: convertToPxLayout(10),
-      paddingLeft: convertToPxLayout(20),
-      paddingVertical: convertToPxLayout(14),
-      borderRadius: convertToPxLayout(16),
-
-      left: convertToPxLayout(260),
-    },
-
-    tabsContainer: {
-      flexDirection: 'row',
-      backgroundColor: '#DDE3E5',
-      justifyContent: 'space-between',
-      paddingRight: convertToPxLayout(10),
-      paddingLeft: convertToPxLayout(20),
-      paddingVertical: convertToPxLayout(14),
-      borderRadius: convertToPxLayout(16),
-    },
-    tab: {
-      paddingHorizontal: convertToPxLayout(20),
-      paddingVertical: convertToPxLayout(14),
-      borderRadius: convertToPxLayout(16),
-      marginRight: convertToPxLayout(10),
-    },
-    tabText: {
-      fontFamily: fontfamily,
-      fontSize: convertToPxLayout(22),
-      fontWeight: '600',
-      lineHeight: convertToPxLayout(27),
-      textAlign: 'left',
-      color: 'rgba(60, 68, 70, 0.75)',
-    },
-
-    list: {
-      paddingLeft: convertToPxLayout(82),
-    },
-  });
-};
-
-const orderScreen = theme => {
-  return StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#E6EAED',
-    },
-    header: {
-      width: '100%',
-      flexDirection: 'row',
-      height: convertToPxLayout(120),
-      paddingLeft: convertToPxLayout(82),
-      paddingRight: convertToPxLayout(81),
-      backgroundColor: 'red',
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-
-    showTypeContainer: {
-      position: 'absolute',
-
-      flexDirection: 'row',
-      backgroundColor: '#DDE3E5',
-      justifyContent: 'space-between',
-      paddingRight: convertToPxLayout(10),
-      paddingLeft: convertToPxLayout(20),
-      paddingVertical: convertToPxLayout(14),
-      borderRadius: convertToPxLayout(16),
-
-      left: convertToPxLayout(260),
-    },
-
-    tabsContainer: {
-      flexDirection: 'row',
-      backgroundColor: '#DDE3E5',
-      justifyContent: 'space-between',
-      paddingRight: convertToPxLayout(10),
-      paddingLeft: convertToPxLayout(20),
-      paddingVertical: convertToPxLayout(14),
-      borderRadius: convertToPxLayout(16),
-    },
-    tab: {
-      paddingHorizontal: convertToPxLayout(20),
-      paddingVertical: convertToPxLayout(14),
-      borderRadius: convertToPxLayout(16),
-      marginRight: convertToPxLayout(10),
-    },
-    tabText: {
-      fontFamily: fontfamily,
-      fontSize: convertToPxLayout(22),
-      fontWeight: '600',
-      lineHeight: convertToPxLayout(27),
-      textAlign: 'left',
-      color: 'rgba(60, 68, 70, 0.75)',
-    },
-
-    list: {
-      paddingLeft: convertToPxLayout(82),
-    },
-  });
-};
-
 const ordersStyle = theme => {
   return StyleSheet.create({
     container: {},
@@ -192,7 +70,7 @@ const bottom = theme => {
       color: '#3C4446', // TODO:
     },
 
-    viewOrderAction: {
+    viewProfileAction: {
       flex: 1,
       backgroundColor: '#3C4446', //TODO:
       borderRadius: convertToPxLayout(10),
@@ -210,30 +88,45 @@ const bottom = theme => {
 
 const details = theme => {
   return StyleSheet.create({
-    startContainer: {
+    orderContainer: {
       flex: 1,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      paddingRight: convertToPxLayout(63),
     },
-    startText: {
+    orderText: {
       fontFamily: fontfamily,
       fontSize: convertToPxLayout(30),
       fontWeight: '700',
       color: '#3C4446',
     },
 
-    EndContainer: {
+    speedRateContainer: {
       flex: 1,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      // paddingRight: convertToPxLayout(30),
     },
-    EndText: {
+    speedRateText: {
       fontFamily: fontfamily,
       fontSize: convertToPxLayout(30),
       fontWeight: '700',
+      color: '#3C4446',
+    },
+
+    numText: {
+      fontFamily: fontfamily,
+      fontSize: convertToPxLayout(18),
+      fontWeight: '500',
       color: '#3C4446',
     },
 
     moreContainer: {
       flex: 1,
       flexDirection: 'row',
-      justifyContent: 'flex-start',
+      justifyContent: 'space-between',
       alignItems: 'center',
     },
     PausedContainer: {
@@ -259,6 +152,7 @@ const details = theme => {
       textAlign: 'left',
       fontSize: convertToPxLayout(15),
     },
+
     WorkingContainer: {
       flexDirection: 'row',
       justifyContent: 'space-evenly',
@@ -283,13 +177,13 @@ const details = theme => {
       textAlign: 'left',
       fontSize: convertToPxLayout(15),
     },
+
     infoContainer: {
       flexDirection: 'row',
       justifyContent: 'space-evenly',
       alignItems: 'center',
       backgroundColor: 'rgba(60, 68, 70, 0.1)',
       paddingHorizontal: convertToPxLayout(12),
-      // paddingLeft: 0,
       height: convertToPxLayout(43),
       width: convertToPxLayout(116),
       borderRadius: convertToPxLayout(15),
@@ -307,6 +201,30 @@ const details = theme => {
       textAlign: 'left',
       fontSize: convertToPxLayout(15),
     },
+
+    qualityContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-evenly',
+      alignItems: 'center',
+      backgroundColor: 'rgba(60, 68, 70, 0.1)',
+      paddingHorizontal: convertToPxLayout(12),
+      height: convertToPxLayout(43),
+      width: convertToPxLayout(116),
+      borderRadius: convertToPxLayout(15),
+    },
+    qualityIcon: {
+      width: convertToPxLayout(15),
+      height: convertToPxLayout(15),
+      borderRadius: convertToPxLayout(999),
+      backgroundColor: '#F29B26', // temp
+      marginRight: convertToPxLayout(10),
+    },
+    qualityText: {
+      fontFamily: fontfamily,
+      fontWeight: '600',
+      textAlign: 'left',
+      fontSize: convertToPxLayout(15),
+    },
   });
 };
 
@@ -314,17 +232,20 @@ const header = (theme, status) => {
   let bgColor = 'rgba(25, 135, 84, 0.2)'; //
   let contentColor = '#198754';
   switch (status) {
-    case 'Finished':
+    case 'FINISHED':
       bgColor = 'rgba(25, 135, 84, 0.2)';
       contentColor = 'rgba(25, 135, 84, 1)';
       break;
-    case 'In Progress':
+    case 'IN_PROGRESS':
       bgColor = 'rgba(0, 123, 255, 0.2)';
       contentColor = 'rgba(0, 123, 255, 1)';
       break;
-    case 'Pending':
+    case 'PENDING':
       bgColor = 'rgba(242, 155, 38, 0.2)';
       contentColor = 'rgba(242, 155, 38, 1)';
+      break;
+
+    default:
       break;
   }
   return StyleSheet.create({
@@ -377,5 +298,4 @@ export {
   header as ordersHeader,
   details as ordersDetails,
   ordersStyle,
-  orderScreen,
 };
