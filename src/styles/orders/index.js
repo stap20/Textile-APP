@@ -67,67 +67,6 @@ const orderScreen = theme => {
   });
 };
 
-const orderScreen = theme => {
-  return StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#E6EAED',
-    },
-    header: {
-      width: '100%',
-      flexDirection: 'row',
-      height: convertToPxLayout(120),
-      paddingLeft: convertToPxLayout(82),
-      paddingRight: convertToPxLayout(81),
-      backgroundColor: 'red',
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-
-    showTypeContainer: {
-      position: 'absolute',
-
-      flexDirection: 'row',
-      backgroundColor: '#DDE3E5',
-      justifyContent: 'space-between',
-      paddingRight: convertToPxLayout(10),
-      paddingLeft: convertToPxLayout(20),
-      paddingVertical: convertToPxLayout(14),
-      borderRadius: convertToPxLayout(16),
-
-      left: convertToPxLayout(260),
-    },
-
-    tabsContainer: {
-      flexDirection: 'row',
-      backgroundColor: '#DDE3E5',
-      justifyContent: 'space-between',
-      paddingRight: convertToPxLayout(10),
-      paddingLeft: convertToPxLayout(20),
-      paddingVertical: convertToPxLayout(14),
-      borderRadius: convertToPxLayout(16),
-    },
-    tab: {
-      paddingHorizontal: convertToPxLayout(20),
-      paddingVertical: convertToPxLayout(14),
-      borderRadius: convertToPxLayout(16),
-      marginRight: convertToPxLayout(10),
-    },
-    tabText: {
-      fontFamily: fontfamily,
-      fontSize: convertToPxLayout(22),
-      fontWeight: '600',
-      lineHeight: convertToPxLayout(27),
-      textAlign: 'left',
-      color: 'rgba(60, 68, 70, 0.75)',
-    },
-
-    list: {
-      paddingLeft: convertToPxLayout(82),
-    },
-  });
-};
-
 const ordersStyle = theme => {
   return StyleSheet.create({
     container: {},
