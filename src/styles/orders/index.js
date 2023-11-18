@@ -1,16 +1,71 @@
 import {Dimensions, StyleSheet} from 'react-native';
 import {convertToPxLayout} from '../globalStyles';
-// const wWidth = Dimensions.get('window').width;
-// const wHeight = Dimensions.get('window').height;
-
-// const Wper = 0.2695;
-// const Hper = 0.275;
-// const t = null;
 
 const cardWidth = convertToPxLayout(539); // 539
 const cardHeight = convertToPxLayout(330); // 330
 const cardRadius = convertToPxLayout(50);
 const fontfamily = 'Inter';
+
+const orderScreen = theme => {
+  return StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#E6EAED',
+    },
+    header: {
+      width: '100%',
+      flexDirection: 'row',
+      height: convertToPxLayout(120),
+      paddingLeft: convertToPxLayout(82),
+      paddingRight: convertToPxLayout(81),
+      backgroundColor: 'red',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+
+    showTypeContainer: {
+      position: 'absolute',
+
+      flexDirection: 'row',
+      backgroundColor: '#DDE3E5',
+      justifyContent: 'space-between',
+      paddingRight: convertToPxLayout(10),
+      paddingLeft: convertToPxLayout(20),
+      paddingVertical: convertToPxLayout(14),
+      borderRadius: convertToPxLayout(16),
+
+      left: convertToPxLayout(260),
+    },
+
+    tabsContainer: {
+      flexDirection: 'row',
+      backgroundColor: '#DDE3E5',
+      justifyContent: 'space-between',
+      paddingRight: convertToPxLayout(10),
+      paddingLeft: convertToPxLayout(20),
+      paddingVertical: convertToPxLayout(14),
+      borderRadius: convertToPxLayout(16),
+    },
+    tab: {
+      paddingHorizontal: convertToPxLayout(20),
+      paddingVertical: convertToPxLayout(14),
+      borderRadius: convertToPxLayout(16),
+      marginRight: convertToPxLayout(10),
+    },
+    tabText: {
+      fontFamily: fontfamily,
+      fontSize: convertToPxLayout(22),
+      fontWeight: '600',
+      lineHeight: convertToPxLayout(27),
+      textAlign: 'left',
+      color: 'rgba(60, 68, 70, 0.75)',
+    },
+
+    list: {
+      paddingLeft: convertToPxLayout(82),
+    },
+  });
+};
 
 const ordersStyle = theme => {
   return StyleSheet.create({
@@ -198,20 +253,17 @@ const header = (theme, status) => {
   let bgColor = 'rgba(25, 135, 84, 0.2)'; //
   let contentColor = '#198754';
   switch (status) {
-    case 'FINISHED':
+    case 'Finished':
       bgColor = 'rgba(25, 135, 84, 0.2)';
       contentColor = 'rgba(25, 135, 84, 1)';
       break;
-    case 'IN_PROGRESS':
+    case 'In Progress':
       bgColor = 'rgba(0, 123, 255, 0.2)';
       contentColor = 'rgba(0, 123, 255, 1)';
       break;
-    case 'PENDING':
+    case 'Pending':
       bgColor = 'rgba(242, 155, 38, 0.2)';
       contentColor = 'rgba(242, 155, 38, 1)';
-      break;
-
-    default:
       break;
   }
   return StyleSheet.create({
@@ -264,4 +316,5 @@ export {
   header as ordersHeader,
   details as ordersDetails,
   ordersStyle,
+  orderScreen,
 };

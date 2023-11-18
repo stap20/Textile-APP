@@ -8,11 +8,12 @@ import {
 } from '@styles/orders';
 import {useTheme} from '@theme/ThemeProvider';
 import {convertToPxLayout} from '@styles/globalStyles';
+import {useEffect} from 'react';
 
 export default function OrderCard({info, style}) {
   const {theme, toggleTheme, themeStyles} = useTheme();
   const styles = ordersStyle(themeStyles);
-  const header = ordersHeader(themeStyles);
+  const header = ordersHeader(themeStyles, info.status);
   const details = ordersDetails(themeStyles);
   const bottom = ordersBottom(themeStyles);
 
