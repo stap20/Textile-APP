@@ -2,13 +2,14 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createTabNavigator} from './navigators/TabNavigator';
 import HomeScreen from '@screens/HomeScreen';
 import SidebarScreen from '@screens/SidebarScreen';
+import LayoutManager from '@layout';
 
 const SideTabNavigator = createTabNavigator();
 
 export default function MainNavigation() {
   return (
     <NavigationContainer>
-      <SideTabNavigator.Navigator>
+      <SideTabNavigator.Navigator LayoutManager={LayoutManager}>
         <SideTabNavigator.Screen
           name="Home"
           component={HomeScreen}
