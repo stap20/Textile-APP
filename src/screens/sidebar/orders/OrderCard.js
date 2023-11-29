@@ -32,10 +32,10 @@ export default function OrderCard({info, style}) {
             </Text>
           </View>
           <View style={header.statusContainer}>
+            <View style={header.statusIcon}>{/* Icon Image */}</View>
             <View style={header.status}>
               <Text style={header.statusText}>{info.status}</Text>
             </View>
-            <View style={header.statusIcon}>{/* Icon Image */}</View>
           </View>
         </View>
         <View style={styles.details}>

@@ -18,7 +18,7 @@ const orderScreen = theme => {
       height: convertToPxLayout(120),
       paddingLeft: convertToPxLayout(82),
       paddingRight: convertToPxLayout(81),
-      backgroundColor: 'red',
+      // backgroundColor: 'rbga(230, 234, 237, 0.4)',
       justifyContent: 'center',
       alignItems: 'center',
     },
@@ -282,7 +282,7 @@ const header = (theme, status) => {
     },
     statusContainer: {
       height: convertToPxLayout(43),
-      flexDirection: 'row-reverse',
+      flexDirection: 'row',
       alignSelf: 'center',
       backgroundColor: bgColor, // green
       alignItems: 'center',
