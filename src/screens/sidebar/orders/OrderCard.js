@@ -11,11 +11,11 @@ import {convertToPxLayout} from '@styles/globalStyles';
 import {useEffect} from 'react';
 
 export default function OrderCard({info, style}) {
-  const {theme, toggleTheme, themeStyles} = useTheme();
-  const styles = ordersStyle(themeStyles);
-  const header = ordersHeader(themeStyles, info.status);
-  const details = ordersDetails(themeStyles);
-  const bottom = ordersBottom(themeStyles);
+  const {theme} = useTheme();
+  const styles = ordersStyle(theme);
+  const header = ordersHeader(theme, info.status);
+  const details = ordersDetails(theme);
+  const bottom = ordersBottom(theme);
 
   return (
     <View style={[style, styles.container]}>

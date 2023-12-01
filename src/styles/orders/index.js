@@ -78,7 +78,7 @@ const ordersStyle = theme => {
       minHeight: cardHeight,
       borderRadius: cardRadius,
       padding: convertToPxLayout(30),
-      backgroundColor: theme.colors.background,
+      backgroundColor: theme.backgroundColors.card_container,
       // backgroundColor: 'yellow',
     },
     header: {

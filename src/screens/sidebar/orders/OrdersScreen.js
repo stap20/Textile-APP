@@ -177,12 +177,12 @@ function TabsContainer({tabs, selectedTab, containerStyle, onTabPress}) {
 }
 
 export default function OrdersScreen() {
-  const {theme, toggleTheme, themeStyles} = useTheme();
+  const {theme} = useTheme();
   const [filter, setFilter] = useState(
     'All' || 'Finished' || 'Pending' || 'In Progress',
   );
   const [showType, setShowType] = useState('Card' || 'Table');
-  const styles = orderScreen(themeStyles);
+  const styles = orderScreen(theme);
 
   return (
     <View style={styles.container}>

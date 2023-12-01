@@ -25,8 +25,8 @@ const AddIcon = props => (
 );
 
 export default function NewCard({text, containerStyle, plusStyle, textStyle}) {
-  const {theme, toggleTheme, themeStyles} = useTheme();
-  const styles = newOrdersStyle(themeStyles);
+  const {theme} = useTheme();
+  const styles = newOrdersStyle(theme);
 
   return (
     <View style={[styles.container, containerStyle]}>

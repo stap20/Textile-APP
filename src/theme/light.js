@@ -2,6 +2,7 @@ const lightTheme = {
   backgroundColors: {
     sidebar: '#DDE3E5',
     main_container: '#E6EAED',
+    card_container: '#FFFFFF',
   },
   colors: {
     primary: '#3C4446',
