@@ -24,16 +24,16 @@ const AddIcon = props => (
   </Svg>
 );
 
-export default function NewCard({text, style}) {
-  const {theme, toggleTheme, themeStyles} = useTheme();
-  const styles = newOrdersStyle(themeStyles);
+export default function NewCard({text, containerStyle, plusStyle, textStyle}) {
+  const {theme} = useTheme();
+  const styles = newOrdersStyle(theme);
 
   return (
-    <View style={[style, styles.container]}>
-      <View style={styles.plusContainer}>
+    <View style={[styles.container, containerStyle]}>
+      <View style={[styles.plusContainer, plusStyle]}>
         <AddIcon />
       </View>
-      <Text style={styles.newText}>{text}</Text>
+      <Text style={[styles.newText, textStyle]}>{text}</Text>
     </View>
   );
 }
@@ -66,7 +66,6 @@ const newOrdersStyle = theme => {
     newText: {
       fontFamily: fontfamily,
       fontSize: convertPxToDp(20),
-      // lineHeight: convertPxToDp(20),
       fontWeight: '700',
       color: '#3C4446',
     },

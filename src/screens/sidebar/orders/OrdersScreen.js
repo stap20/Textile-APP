@@ -187,12 +187,7 @@ export default function OrdersScreen() {
 
   return (
     <View style={styles.container}>
-      <ShowValues
-        // contentContainerStyle={{backgroundColor: 'red'}}
-        showType={'Card'}
-        data={example}
-        textNew={'New Order'}
-      />
+      <ShowValues showType={'Card'} data={example} textNew={'New Order'} />
     </View>
   );
 }
