@@ -7,7 +7,7 @@ import {
   ordersStyle,
 } from '@styles/machines';
 import {useTheme} from '@theme/ThemeProvider';
-import {convertToPxLayout} from '@styles/globalStyles';
+import {convertPxToDp} from '@styles/globalStyles';
 
 export default function OrderCard({info, style}) {
   const {theme, toggleTheme, themeStyles} = useTheme();
@@ -80,7 +80,7 @@ export default function OrderCard({info, style}) {
                 trackColor="#E9E9E9" // temp
                 value={info.progress_percent / 100}
                 variant="determinate"
-                style={{borderRadius: convertToPxLayout(100)}}
+                style={{borderRadius: convertPxToDp(100)}}
               />
             </View>
           </View>

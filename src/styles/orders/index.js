@@ -1,9 +1,9 @@
 import {Dimensions, StyleSheet} from 'react-native';
-import {convertToPxLayout} from '../globalStyles';
+import {convertPxToDp} from '../globalStyles';
 
-const cardWidth = convertToPxLayout(539); // 539
-const cardHeight = convertToPxLayout(330); // 330
-const cardRadius = convertToPxLayout(50);
+const cardWidth = convertPxToDp(539); // 539
+const cardHeight = convertPxToDp(330); // 330
+const cardRadius = convertPxToDp(50);
 const fontfamily = 'Inter';
 
 const orderScreen = theme => {
@@ -15,9 +15,9 @@ const orderScreen = theme => {
     header: {
       width: '100%',
       flexDirection: 'row',
-      height: convertToPxLayout(120),
-      paddingLeft: convertToPxLayout(82),
-      paddingRight: convertToPxLayout(81),
+      height: convertPxToDp(120),
+      paddingLeft: convertPxToDp(82),
+      paddingRight: convertPxToDp(81),
       // backgroundColor: 'rbga(230, 234, 237, 0.4)',
       justifyContent: 'center',
       alignItems: 'center',
@@ -29,40 +29,36 @@ const orderScreen = theme => {
       flexDirection: 'row',
       backgroundColor: '#DDE3E5',
       justifyContent: 'space-between',
-      paddingRight: convertToPxLayout(10),
-      paddingLeft: convertToPxLayout(20),
-      paddingVertical: convertToPxLayout(14),
-      borderRadius: convertToPxLayout(16),
+      paddingRight: convertPxToDp(10),
+      paddingLeft: convertPxToDp(20),
+      paddingVertical: convertPxToDp(14),
+      borderRadius: convertPxToDp(16),
 
-      left: convertToPxLayout(260),
+      left: convertPxToDp(260),
     },
 
     tabsContainer: {
       flexDirection: 'row',
       backgroundColor: '#DDE3E5',
       justifyContent: 'space-between',
-      paddingRight: convertToPxLayout(10),
-      paddingLeft: convertToPxLayout(20),
-      paddingVertical: convertToPxLayout(14),
-      borderRadius: convertToPxLayout(16),
+      paddingRight: convertPxToDp(10),
+      paddingLeft: convertPxToDp(20),
+      paddingVertical: convertPxToDp(14),
+      borderRadius: convertPxToDp(16),
     },
     tab: {
-      paddingHorizontal: convertToPxLayout(20),
-      paddingVertical: convertToPxLayout(14),
-      borderRadius: convertToPxLayout(16),
-      marginRight: convertToPxLayout(10),
+      paddingHorizontal: convertPxToDp(20),
+      paddingVertical: convertPxToDp(14),
+      borderRadius: convertPxToDp(16),
+      marginRight: convertPxToDp(10),
     },
     tabText: {
       fontFamily: fontfamily,
-      fontSize: convertToPxLayout(22),
+      fontSize: convertPxToDp(22),
       fontWeight: '600',
-      lineHeight: convertToPxLayout(27),
+      lineHeight: convertPxToDp(27),
       textAlign: 'left',
       color: 'rgba(60, 68, 70, 0.75)',
-    },
-
-    list: {
-      paddingLeft: convertToPxLayout(82),
     },
   });
 };
@@ -77,7 +73,7 @@ const ordersStyle = theme => {
       maxHeight: cardHeight,
       minHeight: cardHeight,
       borderRadius: cardRadius,
-      padding: convertToPxLayout(30),
+      padding: convertPxToDp(30),
       backgroundColor: theme.backgroundColors.card_container,
       // backgroundColor: 'yellow',
     },
@@ -100,7 +96,7 @@ const bottom = theme => {
   return StyleSheet.create({
     progressContainer: {
       flex: 2,
-      marginRight: convertToPxLayout(66),
+      marginRight: convertPxToDp(66),
       justifyContent: 'center',
     },
     progressIndicatorInfo: {
@@ -115,33 +111,33 @@ const bottom = theme => {
     progressText: {
       fontFamily: fontfamily,
       fontWeight: '600',
-      fontSize: convertToPxLayout(20),
+      fontSize: convertPxToDp(20),
       color: '#3C4446', // TODO:
     },
     progressTextPer: {
       fontFamily: fontfamily,
       fontWeight: '600',
-      fontSize: convertToPxLayout(20),
+      fontSize: convertPxToDp(20),
       color: '#3C4446', // TODO:
     },
     progressSpeedText: {
       fontFamily: fontfamily,
       fontWeight: '500',
-      fontSize: convertToPxLayout(12),
+      fontSize: convertPxToDp(12),
       color: '#3C4446', // TODO:
     },
 
     viewOrderAction: {
       flex: 1,
       backgroundColor: '#3C4446', //TODO:
-      borderRadius: convertToPxLayout(10),
+      borderRadius: convertPxToDp(10),
       justifyContent: 'center',
       alignItems: 'center',
     },
     actionText: {
       fontFamily: fontfamily,
       fontWeight: '600',
-      fontSize: convertToPxLayout(16),
+      fontSize: convertPxToDp(16),
       color: '#FFFFFF', // TODO:
     },
   });
@@ -154,7 +150,7 @@ const details = theme => {
     },
     startText: {
       fontFamily: fontfamily,
-      fontSize: convertToPxLayout(30),
+      fontSize: convertPxToDp(30),
       fontWeight: '700',
       color: '#3C4446',
     },
@@ -164,7 +160,7 @@ const details = theme => {
     },
     EndText: {
       fontFamily: fontfamily,
-      fontSize: convertToPxLayout(30),
+      fontSize: convertPxToDp(30),
       fontWeight: '700',
       color: '#3C4446',
     },
@@ -180,71 +176,71 @@ const details = theme => {
       justifyContent: 'space-evenly',
       alignItems: 'center',
       backgroundColor: 'rgba(60, 68, 70, 0.1)',
-      paddingHorizontal: convertToPxLayout(12),
-      height: convertToPxLayout(43),
-      width: convertToPxLayout(116),
-      borderRadius: convertToPxLayout(15),
+      paddingHorizontal: convertPxToDp(12),
+      height: convertPxToDp(43),
+      width: convertPxToDp(116),
+      borderRadius: convertPxToDp(15),
     },
     PausedIcon: {
-      width: convertToPxLayout(15),
-      height: convertToPxLayout(15),
-      borderRadius: convertToPxLayout(999),
+      width: convertPxToDp(15),
+      height: convertPxToDp(15),
+      borderRadius: convertPxToDp(999),
       backgroundColor: '#F29B26', // temp
-      marginRight: convertToPxLayout(10),
+      marginRight: convertPxToDp(10),
     },
     PausedText: {
       fontFamily: fontfamily,
       fontWeight: '600',
       textAlign: 'left',
-      fontSize: convertToPxLayout(15),
+      fontSize: convertPxToDp(15),
     },
     WorkingContainer: {
       flexDirection: 'row',
       justifyContent: 'space-evenly',
       alignItems: 'center',
       backgroundColor: 'rgba(60, 68, 70, 0.1)',
-      paddingHorizontal: convertToPxLayout(12),
-      height: convertToPxLayout(43),
-      width: convertToPxLayout(116),
-      borderRadius: convertToPxLayout(15),
-      marginHorizontal: convertToPxLayout(5),
+      paddingHorizontal: convertPxToDp(12),
+      height: convertPxToDp(43),
+      width: convertPxToDp(116),
+      borderRadius: convertPxToDp(15),
+      marginHorizontal: convertPxToDp(5),
     },
     WorkingIcon: {
-      width: convertToPxLayout(15),
-      height: convertToPxLayout(15),
-      borderRadius: convertToPxLayout(999),
+      width: convertPxToDp(15),
+      height: convertPxToDp(15),
+      borderRadius: convertPxToDp(999),
       backgroundColor: '#F29B26', // temp
-      marginRight: convertToPxLayout(10),
+      marginRight: convertPxToDp(10),
     },
     WorkingText: {
       fontFamily: fontfamily,
       fontWeight: '600',
       textAlign: 'left',
-      fontSize: convertToPxLayout(15),
+      fontSize: convertPxToDp(15),
     },
     infoContainer: {
       flexDirection: 'row',
       justifyContent: 'space-evenly',
       alignItems: 'center',
       backgroundColor: 'rgba(60, 68, 70, 0.1)',
-      paddingHorizontal: convertToPxLayout(12),
+      paddingHorizontal: convertPxToDp(12),
       // paddingLeft: 0,
-      height: convertToPxLayout(43),
-      width: convertToPxLayout(116),
-      borderRadius: convertToPxLayout(15),
+      height: convertPxToDp(43),
+      width: convertPxToDp(116),
+      borderRadius: convertPxToDp(15),
     },
     infoIcon: {
-      width: convertToPxLayout(15),
-      height: convertToPxLayout(15),
-      borderRadius: convertToPxLayout(999),
+      width: convertPxToDp(15),
+      height: convertPxToDp(15),
+      borderRadius: convertPxToDp(999),
       backgroundColor: '#F29B26', // temp
-      marginRight: convertToPxLayout(10),
+      marginRight: convertPxToDp(10),
     },
     infoText: {
       fontFamily: fontfamily,
       fontWeight: '600',
       textAlign: 'left',
-      fontSize: convertToPxLayout(15),
+      fontSize: convertPxToDp(15),
     },
   });
 };
@@ -270,43 +266,162 @@ const header = (theme, status) => {
     orderNumContainer: {
       justifyContent: 'center',
       alignItems: 'center',
-      paddingHorizontal: convertToPxLayout(6),
+      paddingHorizontal: convertPxToDp(6),
     },
     orderNumText: {
       width: '100%',
       fontFamily: fontfamily,
       fontWeight: '700',
       textAlign: 'left',
-      fontSize: convertToPxLayout(25),
+      fontSize: convertPxToDp(25),
       color: '#3C4446',
     },
     statusContainer: {
-      height: convertToPxLayout(43),
+      height: convertPxToDp(43),
       flexDirection: 'row',
       alignSelf: 'center',
       backgroundColor: bgColor, // green
       alignItems: 'center',
-      paddingHorizontal: convertToPxLayout(12),
-      borderRadius: convertToPxLayout(15),
+      paddingHorizontal: convertPxToDp(12),
+      borderRadius: convertPxToDp(15),
     },
     status: {
-      marginLeft: convertToPxLayout(12),
+      marginLeft: convertPxToDp(12),
     },
     statusText: {
       fontFamily: fontfamily,
-      fontSize: convertToPxLayout(16),
+      fontSize: convertPxToDp(16),
       fontWeight: '700',
-      lineHeight: convertToPxLayout(19.36),
+      lineHeight: convertPxToDp(19.36),
       textAlign: 'left',
       color: contentColor,
       // temp
     },
     statusIcon: {
-      width: convertToPxLayout(15),
-      height: convertToPxLayout(15),
-      borderRadius: convertToPxLayout(999),
+      width: convertPxToDp(15),
+      height: convertPxToDp(15),
+      borderRadius: convertPxToDp(999),
       backgroundColor: contentColor,
       // temp
+    },
+  });
+};
+
+const ordersList = (theme, status) => {
+  let bgColor;
+  let contentColor;
+  switch (status) {
+    case 'Finished':
+      console.log('1');
+      bgColor = 'rgba(25, 135, 84, 0.2)';
+      contentColor = 'rgba(25, 135, 84, 1)';
+      break;
+    case 'In Progress':
+      console.log('2');
+      bgColor = 'rgba(0, 123, 255, 0.2)';
+      contentColor = 'rgba(0, 123, 255, 1)';
+      break;
+    case 'Pending':
+      console.log('3');
+      bgColor = 'rgba(242, 155, 38, 0.2)';
+      contentColor = 'rgba(242, 155, 38, 1)';
+      break;
+  }
+  return StyleSheet.create({
+    container: {
+      // flex: 1,
+      // marginTop: convertPxToDp(34),
+      marginHorizontal: convertPxToDp(82),
+    },
+    addOrderContainer: {
+      width: '100%',
+    },
+    tableContainer: {
+      backgroundColor: 'yellow',
+      width: '100%',
+      height: 'auto',
+      backgroundColor: 'rgba(255, 255, 255, 1)',
+      borderRadius: convertPxToDp(16),
+      // marginBottom: convertPxToDp(2),
+      marginTop: convertPxToDp(40),
+    },
+    headerContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      alignItems: 'center',
+
+      paddingVertical: convertPxToDp(22),
+    },
+    headerText: {
+      flex: 1,
+      fontFamily: 'Inter',
+      fontSize: convertPxToDp(16),
+      fontWeight: '700',
+      lineHeight: convertPxToDp(19),
+      textAlign: 'center',
+    },
+
+    detailsContainer: {
+      alignItems: 'center',
+    },
+    rowContainer: {
+      justifyContent: 'space-around',
+      alignItems: 'center',
+      flexDirection: 'row',
+      width: '100%',
+      paddingTop: convertPxToDp(15),
+      paddingBottom: convertPxToDp(12),
+    },
+    rowText: {
+      flex: 1,
+      fontFamily: 'Inter',
+      fontSize: convertPxToDp(14),
+      fontWeight: '500',
+      lineHeight: convertPxToDp(20),
+      textAlign: 'center',
+    },
+    rowView: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+
+    statusContainer: {
+      height: convertPxToDp(37),
+      width: convertPxToDp(125),
+      flexDirection: 'row',
+      backgroundColor: bgColor, // green
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      paddingLeft: convertPxToDp(12),
+      // paddingRight: convertPxToDp(33),
+      paddingVertical: convertPxToDp(10),
+      borderRadius: convertPxToDp(15),
+    },
+    status: {
+      marginLeft: convertPxToDp(12),
+    },
+    statusText: {
+      fontFamily: 'Inter',
+      fontSize: convertPxToDp(14),
+      fontWeight: '500',
+      lineHeight: convertPxToDp(16.94),
+      // textAlign: 'left',
+      color: contentColor,
+      // temp
+    },
+    statusIcon: {
+      width: convertPxToDp(15),
+      height: convertPxToDp(15),
+      borderRadius: convertPxToDp(999),
+      backgroundColor: contentColor,
+      // temp
+    },
+
+    actionIcon: {
+      width: convertPxToDp(28),
+      height: convertPxToDp(28),
+      backgroundColor: 'orange',
     },
   });
 };
@@ -317,4 +432,5 @@ export {
   details as ordersDetails,
   ordersStyle,
   orderScreen,
+  ordersList,
 };

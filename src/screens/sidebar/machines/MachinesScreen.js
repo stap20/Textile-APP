@@ -2,7 +2,7 @@ import {StyleSheet, View, Text, FlatList} from 'react-native';
 import MachineCard from './MachineCard';
 import {FlashList} from '@shopify/flash-list';
 import {useEffect} from 'react';
-import {convertToPxLayout} from '@styles/globalStyles';
+import {convertPxToDp} from '@styles/globalStyles';
 import NewCard from './NewCard';
 
 const example = [
@@ -126,19 +126,19 @@ export default function MachinesScreen() {
           index != 0 ? (
             <MachineCard
               info={item}
-              style={{paddingRight: convertToPxLayout(30)}}
+              style={{paddingRight: convertPxToDp(30)}}
               key={3}
             />
           ) : (
             <NewCard
-              style={{marginRight: convertToPxLayout(30)}}
+              style={{marginRight: convertPxToDp(30)}}
               text={'Add Machine'}
             />
           )
         }
         numColumns={3}
         ItemSeparatorComponent={() => (
-          <View style={{height: convertToPxLayout(30)}} />
+          <View style={{height: convertPxToDp(30)}} />
         )}
       />
     </View>

@@ -1,7 +1,7 @@
 import {StyleSheet, View, Text, PixelRatio} from 'react-native';
 import {LinearProgress} from 'react-native-elements';
 import {useTheme} from '@theme/ThemeProvider';
-import {convertToPxLayout} from '@styles/globalStyles';
+import {convertPxToDp} from '@styles/globalStyles';
 import Svg, {Path} from 'react-native-svg';
 
 const AddIcon = props => (
@@ -38,9 +38,9 @@ export default function NewCard({text, style}) {
   );
 }
 
-const cardWidth = convertToPxLayout(539); // 539
-const cardHeight = convertToPxLayout(330); // 330
-const cardRadius = convertToPxLayout(50);
+const cardWidth = convertPxToDp(539); // 539
+const cardHeight = convertPxToDp(330); // 330
+const cardRadius = convertPxToDp(50);
 const fontfamily = 'Inter';
 
 const newOrdersStyle = theme => {
@@ -50,23 +50,23 @@ const newOrdersStyle = theme => {
       width: cardWidth,
       height: cardHeight,
       borderRadius: cardRadius,
-      borderWidth: convertToPxLayout(2),
+      borderWidth: convertPxToDp(2),
       borderStyle: 'dashed',
       borderColor: '#3C4446',
-      padding: convertToPxLayout(30),
+      padding: convertPxToDp(30),
       backgroundColor: 'transparent',
       justifyContent: 'center',
       alignItems: 'center',
     },
     plusContainer: {
-      marginRight: convertToPxLayout(20),
+      marginRight: convertPxToDp(20),
       transform: [{scale: 1 / 1.5}],
     },
     plusIcon: {},
     newText: {
       fontFamily: fontfamily,
-      fontSize: convertToPxLayout(20),
-      // lineHeight: convertToPxLayout(20),
+      fontSize: convertPxToDp(20),
+      // lineHeight: convertPxToDp(20),
       fontWeight: '700',
       color: '#3C4446',
     },

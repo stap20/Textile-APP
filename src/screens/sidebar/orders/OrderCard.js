@@ -7,7 +7,7 @@ import {
   ordersStyle,
 } from '@styles/orders';
 import {useTheme} from '@theme/ThemeProvider';
-import {convertToPxLayout} from '@styles/globalStyles';
+import {convertPxToDp} from '@styles/globalStyles';
 import {useEffect} from 'react';
 
 export default function OrderCard({info, style}) {
@@ -23,10 +23,8 @@ export default function OrderCard({info, style}) {
         <View style={styles.header}>
           <View style={header.orderNumContainer}>
             <Text style={header.orderNumText}>
-              Order Number{' '}
-              <Text style={{fontSize: convertToPxLayout(25)}}>: </Text>
-              <Text
-                style={{fontWeight: '500', fontSize: convertToPxLayout(18)}}>
+              Order Number <Text style={{fontSize: convertPxToDp(25)}}>: </Text>
+              <Text style={{fontWeight: '500', fontSize: convertPxToDp(18)}}>
                 {info.order_number}
               </Text>
             </Text>
@@ -41,18 +39,16 @@ export default function OrderCard({info, style}) {
         <View style={styles.details}>
           <View style={details.startContainer}>
             <Text style={details.startText}>
-              Start <Text style={{fontSize: convertToPxLayout(25)}}>:</Text>{' '}
-              <Text
-                style={{fontWeight: '500', fontSize: convertToPxLayout(18)}}>
+              Start <Text style={{fontSize: convertPxToDp(25)}}>:</Text>{' '}
+              <Text style={{fontWeight: '500', fontSize: convertPxToDp(18)}}>
                 {info.start_date}
               </Text>
             </Text>
           </View>
           <View style={details.EndContainer}>
             <Text style={details.EndText}>
-              End <Text style={{fontSize: convertToPxLayout(25)}}>:</Text>{' '}
-              <Text
-                style={{fontWeight: '500', fontSize: convertToPxLayout(18)}}>
+              End <Text style={{fontSize: convertPxToDp(25)}}>:</Text>{' '}
+              <Text style={{fontWeight: '500', fontSize: convertPxToDp(18)}}>
                 {info.end_date}
               </Text>
             </Text>
@@ -90,7 +86,7 @@ export default function OrderCard({info, style}) {
                 trackColor="#E9E9E9" // temp
                 value={info.progress_percent / 100}
                 variant="determinate"
-                style={{borderRadius: convertToPxLayout(100)}}
+                style={{borderRadius: convertPxToDp(100)}}
               />
             </View>
             <View style={bottom.progressSpeed}>

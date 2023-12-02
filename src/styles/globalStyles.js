@@ -1,7 +1,7 @@
 import {PixelRatio} from 'react-native';
 
-const convertToPxLayout = px => {
+const convertPxToDp = px => {
   return px / PixelRatio.get();
 };
 
-export {convertToPxLayout};
+export {convertPxToDp};
