@@ -10,11 +10,21 @@ export default sidebarStyle = (theme, isActive) => {
       alignItems: 'center',
       marginBottom: convertPxToDp(15),
       borderRadius: convertPxToDp(16),
-      backgroundColor: isActive ? 'white' : 'transparent',
+      backgroundColor: 'transparent',
+    },
+    container_active: {
+      width: '100%',
+      height: convertPxToDp(106),
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginBottom: convertPxToDp(15),
+      borderRadius: convertPxToDp(16),
+      backgroundColor: 'white',
+      elevation: 24,
     },
     icon: {
       fontSize: convertPxToDp(46),
-      color: isActive ? theme.colors.primary : theme.colors.sidebar_icon,
+      color: isActive ? theme.colors.primary : theme.colors.sidebarIcon,
     },
   });
 };

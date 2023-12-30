@@ -9,7 +9,9 @@ export default layoutStyles = theme => {
     },
     mainContainer: {
       flex: 1,
-      backgroundColor: theme.backgroundColors.main_container,
+      paddingLeft: convertPxToDp(82),
+      paddingRight: convertPxToDp(81),
+      backgroundColor: theme.backgroundColors.mainContainer,
     },
     sidebarContainer: {
       paddingVertical: convertPxToDp(73),

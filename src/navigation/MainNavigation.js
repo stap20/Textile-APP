@@ -1,7 +1,7 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createTabNavigator} from './navigators/TabNavigator';
 import HomeScreen from '@screens/HomeScreen';
-import SidebarScreen from '@screens/SidebarScreen';
+import OrdersScreen from '@screens/orders';
 import LayoutManager from '@layout';
 
 const SideTabNavigator = createTabNavigator();
@@ -16,9 +16,9 @@ export default function MainNavigation() {
           options={{icon: 'dashboard', tabName: 'Homel'}}
         />
         <SideTabNavigator.Screen
-          name="Feed"
-          component={SidebarScreen}
-          options={{icon: 'dashboard', tabName: 'Email Inbox'}}
+          name="Orders"
+          component={OrdersScreen}
+          options={{icon: 'dashboard', tabName: 'Orders'}}
         />
       </SideTabNavigator.Navigator>
     </NavigationContainer>

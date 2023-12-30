@@ -4,13 +4,13 @@ import {useTheme} from '@theme/ThemeProvider';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import sidebarTabStyle from '@styles/components/sidebarTabStyle';
 
-export default function SidebarTab(props) {
+export default function SidebarTabComponent(props) {
   const {theme} = useTheme();
   const {name, icon, isActive, onPress} = props;
   const styles = sidebarTabStyle(theme, isActive);
 
   return (
-    <TouchableOpacity onPress={onPress} style={styles.container}>
+    <TouchableOpacity onPress={onPress} style={isActive == true ? styles.container_active : styles.container}>
       <Icon name={icon} style={styles.icon} />
     </TouchableOpacity>
   );

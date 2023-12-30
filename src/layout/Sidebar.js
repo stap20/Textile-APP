@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {View, StyleSheet} from 'react-native';
-import {SidebarTab} from '@components';
+import {SidebarTabComponent} from '@components';
 
 export default function Sidebar(props) {
   const {changeLanguage, toggleTheme, navigation, descriptors} = props;
@@ -14,7 +14,7 @@ export default function Sidebar(props) {
     const onPress = () => navigation.navigate(route.name);
 
     return (
-      <SidebarTab
+      <SidebarTabComponent
         key={route.key}
         {...{
           name,

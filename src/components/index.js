@@ -1,3 +1,5 @@
-import SidebarTab from './SidebarTab';
+import SidebarTabComponent from './SidebarTabComponent';
+import FilterSwitchComponent from './FilterSwitchComponent';
+import TabSwitchComponent from './TabSwitchComponent';
 
-export {SidebarTab};
+export {SidebarTabComponent, FilterSwitchComponent, TabSwitchComponent};
