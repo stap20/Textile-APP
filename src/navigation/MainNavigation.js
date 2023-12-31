@@ -13,12 +13,20 @@ export default function MainNavigation() {
         <SideTabNavigator.Screen
           name="Home"
           component={HomeScreen}
-          options={{icon: 'dashboard', tabName: 'Homel'}}
+          options={{
+            active_icon: 'dashboard',
+            icon: 'dashboard-outline',
+            tabName: 'Homel',
+          }}
         />
         <SideTabNavigator.Screen
           name="Orders"
           component={OrdersScreen}
-          options={{icon: 'dashboard', tabName: 'Orders'}}
+          options={{
+            active_icon: 'add-square',
+            icon: 'add-square-outline',
+            tabName: 'Orders',
+          }}
         />
       </SideTabNavigator.Navigator>
     </NavigationContainer>

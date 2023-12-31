@@ -22,9 +22,5 @@ export default sidebarStyle = (theme, isActive) => {
       backgroundColor: 'white',
       elevation: 24,
     },
-    icon: {
-      fontSize: convertPxToDp(46),
-      color: isActive ? theme.colors.primary : theme.colors.sidebarIcon,
-    },
   });
 };

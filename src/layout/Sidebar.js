@@ -9,8 +9,11 @@ export default function Sidebar(props) {
 
   const SidebarTabs = routes.map((route, tabIndex) => {
     const name = descriptors[route.key].options.tabName ?? route.name;
-    const icon = descriptors[route.key].options.icon ?? 'star';
     const isActive = tabIndex == index;
+    const icon =
+      (isActive
+        ? descriptors[route.key].options.active_icon
+        : descriptors[route.key].options.icon) ?? 'star';
     const onPress = () => navigation.navigate(route.name);
 
     return (

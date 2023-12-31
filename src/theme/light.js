@@ -12,7 +12,6 @@ const lightTheme = {
   colors: {
     primary: '#3C4446',
     secondary: '#3C4446BF',
-    sidebarIcon: '#3C4446BF',
   },
   spacing: {
     small: '8px',
