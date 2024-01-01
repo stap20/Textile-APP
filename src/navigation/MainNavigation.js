@@ -1,8 +1,7 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createTabNavigator} from './navigators/TabNavigator';
-import HomeScreen from '@screens/HomeScreen';
-import OrdersScreen from '@screens/orders';
 import LayoutManager from '@layout';
+import NAVIGATION_LIST from "./NAVIGATION_LIST"
 
 const SideTabNavigator = createTabNavigator();
 
@@ -10,24 +9,16 @@ export default function MainNavigation() {
   return (
     <NavigationContainer>
       <SideTabNavigator.Navigator LayoutManager={LayoutManager}>
-        <SideTabNavigator.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{
-            active_icon: 'dashboard',
-            icon: 'dashboard-outline',
-            tabName: 'Homel',
-          }}
-        />
-        <SideTabNavigator.Screen
-          name="Orders"
-          component={OrdersScreen}
-          options={{
-            active_icon: 'add-square',
-            icon: 'add-square-outline',
-            tabName: 'Orders',
-          }}
-        />
+        {NAVIGATION_LIST.map((item, idx) => {
+          return (
+            <SideTabNavigator.Screen
+              key={idx}
+              name={item.name}
+              component={item.component}
+              options={item.options}
+            />
+          );
+        })}
       </SideTabNavigator.Navigator>
     </NavigationContainer>
   );
