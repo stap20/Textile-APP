@@ -4,6 +4,7 @@ import HomeScreen from '@screens/HomeScreen';
 import OrdersScreen from '@screens/sidebar/orders/OrdersScreen';
 import MachinesScreen from '@screens/sidebar/machines/MachinesScreen';
 import SidebarScreen from '@screens/SidebarScreen';
+import CreateNewOrderScreen from '@screens/sidebar/createNewOrder/CreateNewOrderScreen.js';
 import LayoutManager from '@layout';
 
 const SideTabNavigator = createTabNavigator();
@@ -31,6 +32,11 @@ export default function MainNavigation() {
           name="Feed"
           component={SidebarScreen}
           options={{icon: 'dashboard', tabName: 'Email Inbox'}}
+        />
+        <SideTabNavigator.Screen
+          name="Create New Order"
+          component={CreateNewOrderScreen}
+          options={{icon: 'dashboard', tabName: 'Create New Order'}}
         />
       </SideTabNavigator.Navigator>
     </NavigationContainer>
