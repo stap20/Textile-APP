@@ -4,13 +4,14 @@ import {FlashList} from '@shopify/flash-list';
 import {useEffect} from 'react';
 import {convertPxToDp} from '@styles/globalStyles';
 import NewCard from './NewCard';
+import ShowValues from './ShowValues';
 
 const example = [
   {
     order_number: '1234567',
     start_date: '26-9-2023',
     end_date: '26-10-2023',
-    status: 'WORKING',
+    status: 'Working',
     working_hour: 36,
     stop_hour: 21,
     number_of_machines: 5,
@@ -22,7 +23,7 @@ const example = [
     order_number: '1234567',
     start_date: '26-9-2023',
     end_date: '26-10-2023',
-    status: 'WORKING',
+    status: 'Stopped',
     working_hour: 36,
     stop_hour: 21,
     number_of_machines: 5,
@@ -34,7 +35,7 @@ const example = [
     order_number: '1234567',
     start_date: '26-9-2023',
     end_date: '26-10-2023',
-    status: 'WORKING',
+    status: 'Stopped',
     working_hour: 36,
     stop_hour: 21,
     number_of_machines: 5,
@@ -46,7 +47,7 @@ const example = [
     order_number: '1234567',
     start_date: '26-9-2023',
     end_date: '26-10-2023',
-    status: 'WORKING',
+    status: 'Working',
     working_hour: 36,
     stop_hour: 21,
     number_of_machines: 5,
@@ -58,7 +59,7 @@ const example = [
     order_number: '1234567',
     start_date: '26-9-2023',
     end_date: '26-10-2023',
-    status: 'WORKING',
+    status: 'Stopped',
     working_hour: 36,
     stop_hour: 21,
     number_of_machines: 5,
@@ -70,7 +71,7 @@ const example = [
     order_number: '1234567',
     start_date: '26-9-2023',
     end_date: '26-10-2023',
-    status: 'WORKING',
+    status: 'Stopped',
     working_hour: 36,
     stop_hour: 21,
     number_of_machines: 5,
@@ -82,7 +83,7 @@ const example = [
     order_number: '1234567',
     start_date: '26-9-2023',
     end_date: '26-10-2023',
-    status: 'WORKING',
+    status: 'Stopped',
     working_hour: 36,
     stop_hour: 21,
     number_of_machines: 5,
@@ -94,7 +95,7 @@ const example = [
     order_number: '1234567',
     start_date: '26-9-2023',
     end_date: '26-10-2023',
-    status: 'WORKING',
+    status: 'Stopped',
     working_hour: 36,
     stop_hour: 21,
     number_of_machines: 5,
@@ -106,7 +107,7 @@ const example = [
     order_number: '1234567',
     start_date: '26-9-2023',
     end_date: '26-10-2023',
-    status: 'WORKING',
+    status: 'Stopped',
     working_hour: 36,
     stop_hour: 21,
     number_of_machines: 5,
@@ -119,28 +120,7 @@ const example = [
 export default function MachinesScreen() {
   return (
     <View style={styles.container}>
-      <FlatList
-        contentContainerStyle={styles.list}
-        data={example}
-        renderItem={({item, index}) =>
-          index != 0 ? (
-            <MachineCard
-              info={item}
-              style={{paddingRight: convertPxToDp(30)}}
-              key={3}
-            />
-          ) : (
-            <NewCard
-              style={{marginRight: convertPxToDp(30)}}
-              text={'Add Machine'}
-            />
-          )
-        }
-        numColumns={3}
-        ItemSeparatorComponent={() => (
-          <View style={{height: convertPxToDp(30)}} />
-        )}
-      />
+      <ShowValues showType={'Table'} data={example} textNew={'Add Machine'} />
     </View>
   );
 }

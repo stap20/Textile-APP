@@ -1,7 +1,7 @@
 import convertPxToDp from '@utils/ConvertPxToDp';
-import OrderCard from './MachinesCard';
+import MachineCard from './MachineCard';
 import NewCard from './NewCard';
-import {ordersList} from '@styles/orders';
+import {machinesList} from '@styles/machines';
 import {StyleSheet, View, Text, FlatList, TouchableOpacity} from 'react-native';
 import {LinearProgress} from 'react-native-elements';
 import {useTheme} from '@theme/ThemeProvider';
@@ -13,7 +13,7 @@ const Cards = (data, textNewCard) => {
       data={data}
       renderItem={({item, index}) =>
         index != 0 ? (
-          <OrderCard
+          <MachineCard
             info={item}
             style={{paddingRight: convertPxToDp(30)}}
             key={3}
@@ -35,7 +35,7 @@ const Cards = (data, textNewCard) => {
 
 function getFromObjectToJSX_Text(type, object, style) {
   const {theme} = useTheme();
-  let styles = ordersList(theme);
+  let styles = machinesList(theme);
   let list = [];
 
   switch (type.toLowerCase()) {
@@ -101,7 +101,7 @@ function getFromObjectToJSX_Text(type, object, style) {
             );
             break;
           case 'status':
-            styles = ordersList(theme, element);
+            styles = machinesList(theme, element);
             jsxText.push(
               <View style={styles.rowView} key={index}>
                 <View style={styles.statusContainer}>
@@ -112,7 +112,7 @@ function getFromObjectToJSX_Text(type, object, style) {
                 </View>
               </View>,
             );
-            styles = ordersList(theme);
+            styles = machinesList(theme);
             break;
 
           default:
@@ -153,12 +153,12 @@ function formatKey(inputString) {
 
 const Lists = (data, textNewCard) => {
   const {theme} = useTheme();
-  let styles = ordersList(theme);
+  let styles = machinesList(theme);
   let rows = [];
-  let orderData = {};
+  let machineData = {};
   for (let index = 0; index < data.length; index++) {
     const element = data[index];
-    orderData = {
+    machineData = {
       order_number: element.order_number,
       start: element.start_date,
       end: element.end_date,
@@ -172,7 +172,7 @@ const Lists = (data, textNewCard) => {
     };
     rows.push(
       <View style={styles.rowContainer} key={index}>
-        {getFromObjectToJSX_Text('values', orderData)}
+        {getFromObjectToJSX_Text('values', machineData)}
       </View>,
     );
   }
@@ -193,7 +193,7 @@ const Lists = (data, textNewCard) => {
       </View>
       <View style={styles.tableContainer}>
         <View style={styles.headerContainer}>
-          {getFromObjectToJSX_Text('keys', orderData)}
+          {getFromObjectToJSX_Text('keys', machineData)}
         </View>
         <View style={styles.detailsContainer}>{rows}</View>
       </View>

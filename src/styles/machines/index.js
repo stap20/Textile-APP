@@ -1,4 +1,4 @@
-import {Dimensions, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {convertPxToDp} from '../globalStyles';
 
 const cardWidth = convertPxToDp(539); // 539
@@ -6,31 +6,32 @@ const cardHeight = convertPxToDp(330); // 330
 const cardRadius = convertPxToDp(50);
 const fontfamily = 'Inter';
 
-const ordersStyle = theme => {
+/* #region Card Style */
+const machinesStyle = theme => {
   return StyleSheet.create({
     container: {},
     content: {
-      // flex: 1,
-      maxWidth: cardWidth,
-      minWidth: cardWidth,
-      maxHeight: cardHeight,
-      minHeight: cardHeight,
+      width: cardWidth,
+      height: cardHeight,
       borderRadius: cardRadius,
       padding: convertPxToDp(30),
-      backgroundColor: theme.colors.background,
-      // backgroundColor: 'yellow',
+      backgroundColor: theme.backgroundColors.card_container,
     },
     header: {
       flex: 2,
       flexDirection: 'row',
       justifyContent: 'space-between',
+      marginBottom: convertPxToDp(20),
     },
     details: {
       flex: 6,
+      justifyContent: 'space-around',
+      // alignItems: 'flex-start',
     },
     bottom: {
       flex: 2,
       flexDirection: 'row',
+      marginTop: convertPxToDp(23),
     },
   });
 };
@@ -93,13 +94,13 @@ const details = theme => {
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
-      paddingRight: convertPxToDp(63),
     },
     orderText: {
       fontFamily: fontfamily,
       fontSize: convertPxToDp(30),
       fontWeight: '700',
       color: '#3C4446',
+      lineHeight: convertPxToDp(30),
     },
 
     speedRateContainer: {
@@ -107,13 +108,14 @@ const details = theme => {
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
-      // paddingRight: convertPxToDp(30),
+      marginTop: convertPxToDp(20),
     },
     speedRateText: {
       fontFamily: fontfamily,
       fontSize: convertPxToDp(30),
       fontWeight: '700',
       color: '#3C4446',
+      lineHeight: convertPxToDp(30),
     },
 
     numText: {
@@ -122,13 +124,21 @@ const details = theme => {
       fontWeight: '500',
       color: '#3C4446',
     },
+    colonText: {
+      fontFamily: fontfamily,
+      fontSize: convertPxToDp(25),
+      fontWeight: '700',
+      color: '#3C4446',
+    },
 
     moreContainer: {
       flex: 1,
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
+      marginTop: convertPxToDp(30),
     },
+
     PausedContainer: {
       flexDirection: 'row',
       justifyContent: 'space-evenly',
@@ -229,20 +239,16 @@ const details = theme => {
 };
 
 const header = (theme, status) => {
-  let bgColor = 'rgba(25, 135, 84, 0.2)'; //
-  let contentColor = '#198754';
+  let bgColor;
+  let contentColor;
   switch (status) {
-    case 'FINISHED':
+    case 'Working':
       bgColor = 'rgba(25, 135, 84, 0.2)';
       contentColor = 'rgba(25, 135, 84, 1)';
       break;
-    case 'IN_PROGRESS':
-      bgColor = 'rgba(0, 123, 255, 0.2)';
-      contentColor = 'rgba(0, 123, 255, 1)';
-      break;
-    case 'PENDING':
-      bgColor = 'rgba(242, 155, 38, 0.2)';
-      contentColor = 'rgba(242, 155, 38, 1)';
+    case 'Stopped':
+      bgColor = 'rgba(220, 53, 69, 0.2)';
+      contentColor = 'rgba(220, 53, 69, 1)';
       break;
 
     default:
@@ -292,10 +298,133 @@ const header = (theme, status) => {
     },
   });
 };
+/* #endregion */
+
+/* #region List Style */
+const machinesList = (theme, status) => {
+  let bgColor;
+  let contentColor;
+  switch (status) {
+    case 'Finished':
+      console.log('1');
+      bgColor = 'rgba(25, 135, 84, 0.2)';
+      contentColor = 'rgba(25, 135, 84, 1)';
+      break;
+    case 'In Progress':
+      console.log('2');
+      bgColor = 'rgba(0, 123, 255, 0.2)';
+      contentColor = 'rgba(0, 123, 255, 1)';
+      break;
+    case 'Pending':
+      console.log('3');
+      bgColor = 'rgba(242, 155, 38, 0.2)';
+      contentColor = 'rgba(242, 155, 38, 1)';
+      break;
+  }
+  return StyleSheet.create({
+    container: {
+      // flex: 1,
+      // marginTop: convertPxToDp(34),
+      marginHorizontal: convertPxToDp(82),
+    },
+    addOrderContainer: {
+      width: '100%',
+    },
+    tableContainer: {
+      backgroundColor: 'yellow',
+      width: '100%',
+      height: 'auto',
+      backgroundColor: 'rgba(255, 255, 255, 1)',
+      borderRadius: convertPxToDp(16),
+      // marginBottom: convertPxToDp(2),
+      marginTop: convertPxToDp(40),
+    },
+    headerContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      alignItems: 'center',
+
+      paddingVertical: convertPxToDp(22),
+    },
+    headerText: {
+      flex: 1,
+      fontFamily: 'Inter',
+      fontSize: convertPxToDp(16),
+      fontWeight: '700',
+      lineHeight: convertPxToDp(19),
+      textAlign: 'center',
+    },
+
+    detailsContainer: {
+      alignItems: 'center',
+    },
+    rowContainer: {
+      justifyContent: 'space-around',
+      alignItems: 'center',
+      flexDirection: 'row',
+      width: '100%',
+      paddingTop: convertPxToDp(15),
+      paddingBottom: convertPxToDp(12),
+    },
+    rowText: {
+      flex: 1,
+      fontFamily: 'Inter',
+      fontSize: convertPxToDp(14),
+      fontWeight: '500',
+      lineHeight: convertPxToDp(20),
+      textAlign: 'center',
+    },
+    rowView: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+
+    statusContainer: {
+      height: convertPxToDp(37),
+      width: convertPxToDp(125),
+      flexDirection: 'row',
+      backgroundColor: bgColor, // green
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      paddingLeft: convertPxToDp(12),
+      // paddingRight: convertPxToDp(33),
+      paddingVertical: convertPxToDp(10),
+      borderRadius: convertPxToDp(15),
+    },
+    status: {
+      marginLeft: convertPxToDp(12),
+    },
+    statusText: {
+      fontFamily: 'Inter',
+      fontSize: convertPxToDp(14),
+      fontWeight: '500',
+      lineHeight: convertPxToDp(16.94),
+      // textAlign: 'left',
+      color: contentColor,
+      // temp
+    },
+    statusIcon: {
+      width: convertPxToDp(15),
+      height: convertPxToDp(15),
+      borderRadius: convertPxToDp(999),
+      backgroundColor: contentColor,
+      // temp
+    },
+
+    actionIcon: {
+      width: convertPxToDp(28),
+      height: convertPxToDp(28),
+      backgroundColor: 'orange',
+    },
+  });
+};
+/* #endregion */
 
 export {
-  bottom as ordersBottom,
-  header as ordersHeader,
-  details as ordersDetails,
-  ordersStyle,
+  bottom as machinesBottom,
+  header as machinesHeader,
+  details as machinesDetails,
+  machinesStyle,
+  machinesList,
 };
