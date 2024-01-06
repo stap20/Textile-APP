@@ -4,6 +4,7 @@ import {View, Text} from 'react-native';
 import {useTheme} from '@theme/ThemeProvider';
 import {layoutStyles} from '@styles/screens/orders';
 import Header from './Header';
+import { RadarAnimation } from '@components';
 
 const tabs = [{title: 'Table'}, {title: 'Cards'}]; // Add more tabs as needed
 const filters = [
@@ -37,7 +38,7 @@ export default function LayoutManager() {
         />
       </View>
       <View style={styles.mainContainer}>
-        <Text>f</Text>
+        <RadarAnimation/>
       </View>
     </View>
   );
