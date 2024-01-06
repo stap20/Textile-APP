@@ -25,20 +25,26 @@ function ItemComponent({name, unSelect}) {
 }
 
 function ChoiceComponent({name, onPress}) {
-  let selected = false;
+  const [selected, setSelected] = useState(false);
   const onClick = () => {
     onPress();
-    selected = !selected;
+    setSelected(!selected);
   };
 
   return (
     <TouchableOpacity
       style={[
         choices.choiceContainer,
-        {backgroundColor: selected ? 'rgba(60, 68, 70, 0.2)' : '#FFFFFF'},
+        {backgroundColor: selected ? 'rgba(60, 68, 70, 1)' : '#FFFFFF'},
       ]}
-      onPressOut={() => onClick()}>
-      <Text style={choices.choiceText}>{name}</Text>
+      onPress={() => onClick()}>
+      <Text
+        style={[
+          choices.choiceText,
+          {color: !selected ? 'rgba(60, 68, 70, 1)' : '#FFFFFF'},
+        ]}>
+        {name}
+      </Text>
     </TouchableOpacity>
   );
 }
@@ -51,9 +57,13 @@ const example = [
   {id: '5', name: 'Machine 5'},
 ];
 
-export default function MultiChoice({contentContainerStyle, onSelect}) {
+export default function MultiChoice({
+  contentContainerStyle,
+  onSelect,
+  onUnselect,
+}) {
   const [selected, setSelected] = useState([]);
-  const [showChoices, setShowChoices] = useState(true);
+  const [showChoices, setShowChoices] = useState(false);
 
   const showChoice = () => {
     setShowChoices(!showChoices);
@@ -62,12 +72,13 @@ export default function MultiChoice({contentContainerStyle, onSelect}) {
   const toggleSelected = element => {
     if (selected.includes(element)) {
       // Removing
-      console.warn('hiii');
       setSelected(selected.filter(a => a.id != element.id));
+      onUnselect(element);
       return false;
     } else {
       // Adding
       setSelected([...selected, element]);
+      onSelect(element);
       return true;
     }
   };
@@ -109,17 +120,30 @@ export default function MultiChoice({contentContainerStyle, onSelect}) {
         </View>
       </View>
       {showChoices && (
-        <ScrollView style={choices.container}>
-          <View style={choices.choicesContaienr}>
-            {example.map(element => (
-              <ChoiceComponent
-                name={element.name}
-                id={element.id}
-                onPress={() => toggleSelected(element)}
-              />
-            ))}
-          </View>
-        </ScrollView>
+        <FlatList
+          style={choices.container}
+          contentContainerStyle={choices.choicesContaienr}
+          data={example}
+          renderItem={({item}) => (
+            <ChoiceComponent
+              name={item.name}
+              id={item.id}
+              onPress={() => toggleSelected(item)}
+            />
+          )}
+          keyExtractor={item => item.id}
+        />
+        // <ScrollView style={choices.container}>
+        //   <View style={choices.choicesContaienr}>
+        //     {example.map(element => (
+        //       <ChoiceComponent
+        //         name={element.name}
+        //         id={element.id}
+        //         onPress={() => toggleSelected(element)}
+        //       />
+        //     ))}
+        //   </View>
+        // </ScrollView>
       )}
     </View>
   );
@@ -129,9 +153,9 @@ const choices = StyleSheet.create({
   container: {
     // flexDirection: 'row',
     backgroundColor: 'white',
-    minWidth: convertPxToDp(307),
-    maxWidth: convertPxToDp(638 + 38 + 40),
-    minHeight: convertPxToDp(65),
+    // minWidth: convertPxToDp(307),
+    // maxWidth: convertPxToDp(638 + 38 + 40),
+    // minHeight: convertPxToDp(65),
     // maxHeight: convertPxToDp(204),
     borderRadius: convertPxToDp(20),
     borderWidth: convertPxToDp(3),
@@ -140,12 +164,13 @@ const choices = StyleSheet.create({
     // gap: convertPxToDp(20),
   },
   choicesContaienr: {
-    // backgroundColor: 'lightblue',
-    flexWrap: 'wrap',
-    flexDirection: 'row',
-    alignItems: 'center',
+    // backgroundColor: 'red',
+    // flexWrap: 'wrap',
+    // flexDirection: 'row',
+    // alignItems: 'center',
     gap: convertPxToDp(20),
-    marginRight: 'auto',
+    // marginRight: 'auto',
+    paddingBottom: convertPxToDp(20),
   },
   choiceContainer: {
     // justifyContent: 'flex-start',

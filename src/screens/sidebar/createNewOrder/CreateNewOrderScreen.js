@@ -3,10 +3,14 @@ import {StyleSheet, View, Text, FlatList} from 'react-native';
 import {convertPxToDp} from '@styles/globalStyles';
 import DataPickerButton from './DataPickerButton';
 import MultiChoice from './MultiChoice';
+import TextTargetInput from './TextTargetInput';
 
 export default function CreateNewOrderScreen() {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+  const [machines, setMachines] = useState([]);
+  const [targetRolls, setTargetRolls] = useState('');
+  const [taregtWeight, setTargetWeight] = useState('');
 
   return (
     <View style={styles.content}>
@@ -28,15 +32,30 @@ export default function CreateNewOrderScreen() {
           <View style={body.secondRow}>
             <View style={body.targetRollsContainer}>
               <Text style={body.inputTitleText}>Target Rolls</Text>
+              <TextTargetInput
+                onChange={setTargetRolls}
+                placeholder={'Target Rolls'}
+              />
             </View>
             <View style={body.machinesChoiceContainer}>
               <Text style={body.inputTitleText}>Choose Machine</Text>
-              <MultiChoice />
+              <MultiChoice
+                onUnselect={m =>
+                  setMachines(machines.filter(a => a.id != m.id))
+                }
+                onSelect={m => {
+                  setMachines([...machines, m]);
+                }}
+              />
             </View>
           </View>
           <View style={body.thirdRow}>
             <View style={body.targetWeightContainer}>
               <Text style={body.inputTitleText}>Target Weight</Text>
+              <TextTargetInput
+                onChange={setTargetWeight}
+                placeholder={'Target Weight'}
+              />
             </View>
           </View>
         </View>
@@ -93,7 +112,7 @@ const body = StyleSheet.create({
   secondRow: {
     flex: 1,
     flexDirection: 'row',
-    backgroundColor: '#fffcda',
+    // backgroundColor: '#fffcda',
     paddingLeft: convertPxToDp(45),
     gap: convertPxToDp(150),
     // alignItems: 'center',
@@ -110,6 +129,7 @@ const body = StyleSheet.create({
     fontSize: convertPxToDp(30),
     lineHeight: convertPxToDp(40),
     color: '#3C4446', // TODO:
+    marginBottom: convertPxToDp(25),
   },
 });
 
