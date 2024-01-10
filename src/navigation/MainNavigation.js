@@ -5,6 +5,7 @@ import OrdersScreen from '@screens/sidebar/orders/OrdersScreen';
 import MachinesScreen from '@screens/sidebar/machines/MachinesScreen';
 import SidebarScreen from '@screens/SidebarScreen';
 import CreateNewOrderScreen from '@screens/sidebar/createNewOrder/CreateNewOrderScreen.js';
+import CreateNewProfileScreen from '@screens/sidebar/createNewProfile/createNewProfileScreen';
 import LayoutManager from '@layout';
 
 const SideTabNavigator = createTabNavigator();
@@ -37,6 +38,11 @@ export default function MainNavigation() {
           name="Create New Order"
           component={CreateNewOrderScreen}
           options={{icon: 'dashboard', tabName: 'Create New Order'}}
+        />
+        <SideTabNavigator.Screen
+          name="Create New Profile"
+          component={CreateNewProfileScreen}
+          options={{icon: 'dashboard', tabName: 'Create New Profile'}}
         />
       </SideTabNavigator.Navigator>
     </NavigationContainer>
