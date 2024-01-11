@@ -5,7 +5,7 @@ import OrdersScreen from '@screens/sidebar/orders/OrdersScreen';
 import MachinesScreen from '@screens/sidebar/machines/MachinesScreen';
 import SidebarScreen from '@screens/SidebarScreen';
 import CreateNewOrderScreen from '@screens/sidebar/createNewOrder/CreateNewOrderScreen.js';
-import CreateNewProfileScreen from '@screens/sidebar/createNewProfile/createNewProfileScreen';
+import CreateNewProfileScreen from '@screens/sidebar/createNewProfile/CreateNewProfileScreen';
 import LayoutManager from '@layout';
 
 const SideTabNavigator = createTabNavigator();

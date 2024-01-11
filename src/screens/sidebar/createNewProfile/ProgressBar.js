@@ -71,10 +71,12 @@ const itemProgressBarJSX = (n, activeLvl) => {
   return out;
 };
 
-export default function ProgressBar({activeLvl}) {
+export default function ProgressBar({maxLvls, activeLvl}) {
   //   const [currentPart, setCurrentPart] = useState(activeLvl);
   return (
-    <View style={styles.container}>{itemProgressBarJSX(4, activeLvl)}</View>
+    <View style={styles.container}>
+      {itemProgressBarJSX(maxLvls, activeLvl)}
+    </View>
   );
 }
 

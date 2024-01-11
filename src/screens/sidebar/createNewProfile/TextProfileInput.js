@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import {convertPxToDp} from '@utils';
 
-export default function TextTargetInput({
+export default function TextProfileInput({
   contentContainerStyle,
   onChange,
   placeholder,

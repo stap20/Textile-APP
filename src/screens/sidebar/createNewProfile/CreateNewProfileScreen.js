@@ -4,6 +4,8 @@ import {convertPxToDp} from '@styles/globalStyles';
 import ProgressBar from './ProgressBar';
 import FormsSwitcherNewProfile from './FormsSwitcherNewProfile';
 
+const NewProfileScreen_Forms = ['MachineDetails', 'Needles', 'Feeder', 'LFA'];
+
 export default function CreateNewProfileScreen() {
   const [machineDetails, setMachineDetails] = useState({
     name: 'test',
@@ -28,20 +30,91 @@ export default function CreateNewProfileScreen() {
     diameter: '9.99',
   });
 
-  return <View style={styles.content}></View>;
+  const [currentLvl, setCurrentLvl] = useState(3);
+  const [currentForm, setCurrentForm] = useState(
+    NewProfileScreen_Forms[currentLvl - 1],
+  );
+  const maxLvls = 4;
+
+  return (
+    <View style={styles.content}>
+      <View style={header.container}>
+        <ProgressBar maxLvls={maxLvls} activeLvl={currentLvl} />
+      </View>
+      <View style={body.container}>
+        <FormsSwitcherNewProfile
+          name={currentForm}
+          onChange={(type, data) => {
+            console.log(`data (${Object.keys(data)}) received from ${type}`);
+            switch (type) {
+              case 'MachineDetails':
+                setMachineDetails(data);
+                break;
+              case 'Needles':
+                setNeedles(data);
+                break;
+              case 'Feeder':
+                setFeeders(data);
+                break;
+              case 'LFA':
+                setLFA(data);
+                break;
+
+              default:
+                break;
+            }
+          }}
+        />
+      </View>
+      <View style={footer.container}>
+        <View style={footer.containerBtn}>
+          <Text style={footer.textBtn}>
+            {currentLvl < maxLvls ? 'Next' : 'Save'}
+          </Text>
+        </View>
+        <View
+          style={[
+            footer.containerBtn,
+            {backgroundColor: 'white', borderWidth: convertPxToDp(1)},
+          ]}>
+          <Text style={[footer.textBtn, {color: '#3c4446'}]}>
+            {currentLvl == 1 ? 'Cancel' : 'Back'}
+          </Text>
+        </View>
+      </View>
+    </View>
+  );
 }
 
 const footer = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'yellow',
+    flexDirection: 'row-reverse',
+    // backgroundColor: 'yellow',
+    justifyContent: 'space-evenly',
+  },
+  containerBtn: {
+    // flex: 1,
+    width: convertPxToDp(350),
+    height: convertPxToDp(90),
+    backgroundColor: '#3C4446', //TODO:
+    borderRadius: convertPxToDp(20),
+    // borderWidth: convertPxToDp(4),
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  textBtn: {
+    fontWeight: '600',
+    fontSize: convertPxToDp(30),
+    lineHeight: convertPxToDp(40),
+    color: '#FFFFFF', // TODO:
   },
 });
 
 const body = StyleSheet.create({
   container: {
     flex: 5,
-    // backgroundColor: 'yellow',
+    // backgroundColor: 'lightblue',
   },
 });
 
@@ -61,5 +134,6 @@ const styles = StyleSheet.create({
     marginBottom: convertPxToDp(32),
     borderRadius: convertPxToDp(50),
     overflow: 'hidden',
+    // width: '50%',
   },
 });

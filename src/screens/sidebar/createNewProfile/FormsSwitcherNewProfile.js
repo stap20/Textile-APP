@@ -1,41 +1,42 @@
-import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, Text, View} from 'react-native';
 import convertPxToDp from '@utils/ConvertPxToDp';
+import TextProfileInput from './TextProfileInput';
+import MachineDetailsBody from './MachineDetailsBody';
+import NeedlesBody from './NeedlesBody';
+import FeederBody from './FeederBody';
 
-const forms = ['MachineDetails'];
-
-function NotFound() {
+function NotFound(name) {
   return (
-    <View style={{flex: 1, backgroundColor: 'black'}}>
-      <Text style={{color: 'red', fontSize: convertPxToDp(36)}}>Not Found</Text>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: 'black',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
+      <Text style={{color: 'red', fontSize: convertPxToDp(84)}}>
+        {name} Not Found
+      </Text>
     </View>
   );
 }
 
-function MachineDetails() {
-  const selfStyle = styles.MachineDetails;
-  return <View style={selfStyle.container}></View>;
-}
+export default function FormsSwitcherNewProfile({name, onChange}) {
+  const forms = [
+    'MachineDetails',
+    <MachineDetailsBody onChange={onChange} />,
+    'Needles',
+    <NeedlesBody onChange={onChange} />,
+    'Feeder',
+    <FeederBody onChange={onChange} />,
+    'LFA',
+    // <LFABody onChange={onChange} />,
+  ];
 
-const styles = {
-  MachineDetails: StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: 'lightblue',
-    },
-  }),
-};
-
-export default function FormsSwitcherNewProfile({name}) {
-  console.log('ssss');
-  //   if (forms.includes(name)) {
-  //     return forms.find(e => e == name);
-  //   } else {
-  //     return NotFound();
-  //   }
-  return (
-    <View style={{flex: 1, backgroundColor: 'black'}}>
-      <Text style={{color: 'red', fontSize: convertPxToDp(36)}}>Not Found</Text>
-    </View>
-  );
+  if (forms.indexOf(name) > -1) {
+    return forms[forms.indexOf(name) + 1];
+  } else {
+    return NotFound(name);
+  }
 }
