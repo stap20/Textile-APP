@@ -1,4 +1,4 @@
-import {React, useState} from 'react';
+import {React, useEffect, useState} from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import convertPxToDp from '@utils/ConvertPxToDp';
 import {LinearProgress} from 'react-native-elements';
@@ -51,7 +51,7 @@ const itemProgressBarJSX = (n, activeLvl) => {
       <View
         key={i}
         style={[styles.numsContainer, {backgroundColor: '#3C4446'}]}>
-        <Text style={[styles.numText, {color: 'white'}]}>Done</Text>
+        <Text style={[styles.numText, {color: 'white'}]}>Done{i}</Text>
       </View>
     );
     out[i + 1] = (
@@ -72,9 +72,8 @@ const itemProgressBarJSX = (n, activeLvl) => {
 };
 
 export default function ProgressBar({maxLvls, activeLvl}) {
-  //   const [currentPart, setCurrentPart] = useState(activeLvl);
   return (
-    <View style={styles.container}>
+    <View style={styles.container} key={activeLvl}>
       {itemProgressBarJSX(maxLvls, activeLvl)}
     </View>
   );
@@ -84,10 +83,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
-    // backgroundColor: 'lightgreen',
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: convertPxToDp(43),
+    borderBottomColor: '#EBECEC',
+    borderBottomWidth: convertPxToDp(3),
   },
   numsContainer: {
     height: convertPxToDp(61),

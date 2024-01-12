@@ -5,6 +5,7 @@ import TextProfileInput from './TextProfileInput';
 import MachineDetailsBody from './MachineDetailsBody';
 import NeedlesBody from './NeedlesBody';
 import FeederBody from './FeederBody';
+import LFABody from './LFABody';
 
 function NotFound(name) {
   return (
@@ -22,16 +23,16 @@ function NotFound(name) {
   );
 }
 
-export default function FormsSwitcherNewProfile({name, onChange}) {
+export default function FormsSwitcherNewProfile({name, onChange, mode}) {
   const forms = [
     'MachineDetails',
-    <MachineDetailsBody onChange={onChange} />,
+    <MachineDetailsBody onChange={onChange} mode={mode} />,
     'Needles',
-    <NeedlesBody onChange={onChange} />,
+    <NeedlesBody onChange={onChange} mode={mode} />,
     'Feeder',
-    <FeederBody onChange={onChange} />,
+    <FeederBody onChange={onChange} mode={mode} />,
     'LFA',
-    // <LFABody onChange={onChange} />,
+    <LFABody onChange={onChange} mode={mode} />,
   ];
 
   if (forms.indexOf(name) > -1) {

@@ -12,19 +12,39 @@ export default function TextProfileInput({
   contentContainerStyle,
   onChange,
   placeholder,
+  inputMode,
+  maxLength,
+  range = [0, 99],
 }) {
   const [text, setText] = useState('');
+
+  const checkRange = text => {
+    if (Number(text) > range[1]) {
+      return range[1].toString();
+    }
+    if (Number(text) < range[0]) {
+      return range[0].toString();
+    }
+    return text;
+  };
 
   return (
     <View style={[styles.container, contentContainerStyle]}>
       <View style={styles.inputTextContainer}>
         <TextInput
+          maxLength={maxLength}
+          inputMode={inputMode}
           placeholder={placeholder}
           placeholderTextColor={'#757D8A'}
           style={styles.input}
           onChangeText={Text => {
-            setText(Text);
-            onChange(Text);
+            if (inputMode == 'numeric') {
+              setText(checkRange(Text));
+              onChange(checkRange(Text));
+            } else {
+              setText(Text);
+              onChange(Text);
+            }
           }}
           value={text}
         />

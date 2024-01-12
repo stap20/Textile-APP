@@ -6,8 +6,10 @@ import {
   TouchableOpacity,
   ScrollView,
   FlatList,
+  Pressable,
 } from 'react-native';
 import {convertPxToDp} from '@utils';
+import {Modal} from 'react-native';
 
 function ItemComponent({name, onUnSelect, unSelect, singleChoice}) {
   return (
@@ -66,8 +68,8 @@ const example = [
   {id: '1', name: 'Machine 1'},
   {id: '2', name: 'Machine 2'},
   {id: '3', name: 'Machine 3'},
-  // {id: '4', name: 'Machine 4'},
-  // {id: '5', name: 'Machine 5'},
+  {id: '4', name: 'Machine 4'},
+  {id: '5', name: 'Machine 5'},
 ];
 
 export default function MultiChoice({
@@ -142,22 +144,40 @@ export default function MultiChoice({
           </TouchableOpacity>
         </View>
       </View>
-      {showChoices && (
-        <FlatList
-          style={[choices.container, choicesStyle]}
-          contentContainerStyle={choices.choicesContaienr}
-          data={data}
-          renderItem={({item}) => (
-            <ChoiceComponent
-              name={item.name}
-              id={item.id}
-              onPress={() => toggleSelected(item)}
-              singleChoice={singleChoice}
+      <Modal
+        visible={showChoices}
+        transparent={true}
+        onRequestClose={() => setShowChoices(false)}>
+        <Pressable style={{flex: 1}} onPress={() => setShowChoices(false)}>
+          <View
+            style={[
+              {
+                position: 'absolute',
+                top: convertPxToDp(450),
+                left: convertPxToDp(284),
+                minWidth: convertPxToDp(307),
+                maxWidth: convertPxToDp(638 + 38 + 40),
+                maxHeight: convertPxToDp(205),
+                overflow: 'scroll',
+              },
+            ]}>
+            <FlatList
+              style={[choices.container, choicesStyle]}
+              contentContainerStyle={choices.choicesContaienr}
+              data={data}
+              renderItem={({item}) => (
+                <ChoiceComponent
+                  name={item.name}
+                  id={item.id}
+                  onPress={() => toggleSelected(item)}
+                  singleChoice={singleChoice}
+                />
+              )}
+              keyExtractor={item => item.id}
             />
-          )}
-          keyExtractor={item => item.id}
-        />
-      )}
+          </View>
+        </Pressable>
+      </Modal>
     </View>
   );
 }

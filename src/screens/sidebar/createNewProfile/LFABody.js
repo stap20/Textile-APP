@@ -5,6 +5,7 @@ import {
   View,
   TouchableOpacity,
   FlatList,
+  TextInput,
 } from 'react-native';
 import TextProfileInput from './TextProfileInput';
 import {convertPxToDp} from '@utils';
@@ -13,77 +14,100 @@ import CounterInput from './CounterInput';
 import {useState} from 'react';
 import {useEffect} from 'react';
 
-const type = 'Feeder';
+const type = 'LFA';
 let data = [];
 
 let tempItemData = {
   id: 0,
-  type: 'test',
-  yarnCount: '999',
-  numOfFeeder: '999',
+  type: 'LFA Type',
+  diameter: '9.99',
 };
 
-const ListItem = ({item, requestClose}) => {
+const ListItem = ({item, requestClose, mode}) => {
   return (
     <View style={body.listItemContainer}>
-      <Text style={{flex: 10, justifyContent: 'center', alignItems: 'center'}}>
-        {item.id} {item.type}
-      </Text>
-      <Text style={{flex: 10, justifyContent: 'center', alignItems: 'center'}}>
-        {item.yarnCount}
-      </Text>
-      <Text style={{flex: 10, justifyContent: 'center', alignItems: 'center'}}>
-        {item.numOfFeeder}
+      <Text
+        style={{
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+          // backgroundColor: 'yellow',
+        }}>
+        {item.type}
       </Text>
       <View
         style={{
           flex: 1,
-          justifyContent: 'center',
-          alignSelf: 'center',
+          flexDirection: 'row',
+          // backgroundColor: 'lightblue',
+          justifyContent: 'flex-end',
         }}>
-        <TouchableOpacity
-          onPress={() => requestClose()}
+        <Text
           style={{
-            width: convertPxToDp(24),
-            height: convertPxToDp(24),
-            backgroundColor: 'orange',
-          }}></TouchableOpacity>
+            marginRight: convertPxToDp(mode != 'half' ? 253 : 268),
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          {item.diameter}
+        </Text>
+        <View
+          style={{
+            justifyContent: 'center',
+            alignSelf: 'center',
+          }}>
+          <TouchableOpacity
+            onPress={() => requestClose()}
+            style={{
+              width: convertPxToDp(24),
+              height: convertPxToDp(24),
+              backgroundColor: 'orange',
+            }}></TouchableOpacity>
+        </View>
       </View>
     </View>
   );
 };
 
-export default function FeederBody({onChange, mode}) {
-  const [feederList, setFeederList] = useState(data);
+export default function LFABody({onChange, mode}) {
+  const [lfaList, setLfaList] = useState(data);
   const [rerender, setRerender] = useState(true);
 
   useEffect(() => {
     console.log(`Updated`);
-    data = feederList;
-  }, [feederList]);
+    data = lfaList;
+  }, [lfaList]);
 
   const addItem = () => {
     tempItemData.id += 1;
     data.push({...tempItemData});
-    setFeederList(data);
+    setLfaList(data);
     setRerender(!rerender);
     console.log(data);
     onChange(type, data);
   };
 
   return (
-    <View style={[styles.container]}>
+    <View style={[styles.container, {width: mode == 'half' ? '50%' : null}]}>
       <View style={styles.header}>
-        <Text style={styles.title}>Feeder</Text>
+        <Text style={styles.title}>LFA</Text>
       </View>
       <View style={styles.body}>
         <View style={body.inputContainer}>
-          <View style={body.inputItem}>
-            <Text style={styles.subTitle}>Feeder Type</Text>
+          <View
+            style={[
+              body.inputItem,
+              {
+                // flex: 5,
+                // backgroundColor: 'red',
+              },
+            ]}>
+            <Text style={styles.subTitle}>LFA Type</Text>
             <MultiChoice
               onSelect={e => (tempItemData.type = e.name)}
               contentContainerStyle={{
-                maxWidth: convertPxToDp(mode == 'half' ? 284 : 377),
+                flex: 1,
+                maxWidth: convertPxToDp(mode == 'half' ? 366 : 1091),
+                minWidth: convertPxToDp(mode == 'half' ? 366 : 1091),
               }}
               itemsStyle={{borderWidth: convertPxToDp(3), borderColor: 'black'}}
               choicesStyle={{
@@ -94,36 +118,34 @@ export default function FeederBody({onChange, mode}) {
               singleChoice={true}
             />
           </View>
-          <View style={body.inputItem}>
-            <Text style={styles.subTitle}>Yarn Count</Text>
-            <CounterInput
+          <View
+            style={[
+              body.inputItem,
+              {
+                justifyContent: 'center',
+                marginHorizontal: convertPxToDp(45),
+              },
+            ]}>
+            <Text style={styles.subTitle}>Diameter</Text>
+            <TextProfileInput
+              inputMode={'numeric'}
+              range={[0, 9.99]}
+              maxLength={4}
               contentContainerStyle={{
-                width: mode == 'half' ? convertPxToDp(179) : convertPxToDp(253),
+                width: convertPxToDp(mode == 'half' ? 179 : 200),
               }}
-              onChange={text => {
-                tempItemData.yarnCount = text;
+              onChange={t => {
+                tempItemData.diameter = t;
               }}
-            />
-          </View>
-          <View style={body.inputItem}>
-            <Text style={styles.subTitle}>Num Of Feeder</Text>
-            <CounterInput
-              contentContainerStyle={{
-                width: mode == 'half' ? convertPxToDp(179) : convertPxToDp(253),
-              }}
-              onChange={text => {
-                tempItemData.numOfFeeder = text;
-              }}
+              placeholder={'9.99'}
             />
           </View>
           <View
             style={[
               body.inputItem,
               {
-                marginRight: convertPxToDp(43),
                 width: convertPxToDp(mode == 'half' ? 135 : 200),
-                marginTop: convertPxToDp(mode == 'half' ? 25 : 0),
-                justifyContent: mode != 'half' ? 'flex-end' : 'flex-start',
+                justifyContent: 'flex-end',
               },
             ]}>
             <TouchableOpacity
@@ -142,14 +164,14 @@ export default function FeederBody({onChange, mode}) {
           ]}>
           <FlatList
             extraData={rerender}
-            data={feederList}
+            data={lfaList}
             renderItem={({item}) => (
               <ListItem
+                mode={mode}
                 item={item}
                 requestClose={() => {
-                  setFeederList(feederList.filter(a => a != item));
+                  setLfaList(lfaList.filter(a => a != item));
                   data.filter(a => a != item);
-                  // tempItemData.id = data.length - 1;
                 }}
               />
             )}
@@ -163,24 +185,21 @@ export default function FeederBody({onChange, mode}) {
 
 const body = StyleSheet.create({
   container: {
-    // flex: 1,
-    // width: '100%',
-    backgroundColor: 'lightblue',
+    // backgroundColor: 'lightblue',
   },
   inputContainer: {
-    // flex: 2,
-    // width: '100%',
+    flex: 1,
     flexDirection: 'row',
-    flexWrap: 'wrap',
+    // flexWrap: 'wrap',
     // backgroundColor: 'yellow',
-    justifyContent: 'flex-end',
+    // justifyContent: 'space-between',
   },
   inputItem: {
-    marginRight: 'auto',
+    // marginRight: 'auto',
   },
   listContainer: {
-    flex: 1,
-    // backgroundColor: '#FFFFFF',
+    flex: 3,
+    backgroundColor: '#FFFFFF',
     // borderTopWidth: convertPxToDp(0),
     borderWidth: convertPxToDp(3),
     borderRadius: convertPxToDp(20),
@@ -221,8 +240,8 @@ const styles = StyleSheet.create({
     // backgroundColor: 'lightblue',
 
     // width: '50%',
-    // minWidth: '50%',
-    // maxWidth: '100%',
+    minWidth: '50%',
+    maxWidth: '100%',
 
     height: '100%',
     paddingHorizontal: convertPxToDp(43),

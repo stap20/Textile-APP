@@ -1,12 +1,12 @@
-import React, {useState} from 'react';
-import {StyleSheet, View, Text, FlatList} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {StyleSheet, View, Text, FlatList, TouchableOpacity} from 'react-native';
 import {convertPxToDp} from '@styles/globalStyles';
 import ProgressBar from './ProgressBar';
 import FormsSwitcherNewProfile from './FormsSwitcherNewProfile';
 
 const NewProfileScreen_Forms = ['MachineDetails', 'Needles', 'Feeder', 'LFA'];
 
-export default function CreateNewProfileScreen() {
+export default function CreateNewProfileScreen({mode = 'half'}) {
   const [machineDetails, setMachineDetails] = useState({
     name: 'test',
     number: '1234',
@@ -25,24 +25,47 @@ export default function CreateNewProfileScreen() {
       numOfFeeder: '999',
     },
   ]);
-  const [LFA, setLFA] = useState({
-    type: '12345',
-    diameter: '9.99',
-  });
+  const [LFA, setLFA] = useState([
+    {
+      type: '12345',
+      diameter: '9.99',
+    },
+  ]);
 
-  const [currentLvl, setCurrentLvl] = useState(3);
+  const [currentLvl, setCurrentLvl] = useState(1);
   const [currentForm, setCurrentForm] = useState(
     NewProfileScreen_Forms[currentLvl - 1],
   );
   const maxLvls = 4;
 
+  useEffect(() => {
+    console.log(currentLvl);
+  }, [currentLvl]);
+
+  const proccedToNext = () => {
+    if (currentLvl < 4 && currentLvl >= 1) {
+      const i = currentLvl + 1;
+      setCurrentLvl(i);
+      setCurrentForm(NewProfileScreen_Forms[i - 1]);
+    }
+  };
+
+  const goBack = () => {
+    if (currentLvl <= 4 && currentLvl > 1) {
+      const i = currentLvl - 1;
+      setCurrentLvl(i);
+      setCurrentForm(NewProfileScreen_Forms[i - 1]);
+    }
+  };
+
   return (
-    <View style={styles.content}>
+    <View style={[styles.content, {width: mode == 'half' ? '50%' : null}]}>
       <View style={header.container}>
         <ProgressBar maxLvls={maxLvls} activeLvl={currentLvl} />
       </View>
       <View style={body.container}>
         <FormsSwitcherNewProfile
+          mode={mode || 'half' || 'full'}
           name={currentForm}
           onChange={(type, data) => {
             console.log(`data (${Object.keys(data)}) received from ${type}`);
@@ -59,20 +82,20 @@ export default function CreateNewProfileScreen() {
               case 'LFA':
                 setLFA(data);
                 break;
-
-              default:
-                break;
             }
           }}
         />
       </View>
       <View style={footer.container}>
-        <View style={footer.containerBtn}>
+        <TouchableOpacity
+          onPress={() => proccedToNext()}
+          style={footer.containerBtn}>
           <Text style={footer.textBtn}>
             {currentLvl < maxLvls ? 'Next' : 'Save'}
           </Text>
-        </View>
-        <View
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => goBack()}
           style={[
             footer.containerBtn,
             {backgroundColor: 'white', borderWidth: convertPxToDp(1)},
@@ -80,7 +103,7 @@ export default function CreateNewProfileScreen() {
           <Text style={[footer.textBtn, {color: '#3c4446'}]}>
             {currentLvl == 1 ? 'Cancel' : 'Back'}
           </Text>
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );
