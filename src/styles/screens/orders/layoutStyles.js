@@ -14,7 +14,8 @@ export default layoutStyles = theme => {
     },
     mainContainer: {
       flex: 1,
-      // backgroundColor: 'yellow',
+      paddingBottom: convertPxToDp(30),
+      //backgroundColor: 'yellow',
     },
   });
 };

@@ -145,11 +145,13 @@ function ChartWraper({option}) {
       chart.setOption(option);
     }
     return () => chart?.dispose();
+    
   }, [option, parentLayout]);
 
   return (
     <View style={styles.container} onLayout={handleLayout}>
       {shouldRenderChart && <SvgChart ref={instance} useRNGH />}
+
     </View>
   );
 }

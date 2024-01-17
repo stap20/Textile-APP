@@ -6,6 +6,16 @@ const lightTheme = {
     filterSwitchActiveTab: '#FFF',
     tabSwitchActiveTab: '#F5F7F7',
   },
+  filterSymbolColors: [
+    '#FF5733',
+    '#33FF57',
+    '#5733FF',
+    '#FF336E',
+    '#336EFF',
+    '#FFD633',
+    '#33FFD6',
+    '#D633FF',
+  ],
   borderColors: {
     tabSwitchActiveTab: '#FFF',
   },
