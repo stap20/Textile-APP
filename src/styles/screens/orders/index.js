@@ -1,3 +1,5 @@
 import layoutStyles from './layoutStyles';
 import headerStyles from './headerStyles';
-export {layoutStyles, headerStyles};
+import cardViewStyle from './cardViewStyle';
+
+export {layoutStyles, headerStyles, cardViewStyle};

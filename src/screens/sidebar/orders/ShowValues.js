@@ -3,7 +3,6 @@ import OrderCard from './OrderCard';
 import NewCard from './NewCard';
 import {ordersList} from '@styles/orders';
 import {StyleSheet, View, Text, FlatList, TouchableOpacity} from 'react-native';
-import {LinearProgress} from 'react-native-elements';
 import {useTheme} from '@theme/ThemeProvider';
 
 const Cards = (data, textNewCard) => {
@@ -85,7 +84,7 @@ function getFromObjectToJSX_Text(type, object, style) {
                     ]}>
                     {element + '%'}
                   </Text>
-                  <LinearProgress
+                  {/* <LinearProgress
                     color="rgba(60, 68, 70, 1)" // temp
                     trackColor="#E9E9E9" // temp
                     value={element / 100}
@@ -95,7 +94,7 @@ function getFromObjectToJSX_Text(type, object, style) {
                       borderRadius: convertPxToDp(100),
                       width: convertPxToDp(87),
                     }}
-                  />
+                  /> */}
                 </View>
               </View>,
             );

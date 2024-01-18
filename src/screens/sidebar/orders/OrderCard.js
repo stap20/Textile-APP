@@ -1,5 +1,4 @@
 import {StyleSheet, View, Text, PixelRatio} from 'react-native';
-import {LinearProgress} from 'react-native-elements';
 import {
   ordersBottom,
   ordersHeader,
@@ -81,13 +80,13 @@ export default function OrderCard({info, style}) {
               </Text>
             </View>
             <View style={bottom.indicator}>
-              <LinearProgress
+              {/* <LinearProgress
                 color="rgba(60, 68, 70, 1)" // temp
                 trackColor="#E9E9E9" // temp
                 value={info.progress_percent / 100}
                 variant="determinate"
                 style={{borderRadius: convertPxToDp(100)}}
-              />
+              /> */}
             </View>
             <View style={bottom.progressSpeed}>
               <Text style={bottom.progressSpeedText}>

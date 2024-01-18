@@ -17,11 +17,15 @@ const lightTheme = {
     '#D633FF',
   ],
   borderColors: {
+    addOrder: '#3C4446',
     tabSwitchActiveTab: '#FFF',
   },
   colors: {
     primary: '#3C4446',
     secondary: '#3C4446BF',
+    finsishedStatus: '#198754',
+    pendingStatus: '#F29B26',
+    stoppedStatus: '#DC3545',
   },
   spacing: {
     small: '8px',

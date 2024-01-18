@@ -6,7 +6,7 @@ import {convertPxToDp} from '@styles/globalStyles';
 import NewCard from './NewCard';
 import {orderScreen} from '@styles/orders';
 import {useTheme} from '@theme/ThemeProvider';
-import {LinearProgress} from 'react-native-elements';
+
 import ShowValues from './ShowValues';
 
 const example = [

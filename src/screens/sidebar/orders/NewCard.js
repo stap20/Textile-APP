@@ -1,5 +1,4 @@
 import {StyleSheet, View, Text, PixelRatio} from 'react-native';
-import {LinearProgress} from 'react-native-elements';
 import {useTheme} from '@theme/ThemeProvider';
 import {convertPxToDp} from '@styles/globalStyles';
 import Svg, {Path} from 'react-native-svg';

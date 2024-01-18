@@ -4,8 +4,42 @@ import {View, Text} from 'react-native';
 import {useTheme} from '@theme/ThemeProvider';
 import {layoutStyles} from '@styles/screens/orders';
 import Header from './Header';
-import {TCharts, Chart} from '@components';
-import {convertPxToDp} from '@utils';
+import OrdersScreen from '@screens/sidebar/orders/OrdersScreen';
+import {CardView} from './views';
+
+// const chartOption = {
+//   xAxis: {
+//     name: 'tototo',
+//     type: 'category',
+//     data: [
+//       '02-JAN',
+//       '09-JAN',
+//       '16-JAN',
+//       '02-FAB',
+//       '09-FAB',
+//       '16-FAB',
+//       '02-MAR',
+//       '09-MAR',
+//       '16-MAR',
+//       '02-APR',
+//       '09-APR',
+//     ],
+//   },
+//   yAxis: {
+//     name: 'tototo2',
+//     type: 'value',
+//   },
+//   data: {
+//     max_prod: {
+//       name: 'Max Production',
+//       data: [220, 182, 191, 234, 290, 330, 310, 100, 170, 10, 190],
+//     },
+//     min_prod: {
+//       name: 'Min Production',
+//       data: [120, 132, 101, 134, 90, 230, 210, 20, 75, 60, 100],
+//     },
+//   },
+// };
 
 const tabs = [{title: 'Table'}, {title: 'Cards'}]; // Add more tabs as needed
 const filters = [
@@ -21,40 +55,6 @@ export default function LayoutManager() {
 
   const [activeTab, setActiveTab] = useState(0);
   const [activeFilterTab, setActiveFilterTab] = useState(0);
-
-  const chartOption = {
-    xAxis: {
-      name: 'tototo',
-      type: 'category',
-      data: [
-        '02-JAN',
-        '09-JAN',
-        '16-JAN',
-        '02-FAB',
-        '09-FAB',
-        '16-FAB',
-        '02-MAR',
-        '09-MAR',
-        '16-MAR',
-        '02-APR',
-        '09-APR',
-      ],
-    },
-    yAxis: {
-      name: 'tototo2',
-      type: 'value',
-    },
-    data: {
-      max_prod: {
-        name: 'Max Production',
-        data: [220, 182, 191, 234, 290, 330, 310, 100, 170, 10, 190],
-      },
-      min_prod: {
-        name: 'Min Production',
-        data: [120, 132, 101, 134, 90, 230, 210, 20, 75, 60, 100],
-      },
-    },
-  };
 
   return (
     <View style={styles.container}>
@@ -73,14 +73,7 @@ export default function LayoutManager() {
         />
       </View>
       <View style={styles.mainContainer}>
-        <View
-          style={{
-            width: convertPxToDp(1087),
-            height: convertPxToDp(518),
-            backgroundColor: 'red',
-          }}>
-          <Chart config={chartOption} type={'line'} title={'Production Rato'} />
-        </View>
+        <CardView />
       </View>
     </View>
   );
