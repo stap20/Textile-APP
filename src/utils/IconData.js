@@ -144,6 +144,13 @@ const iconData = {
     stroke: theme.colors.primary,
     opacity: 0.7,
   },
+  'table-view-add-square': {
+    type: 'svg',
+    source: require('@assets/icons/add-square.js'),
+    width: convertPxToDp(28),
+    height: convertPxToDp(28),
+    color: theme.colors.primary,
+  },
 };
 
 export default iconData;

@@ -5,6 +5,7 @@ import RadarAnimation from './RadarAnimation';
 import Chart from './charts';
 import Icon from './Icon';
 import OrderCard from './OrderCard';
+import Table from './table';
 
 export {
   SidebarTabComponent,
@@ -14,4 +15,5 @@ export {
   Chart,
   Icon,
   OrderCard,
+  Table
 };
