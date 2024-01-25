@@ -5,7 +5,8 @@ import {useTheme} from '@theme/ThemeProvider';
 import {layoutStyles} from '@styles/screens/orders';
 import Header from './Header';
 import {CardView, TableView} from './views';
-
+import {TCharts, Chart} from '@components';
+import {convertPxToDp} from '@utils';
 // const chartOption = {
 //   xAxis: {
 //     name: 'tototo',
@@ -119,7 +120,39 @@ const data = [
     totalQuan: 50,
   },
 ];
-
+const chartOption = {
+  xAxis: {
+    name: 'tototo',
+    type: 'category',
+    data: [
+      '02-JAN',
+      '09-JAN',
+      '16-JAN',
+      '02-FAB',
+      '09-FAB',
+      '16-FAB',
+      '02-MAR',
+      '09-MAR',
+      '16-MAR',
+      '02-APR',
+      '09-APR',
+    ],
+  },
+  yAxis: {
+    name: 'tototo2',
+    type: 'value',
+  },
+  data: {
+    max_prod: {
+      name: 'Max Production',
+      data: [220, 182, 191, 234, 290, 330, 310, 100, 170, 10, 190],
+    },
+    min_prod: {
+      name: 'Min Production',
+      data: [120, 132, 101, 134, 90, 230, 210, 20, 75, 60, 100],
+    },
+  },
+};
 export default function LayoutManager() {
   const {theme, toggleTheme} = useTheme();
   const styles = layoutStyles(theme);
@@ -147,7 +180,14 @@ export default function LayoutManager() {
         {tabs[activeTab].id == 'card' ? (
           <CardView data={data} />
         ) : (
-          <TableView data={data} />
+          <View
+          style={{
+            width: convertPxToDp(1087),
+            height: convertPxToDp(518),
+            backgroundColor: 'red',
+          }}>
+          <Chart config={chartOption} type={'line'} title={'Production Rato'} />
+        </View>
         )}
       </View>
     </View>
