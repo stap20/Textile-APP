@@ -4,8 +4,7 @@ import {View, Text} from 'react-native';
 import {useTheme} from '@theme/ThemeProvider';
 import {layoutStyles} from '@styles/screens/orders';
 import Header from './Header';
-import OrdersScreen from '@screens/sidebar/orders/OrdersScreen';
-import {CardView} from './views';
+import {CardView, TableView} from './views';
 
 // const chartOption = {
 //   xAxis: {
@@ -41,13 +40,85 @@ import {CardView} from './views';
 //   },
 // };
 
-const tabs = [{title: 'Table'}, {title: 'Cards'}]; // Add more tabs as needed
+const tabs = [
+  {title: 'Table', id: 'table'},
+  {title: 'Cards', id: 'card'},
+]; // Add more tabs as needed
 const filters = [
-  {title: 'All'},
-  {title: 'Finished'},
-  {title: 'Pending'},
-  {title: 'In Progress'},
+  {title: 'All', id: 'all'},
+  {title: 'Finished', id: 'finish'},
+  {title: 'Pending', id: 'pending'},
+  {title: 'In Progress', id: 'stop'},
 ]; // Add more filters as needed
+
+const data = [
+  {
+    orderNumber: '#00001',
+    status: {state: 'finish', reason: 'Needle'},
+    startDate: new Date(2023, 9 - 1, 26),
+    endDate: new Date(2023, 10 - 1, 26),
+    stoppedHour: 36,
+    workingHour: 36,
+    numberOfMachines: 10,
+    finishedQuan: 15,
+    totalQuan: 50,
+  },
+  {
+    orderNumber: '#00002',
+    status: {state: 'finish', reason: 'Needle'},
+    startDate: new Date(2023, 9 - 1, 26),
+    endDate: new Date(2023, 10 - 1, 26),
+    stoppedHour: 36,
+    workingHour: 36,
+    numberOfMachines: 10,
+    finishedQuan: 15,
+    totalQuan: 50,
+  },
+  {
+    orderNumber: '#00003',
+    status: {state: 'finish', reason: 'Needle'},
+    startDate: new Date(2023, 9 - 1, 26),
+    endDate: new Date(2023, 10 - 1, 26),
+    stoppedHour: 36,
+    workingHour: 36,
+    numberOfMachines: 10,
+    finishedQuan: 15,
+    totalQuan: 50,
+  },
+  {
+    orderNumber: '#00004',
+    status: {state: 'finish', reason: 'Needle'},
+    startDate: new Date(2023, 9 - 1, 26),
+    endDate: new Date(2023, 10 - 1, 26),
+    stoppedHour: 36,
+    workingHour: 36,
+    numberOfMachines: 10,
+    finishedQuan: 15,
+    totalQuan: 50,
+  },
+  {
+    orderNumber: '#00005',
+    status: {state: 'finish', reason: 'Needle'},
+    startDate: new Date(2023, 9 - 1, 26),
+    endDate: new Date(2023, 10 - 1, 26),
+    stoppedHour: 36,
+    workingHour: 36,
+    numberOfMachines: 10,
+    finishedQuan: 15,
+    totalQuan: 50,
+  },
+  {
+    orderNumber: '#00006',
+    status: {state: 'finish', reason: 'Needle'},
+    startDate: new Date(2023, 9 - 1, 26),
+    endDate: new Date(2023, 10 - 1, 26),
+    stoppedHour: 36,
+    workingHour: 36,
+    numberOfMachines: 10,
+    finishedQuan: 15,
+    totalQuan: 50,
+  },
+];
 
 export default function LayoutManager() {
   const {theme, toggleTheme} = useTheme();
@@ -73,7 +144,11 @@ export default function LayoutManager() {
         />
       </View>
       <View style={styles.mainContainer}>
-        <CardView />
+        {tabs[activeTab].id == 'card' ? (
+          <CardView data={data} />
+        ) : (
+          <TableView data={data} />
+        )}
       </View>
     </View>
   );

@@ -120,6 +120,30 @@ const iconData = {
     height: convertPxToDp(56),
     color: theme.colors.secondary,
   },
+  'card-chip-stop-hours': {
+    type: 'svg',
+    source: require('@assets/icons/stop-hours.js'),
+    width: convertPxToDp(25),
+    height: convertPxToDp(25),
+    stroke: theme.colors.primary,
+    opacity: 0.7,
+  },
+  'card-chip-working-hours': {
+    type: 'svg',
+    source: require('@assets/icons/working-hours.js'),
+    width: convertPxToDp(25),
+    height: convertPxToDp(25),
+    stroke: theme.colors.primary,
+    opacity: 0.7,
+  },
+  'card-chip-machine': {
+    type: 'svg',
+    source: require('@assets/icons/machine-outline.js'),
+    width: convertPxToDp(27),
+    height: convertPxToDp(27),
+    stroke: theme.colors.primary,
+    opacity: 0.7,
+  },
 };
 
 export default iconData;

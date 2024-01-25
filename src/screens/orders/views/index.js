@@ -1,3 +1,4 @@
 import CardView from './CardView';
+import TableView from './TableView'
 
-export {CardView};
+export {CardView,TableView};

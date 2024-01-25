@@ -8,6 +8,7 @@ export default function SvgIconWrapper({
   height = 24,
   color = 'none',
   stroke = 'none',
+  opacity = 1,
 }) {
   return (
     <SvgXml
@@ -16,6 +17,7 @@ export default function SvgIconWrapper({
       height={height}
       fill={color}
       stroke={stroke}
+      opacity={opacity}
     />
   );
 }

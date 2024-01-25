@@ -4,7 +4,7 @@ import {View, Text} from 'react-native';
 import {useTheme} from '@theme/ThemeProvider';
 import {layoutStyles} from '@styles/screens/orders';
 
-export default function CardView() {
+export default function TableView() {
   const {theme, toggleTheme} = useTheme();
   const styles = layoutStyles(theme);
 

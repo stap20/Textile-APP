@@ -41,7 +41,7 @@ export default orderCardStyle = theme => {
     },
     startDateContainer: {
       flexDirection: 'row',
-      marginBottom: convertPxToDp(30),
+      marginBottom: convertPxToDp(20),
     },
     startDateTitle: {
       color: theme.colors.primary,
@@ -58,7 +58,7 @@ export default orderCardStyle = theme => {
 
     endDateContainer: {
       flexDirection: 'row',
-      marginBottom: convertPxToDp(22),
+      marginBottom: convertPxToDp(20),
     },
     endDateTitle: {
       color: theme.colors.primary,
@@ -73,8 +73,48 @@ export default orderCardStyle = theme => {
       fontWeight: '500',
     },
 
-    orderDetailsChipContainer:{
-      
-    }
+    orderSummaryChipContainer: {
+      flexDirection: 'row',
+      height: convertPxToDp(45),
+      marginBottom: convertPxToDp(15),
+    },
+
+    footer: {
+      flex: 1,
+      flexDirection: 'row',
+    },
+    progressContainer: {
+      flex: 1,
+    },
+    progressTitleContainer: {
+      marginBottom: convertPxToDp(8),
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    progressText: {
+      color: theme.colors.primary,
+      fontSize: convertPxToDp(20),
+      fontWeight: '600',
+    },
+    progressDetails: {
+      alignSelf: 'flex-end',
+      color: theme.colors.primary,
+      fontSize: convertPxToDp(16),
+      fontWeight: '500',
+    },
+
+    viewBtn: {
+      justifyContent:'center',
+      alignItems:'center',
+      width: convertPxToDp(141),
+      marginLeft: convertPxToDp(67),
+      borderRadius: convertPxToDp(10),
+      backgroundColor: theme.colors.primary,
+    },
+    viewBtnText: {
+      color: theme.colors.btnPrimary,
+      fontSize: convertPxToDp(16),
+      fontWeight: '600',
+    },
   });
 };

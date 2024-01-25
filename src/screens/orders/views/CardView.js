@@ -1,51 +1,46 @@
 // LayoutManager.js
 import React, {useState} from 'react';
-import {View, Text, FlatList, StyleSheet} from 'react-native';
+import {View, Text, FlatList, TouchableOpacity} from 'react-native';
 import {useTheme} from '@theme/ThemeProvider';
 import {cardViewStyle} from '@styles/screens/orders';
 import {Icon, OrderCard} from '@components';
 
-export default function CardView() {
+export default function CardView({data}) {
   const {theme} = useTheme();
   const styles = cardViewStyle(theme);
+  const numColumns = 3;
+  const CardsData = [{id: 'static', static: true}, ...data];
 
-  const data = [
-    {id: 'static', text: 'Static', static: true},
-    {id: 'dynamic1', text: 'Dynamic 1', static: false},
-    {id: 'dynamic2', text: 'Dynamic 2', static: false},
-    {id: 'dynamic3', text: 'Dynamic 1', static: false},
-    {id: 'dynamic4', text: 'Dynamic 2', static: false},
-    {id: 'dynamic5', text: 'Dynamic 1', static: false},
-    {id: 'dynamic6', text: 'Dynamic 2', static: false},
-    {id: 'dynamic7', text: 'Dynamic 1', static: false},
-    {id: 'dynamic8', text: 'Dynamic 2', static: false},
-    // Add more dynamic items as needed
-  ];
-
-  const AddBtn = () => {
+  const AddBtn = ({style}) => {
     return (
-      <View style={styles.addOrderContainer}>
+      <TouchableOpacity style={[styles.addOrderContainer, style]}>
         <Icon iconName={'add-square'} />
         <Text style={styles.addOrderText}>Add Order</Text>
-      </View>
+      </TouchableOpacity>
     );
   };
 
-  const renderItem = ({item}) => {
-    return item.static ? <AddBtn /> : <OrderCard />;
+  const renderItem = ({item, index}) => {
+    return item.static ? (
+      <AddBtn style={{marginRight: 'auto'}} />
+    ) : (
+      <OrderCard
+        style={
+          index % numColumns !== numColumns - 1 ? {marginRight: 'auto'} : {}
+        }
+        {...item}
+      />
+    );
   };
 
   return (
     <View style={styles.container}>
       <FlatList
-        data={data}
+        data={CardsData}
         renderItem={renderItem}
-        keyExtractor={item => item.id}
+        keyExtractor={(item, index) => index}
         scrollEnabled={true}
-        numColumns={3}
-        columnWrapperStyle={{
-          justifyContent: 'space-between',
-        }}
+        numColumns={numColumns}
         showsVerticalScrollIndicator={false}
       />
     </View>

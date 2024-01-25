@@ -17,7 +17,8 @@ const Icon = ({iconName}) => {
     );
   }
 
-  const {type, name, size, width, height, color, source, stroke} = iconInfo;
+  const {type, name, size, width, height, color, source, stroke, opacity} =
+    iconInfo;
 
   if (type === 'svg') {
     return (
@@ -27,6 +28,7 @@ const Icon = ({iconName}) => {
         height={height}
         color={color ?? 'none'}
         stroke={stroke ?? 'none'}
+        opacity={opacity ?? 1}
       />
     );
   }
