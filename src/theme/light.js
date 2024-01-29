@@ -27,8 +27,11 @@ const lightTheme = {
     secondary: '#3C4446BF',
     btnPrimary: '#FFFFFF',
     finsishedStatus: '#198754',
+    inprogressStatus: '#007BFF',
     pendingStatus: '#F29B26',
     stoppedStatus: '#DC3545',
+    editIcon: '#624DE3',
+    trashIcon: '#DC3545',
   },
   spacing: {
     small: '8px',

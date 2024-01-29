@@ -151,6 +151,20 @@ const iconData = {
     height: convertPxToDp(28),
     color: theme.colors.primary,
   },
+  'edit-crud': {
+    type: 'svg',
+    source: require('@assets/icons/edit.js'),
+    width: convertPxToDp(28),
+    height: convertPxToDp(28),
+    stroke: theme.colors.editIcon,
+  },
+  'trash-crud': {
+    type: 'svg',
+    source: require('@assets/icons/trash.js'),
+    width: convertPxToDp(28),
+    height: convertPxToDp(28),
+    stroke: theme.colors.trashIcon,
+  },
 };
 
 export default iconData;

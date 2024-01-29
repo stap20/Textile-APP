@@ -54,7 +54,7 @@ const filters = [
 const data = [
   {
     orderNumber: '#00001',
-    status: {state: 'finish', reason: 'Needle'},
+    status: {state: 'inprogress', reason: 'Needle'},
     startDate: new Date(2023, 9 - 1, 26),
     endDate: new Date(2023, 10 - 1, 26),
     stoppedHour: 36,
@@ -76,7 +76,7 @@ const data = [
   },
   {
     orderNumber: '#00003',
-    status: {state: 'finish', reason: 'Needle'},
+    status: {state: 'pending', reason: 'Needle'},
     startDate: new Date(2023, 9 - 1, 26),
     endDate: new Date(2023, 10 - 1, 26),
     stoppedHour: 36,
@@ -87,7 +87,7 @@ const data = [
   },
   {
     orderNumber: '#00004',
-    status: {state: 'finish', reason: 'Needle'},
+    status: {state: 'stop', reason: 'Needle'},
     startDate: new Date(2023, 9 - 1, 26),
     endDate: new Date(2023, 10 - 1, 26),
     stoppedHour: 36,
@@ -120,6 +120,29 @@ const data = [
   },
 ];
 
+const prepareData = data => {
+  return data.map((item, idx) => {
+    const {finishedQuan, totalQuan, startDate, endDate, ...other} = item;
+
+    return {
+      progress: parseInt((finishedQuan / totalQuan) * 100),
+      progressDetails: `${item.finishedQuan} / ${item.totalQuan}`,
+      startDate:
+        startDate.getDate() +
+        ' / ' +
+        (startDate.getMonth() + 1) +
+        ' / ' +
+        startDate.getFullYear(),
+      endDate:
+        endDate.getDate() +
+        ' / ' +
+        (endDate.getMonth() + 1) +
+        ' / ' +
+        endDate.getFullYear(),
+      ...other,
+    };
+  });
+};
 export default function LayoutManager() {
   const {theme, toggleTheme} = useTheme();
   const styles = layoutStyles(theme);
@@ -145,9 +168,9 @@ export default function LayoutManager() {
       </View>
       <View style={styles.mainContainer}>
         {tabs[activeTab].id == 'card' ? (
-          <CardView data={data} />
+          <CardView data={prepareData(data)} />
         ) : (
-          <TableView data={data} />
+          <TableView data={prepareData(data)} />
         )}
       </View>
     </View>

@@ -104,8 +104,8 @@ export default orderCardStyle = theme => {
     },
 
     viewBtn: {
-      justifyContent:'center',
-      alignItems:'center',
+      justifyContent: 'center',
+      alignItems: 'center',
       width: convertPxToDp(141),
       marginLeft: convertPxToDp(67),
       borderRadius: convertPxToDp(10),

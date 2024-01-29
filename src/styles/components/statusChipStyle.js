@@ -1,10 +1,12 @@
 import {StyleSheet} from 'react-native';
 import {convertPxToDp} from '@utils';
 
-export default statusChipStyle = (theme, state) => {
+export default statusChipStyle = (theme, state, size) => {
   var color = '';
   if (state == 'finish') {
     color = theme.colors.finsishedStatus;
+  } else if (state == 'inprogress') {
+    color = theme.colors.inprogressStatus;
   } else if (state == 'pending') {
     color = theme.colors.pendingStatus;
   } else if (state == 'stop') {
@@ -16,6 +18,7 @@ export default statusChipStyle = (theme, state) => {
   return StyleSheet.create({
     container: {
       flexDirection: 'row',
+      alignSelf: 'center',
       justifyContent: 'center',
       alignItems: 'center',
       padding: convertPxToDp(12),
@@ -24,8 +27,8 @@ export default statusChipStyle = (theme, state) => {
     },
 
     symbol: {
-      width: convertPxToDp(15),
-      height: convertPxToDp(15),
+      width: convertPxToDp(size === 'md' ? 13 : 15),
+      height: convertPxToDp(size === 'md' ? 13 : 15),
       borderRadius: convertPxToDp(30),
       backgroundColor: color,
     },

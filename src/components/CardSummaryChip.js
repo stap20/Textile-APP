@@ -4,7 +4,7 @@ import {useTheme} from '@theme/ThemeProvider';
 import cardSummaryChip from '@styles/components/cardSummaryChipStyle';
 import Icon from './Icon';
 
-export default function StatusChip({type, value, style = {}}) {
+export default function CardSummaryChip({type, value, style = {}}) {
   const {theme} = useTheme();
   const styles = cardSummaryChip(theme);
 

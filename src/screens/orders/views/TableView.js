@@ -3,7 +3,19 @@ import React, {useState} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import {useTheme} from '@theme/ThemeProvider';
 import {tableViewStyle} from '@styles/screens/orders';
-import {Icon, Table} from '@components';
+import {Icon, OrderTable} from '@components';
+
+const header = [
+  {key: 'orderNumber', title: 'Order Number'},
+  {key: 'startDate', title: 'Start'},
+  {key: 'endDate', title: 'End'},
+  {key: 'progressDetails', title: 'No. of Rolls'},
+  {key: 'workingHour', title: 'Working Hours'},
+  {key: 'stoppedHour', title: 'Stop Hours'},
+  {key: 'numberOfMachines', title: 'Machines Number'},
+  {key: 'progress', title: 'Progress'},
+  {key: 'status', title: 'Status'},
+];
 
 export default function TableView({data}) {
   const {theme} = useTheme();
@@ -17,9 +29,7 @@ export default function TableView({data}) {
       </TouchableOpacity>
 
       <View style={styles.tableContainer}>
-        <Table
-          data={data}
-        />
+        <OrderTable data={data} headerList={header} />
       </View>
     </View>
   );
