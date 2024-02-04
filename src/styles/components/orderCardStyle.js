@@ -31,7 +31,7 @@ export default orderCardStyle = theme => {
       textAlign: 'center',
       textAlignVertical: 'center',
       color: theme.colors.primary,
-      fontSize: convertPxToDp(18),
+      fontSize: convertPxToDp(20),
       fontWeight: '500',
     },
 
@@ -52,7 +52,7 @@ export default orderCardStyle = theme => {
       textAlign: 'center',
       textAlignVertical: 'center',
       color: theme.colors.primary,
-      fontSize: convertPxToDp(18),
+      fontSize: convertPxToDp(20),
       fontWeight: '500',
     },
 
@@ -69,7 +69,7 @@ export default orderCardStyle = theme => {
       textAlign: 'center',
       textAlignVertical: 'center',
       color: theme.colors.primary,
-      fontSize: convertPxToDp(18),
+      fontSize: convertPxToDp(20),
       fontWeight: '500',
     },
 

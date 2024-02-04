@@ -5,6 +5,7 @@ import {useTheme} from '@theme/ThemeProvider';
 import {layoutStyles} from '@styles/screens/orders';
 import Header from './Header';
 import {CardView, TableView} from './views';
+import {OrderHandler} from '@services/graphql';
 
 // const chartOption = {
 //   xAxis: {
@@ -41,84 +42,17 @@ import {CardView, TableView} from './views';
 // };
 
 const tabs = [
-  {title: 'Table', id: 'table'},
-  {title: 'Cards', id: 'card'},
+  {title: 'Table', id: 'table', view: TableView},
+  {title: 'Cards', id: 'card', view: CardView},
 ]; // Add more tabs as needed
 const filters = [
   {title: 'All', id: 'all'},
   {title: 'Finished', id: 'finish'},
   {title: 'Pending', id: 'pending'},
-  {title: 'In Progress', id: 'stop'},
+  {title: 'In Progress', id: 'inprogress'},
 ]; // Add more filters as needed
 
-const data = [
-  {
-    orderNumber: '#00001',
-    status: {state: 'inprogress', reason: 'Needle'},
-    startDate: new Date(2023, 9 - 1, 26),
-    endDate: new Date(2023, 10 - 1, 26),
-    stoppedHour: 36,
-    workingHour: 36,
-    numberOfMachines: 10,
-    finishedQuan: 15,
-    totalQuan: 50,
-  },
-  {
-    orderNumber: '#00002',
-    status: {state: 'finish', reason: 'Needle'},
-    startDate: new Date(2023, 9 - 1, 26),
-    endDate: new Date(2023, 10 - 1, 26),
-    stoppedHour: 36,
-    workingHour: 36,
-    numberOfMachines: 10,
-    finishedQuan: 15,
-    totalQuan: 50,
-  },
-  {
-    orderNumber: '#00003',
-    status: {state: 'pending', reason: 'Needle'},
-    startDate: new Date(2023, 9 - 1, 26),
-    endDate: new Date(2023, 10 - 1, 26),
-    stoppedHour: 36,
-    workingHour: 36,
-    numberOfMachines: 10,
-    finishedQuan: 15,
-    totalQuan: 50,
-  },
-  {
-    orderNumber: '#00004',
-    status: {state: 'stop', reason: 'Needle'},
-    startDate: new Date(2023, 9 - 1, 26),
-    endDate: new Date(2023, 10 - 1, 26),
-    stoppedHour: 36,
-    workingHour: 36,
-    numberOfMachines: 10,
-    finishedQuan: 15,
-    totalQuan: 50,
-  },
-  {
-    orderNumber: '#00005',
-    status: {state: 'finish', reason: 'Needle'},
-    startDate: new Date(2023, 9 - 1, 26),
-    endDate: new Date(2023, 10 - 1, 26),
-    stoppedHour: 36,
-    workingHour: 36,
-    numberOfMachines: 10,
-    finishedQuan: 15,
-    totalQuan: 50,
-  },
-  {
-    orderNumber: '#00006',
-    status: {state: 'finish', reason: 'Needle'},
-    startDate: new Date(2023, 9 - 1, 26),
-    endDate: new Date(2023, 10 - 1, 26),
-    stoppedHour: 36,
-    workingHour: 36,
-    numberOfMachines: 10,
-    finishedQuan: 15,
-    totalQuan: 50,
-  },
-];
+const data = OrderHandler.Order.getOrdersData();
 
 const prepareData = data => {
   return data.map((item, idx) => {
@@ -143,12 +77,15 @@ const prepareData = data => {
     };
   });
 };
+
 export default function LayoutManager() {
   const {theme, toggleTheme} = useTheme();
   const styles = layoutStyles(theme);
 
   const [activeTab, setActiveTab] = useState(0);
   const [activeFilterTab, setActiveFilterTab] = useState(0);
+
+  const CurrentView = tabs[activeTab].view;
 
   return (
     <View style={styles.container}>
@@ -167,11 +104,7 @@ export default function LayoutManager() {
         />
       </View>
       <View style={styles.mainContainer}>
-        {tabs[activeTab].id == 'card' ? (
-          <CardView data={prepareData(data)} />
-        ) : (
-          <TableView data={prepareData(data)} />
-        )}
+        <CurrentView data={prepareData(data)} />
       </View>
     </View>
   );

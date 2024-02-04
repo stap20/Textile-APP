@@ -12,8 +12,10 @@ export default chartStyles = theme => {
     },
     header: {
       flexDirection: 'row',
-      height: convertPxToDp(50),
       marginBottom: convertPxToDp(20),
+      borderBottomWidth:convertPxToDp(1),
+      borderColor: '#3C444666',
+      paddingBottom:convertPxToDp(17),
     },
 
     filterContainer: {
@@ -38,9 +40,6 @@ export default chartStyles = theme => {
 
     chartArea: {
       flex: 1,
-      borderTopWidth: convertPxToDp(1),
-      paddingTop:convertPxToDp(17),
-      borderColor: '#3C444666',
     },
   });
 };

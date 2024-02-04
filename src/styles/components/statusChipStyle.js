@@ -3,7 +3,7 @@ import {convertPxToDp} from '@utils';
 
 export default statusChipStyle = (theme, state, size) => {
   var color = '';
-  if (state == 'finish') {
+  if (state == 'finish' || state == 'working') {
     color = theme.colors.finsishedStatus;
   } else if (state == 'inprogress') {
     color = theme.colors.inprogressStatus;

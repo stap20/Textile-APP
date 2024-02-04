@@ -16,7 +16,6 @@ export default function LayoutManager({navigation, descriptors, state}) {
   const changeLanguage = language => {
     LocalizationManager.setCurrentLanguage(language);
   };
-
   return (
     <View style={styles.container}>
       <View style={styles.sidebarContainer}>

@@ -11,6 +11,7 @@ export default function StatusChip({status, size = 'lg'}) {
 
   var statusText = {
     finish: 'Finsihed',
+    working:'Working',
     pending: 'Pending',
     inprogress: 'In Progress',
     stop: 'Stopped : ' + reason,

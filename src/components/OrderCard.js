@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, TouchableOpacity, Text} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import {useTheme} from '@theme/ThemeProvider';
 import orderCardStyle from '@styles/components/orderCardStyle';
 import StatusChip from './StatusChip';
@@ -9,6 +10,7 @@ import ProgressBar from './ProgressBar';
 export default function OrderCard(props) {
   const {theme} = useTheme();
   const styles = orderCardStyle(theme);
+  const navigation = useNavigation();
 
   const {
     orderNumber = '1234567',
@@ -62,7 +64,14 @@ export default function OrderCard(props) {
               {finishedQuan} Roll/{totalQuan}
             </Text>
           </View>
-          <TouchableOpacity style={styles.viewBtn} onPress={() => {}}>
+          <TouchableOpacity
+            style={styles.viewBtn}
+            onPress={() => {
+              navigation.navigate('orders', {
+                screen: 'order_profile_screen',
+                params: {orderNumber: orderNumber},
+              });
+            }}>
             <Text style={styles.viewBtnText}>View Order</Text>
           </TouchableOpacity>
         </View>

@@ -4,8 +4,9 @@ import {
   createNavigatorFactory,
   TabRouter,
 } from '@react-navigation/native';
+import LayoutManager from '@layout';
 
-function TabNavigator({initialRouteName, children, screenOptions, LayoutManager}) {
+function TabNavigator({initialRouteName, children, screenOptions}) {
   const {state, navigation, descriptors, NavigationContent} =
     useNavigationBuilder(TabRouter, {
       children,

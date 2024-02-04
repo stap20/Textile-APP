@@ -28,7 +28,7 @@ export function generateLineChartOption({
       trigger: 'axis',
     },
     grid: {
-      left: 45,
+      left: 50,
       top: 10,
       right: 10,
       bottom: 20,

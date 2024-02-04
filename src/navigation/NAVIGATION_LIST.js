@@ -1,5 +1,6 @@
 import HomeScreen from '@screens/HomeScreen';
-import OrdersScreen from '@screens/orders';
+import OrderNavigation from './OrderNavigation';
+import MachinesScreen from '@screens/machines'
 
 export default [
   {
@@ -13,7 +14,7 @@ export default [
   },
   {
     name: 'add_machine',
-    component: OrdersScreen,
+    component: MachinesScreen,
     options: {
       active_icon: 'add-square',
       icon: 'add-square-outline',
@@ -22,7 +23,7 @@ export default [
   },
   {
     name: 'machines',
-    component: OrdersScreen,
+    component: MachinesScreen,
     options: {
       active_icon: 'machine',
       icon: 'machine-outline',
@@ -31,7 +32,7 @@ export default [
   },
   {
     name: 'create_order',
-    component: OrdersScreen,
+    component: MachinesScreen,
     options: {
       active_icon: 'additem',
       icon: 'additem-outline',
@@ -40,7 +41,7 @@ export default [
   },
   {
     name: 'orders',
-    component: OrdersScreen,
+    component: OrderNavigation,
     options: {
       active_icon: 'document',
       icon: 'document-outline',
@@ -49,7 +50,7 @@ export default [
   },
   {
     name: 'create_profile',
-    component: OrdersScreen,
+    component: MachinesScreen,
     options: {
       active_icon: 'folder-add',
       icon: 'folder-add-outline',
@@ -58,7 +59,7 @@ export default [
   },
   {
     name: 'attachments',
-    component: OrdersScreen,
+    component: MachinesScreen,
     options: {
       active_icon: 'attach',
       icon: 'attach-outline',
@@ -67,7 +68,7 @@ export default [
   },
   {
     name: 'users',
-    component: OrdersScreen,
+    component: MachinesScreen,
     options: {
       active_icon: 'users',
       icon: 'users-outline',

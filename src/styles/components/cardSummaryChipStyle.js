@@ -1,7 +1,9 @@
 import {StyleSheet} from 'react-native';
 import {convertPxToDp} from '@utils';
 
-export default cardSummaryChipStyle = theme => {
+export default cardSummaryChipStyle = (theme, color=null) => {
+  var currentColor = color != null ? color : theme.colors.primary;
+
   return StyleSheet.create({
     container: {
       minWidth: convertPxToDp(116),
@@ -10,7 +12,7 @@ export default cardSummaryChipStyle = theme => {
       justifyContent: 'center',
       alignItems: 'center',
       padding: convertPxToDp(10),
-      backgroundColor: theme.colors.primary + '1A',
+      backgroundColor:currentColor + '1A',
       borderRadius: convertPxToDp(15),
     },
 
@@ -22,7 +24,7 @@ export default cardSummaryChipStyle = theme => {
     detailsText: {
       textAlignVertical: 'center',
       textAlign: 'center',
-      color: theme.colors.primary,
+      color: currentColor,
       fontSize: convertPxToDp(15),
       fontWeight: '600',
       opacity: 0.7,

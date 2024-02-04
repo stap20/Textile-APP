@@ -10,9 +10,17 @@ export default filterStyles = () => {
       overflow: 'hidden',
     },
 
+    sideContainer: {
+      padding: 5,
+    },
+
     groupContainer: {
       justifyContent: 'space-between',
       marginLeft: convertPxToDp(45),
+    },
+
+    rowGroupContainer: {
+      marginBottom: 5,
     },
   });
 };

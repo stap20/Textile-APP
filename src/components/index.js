@@ -6,7 +6,9 @@ import Chart from './charts';
 import Icon from './Icon';
 import OrderCard from './OrderCard';
 import OrderTable from './OrderTable';
-
+import MachineTable from './MachineTable';
+import MachineCard from './MachineCard';
+import OrderProfileSummaryCard from './OrderProfileSummaryCard';
 export {
   SidebarTabComponent,
   FilterSwitchComponent,
@@ -16,4 +18,7 @@ export {
   Icon,
   OrderCard,
   OrderTable,
+  MachineCard,
+  MachineTable,
+  OrderProfileSummaryCard,
 };

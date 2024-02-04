@@ -5,7 +5,7 @@ import SvgIconWrapper from './SvgIconWrapper'; // Path to SvgIconWrapper
 import IconWrapper from './IconWrapper';
 import {iconData} from '@utils'; // Path to your icon dataset
 
-const Icon = ({iconName}) => {
+const Icon = ({iconName, iconColor = null}) => {
   const iconInfo = iconData[iconName];
 
   if (!iconInfo) {
@@ -20,20 +20,22 @@ const Icon = ({iconName}) => {
   const {type, name, size, width, height, color, source, stroke, opacity} =
     iconInfo;
 
+  const currentColor = iconColor != null ? iconColor : color;
+
   if (type === 'svg') {
     return (
       <SvgIconWrapper
         svgSource={source}
         width={width}
         height={height}
-        color={color ?? 'none'}
+        color={currentColor ?? 'none'}
         stroke={stroke ?? 'none'}
         opacity={opacity ?? 1}
       />
     );
   }
 
-  return <IconWrapper type={type} name={name} size={size} color={color} />;
+  return <IconWrapper type={type} name={name} size={size} color={currentColor} />;
 };
 
 export default Icon;

@@ -2,6 +2,7 @@
 import React, {useState} from 'react';
 import {View, Text, FlatList, TouchableOpacity} from 'react-native';
 import {useTheme} from '@theme/ThemeProvider';
+import {useNavigation} from '@react-navigation/native';
 import orderTableStyle from '@styles/components/orderTableStyle';
 import StatusChip from './StatusChip';
 import ProgressBar from './ProgressBar';
@@ -10,7 +11,8 @@ import Icon from './Icon';
 export default function OrderTable({data, headerList, isAction = true}) {
   const {theme} = useTheme();
   const styles = orderTableStyle(theme);
-
+  const navigation = useNavigation();
+  
   const renderHeader = () => {
     return (
       <View style={styles.headerRow}>
@@ -29,6 +31,12 @@ export default function OrderTable({data, headerList, isAction = true}) {
   const renderRow = ({item, index}) => {
     return (
       <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('orders', {
+            screen: 'order_profile_screen',
+            params: {orderNumber: item.orderNumber},
+          });
+        }}
         style={[
           styles.dataRow,
           {backgroundColor: index % 2 == 0 ? '#F7F6FE' : 'white'},

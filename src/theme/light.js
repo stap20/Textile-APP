@@ -7,6 +7,8 @@ const lightTheme = {
     tabSwitchActiveTab: '#F5F7F7',
     progressBarTrack: '#E9E9E9',
     progressBarFill: '#3C4446',
+    cardContainer: '#FFFFFF',
+    summarySeperator: '#3C444666',
   },
   filterSymbolColors: [
     '#FF5733',
@@ -30,8 +32,20 @@ const lightTheme = {
     inprogressStatus: '#007BFF',
     pendingStatus: '#F29B26',
     stoppedStatus: '#DC3545',
-    editIcon: '#624DE3',
-    trashIcon: '#DC3545',
+
+    goodEfficiency: '#198754',
+    normalEfficiency: '#F29B26',
+    dangerEfficiency: '#DC3545',
+  },
+  icons: {
+    edit: '#624DE3',
+    trash: '#DC3545',
+    check: '#3C4446',
+    stopHoursSquare: '#DC3545',
+    workingHoursSquare: '#198754',
+    inprogressSquare: '#007BFF',
+    pendingSquare: '#F29B26',
+    doneSquare: '#198754',
   },
   spacing: {
     small: '8px',

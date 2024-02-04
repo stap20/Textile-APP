@@ -6,7 +6,7 @@ import ChartWraper from './ChartWraper';
 import Filter from './Filter';
 import {generateLineChartOption, processLineChartData} from '../utils';
 
-export default function LineChart({config, title}) {
+export default function LineChart({config, title, isClickableFilter}) {
   const {theme} = useTheme();
   const styles = chartStyles(theme);
   const {xAxis, yAxis, data} = config;
@@ -36,6 +36,7 @@ export default function LineChart({config, title}) {
           data={filterData}
           onToggle={handleToggleVisibility}
           numberOfRows={2}
+          isClickable={isClickableFilter && filterData.length > 1}
         />
       </View>
       <View style={styles.chartArea}>

@@ -14,7 +14,7 @@ const switchTabStyle = (theme, isActive) => {
         : 'transparent',
     },
     title: {
-      fontSize: convertPxToDp(22),
+      fontSize: convertPxToDp(20),
       fontWeight: '600',
       color: isActive
         ? theme.colors.primary
