@@ -4,16 +4,7 @@ import {useTheme} from '@theme/ThemeProvider';
 import orderProfileSummaryCardStyle from '@styles/components/orderProfileSummaryCardStyle';
 import Icon from './Icon';
 
-function prepareDuration(minutes) {
-  // Calculate the number of hours
-  var hours = Math.floor(minutes / 60);
-
-  // Calculate the remaining minutes
-  var remainingMinutes = minutes % 60;
-
-  // Return the result as a string
-  return hours + 'h ' + remainingMinutes + 'm';
-}
+import {prepareDuration} from '@utils';
 
 export default function OrderProfileSummaryCard(props) {
   const {theme} = useTheme();

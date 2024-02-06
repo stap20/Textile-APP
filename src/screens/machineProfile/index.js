@@ -2,8 +2,8 @@
 import React from 'react';
 import LayoutManager from './LayoutManager';
 
-export default function OrderProfile({route}) {
-  const {orderNumber} = route.params;
+export default function MachineProfile({route}) {
+  const {MachineNumber} = route.params;
 
-  return <LayoutManager orderNumber={orderNumber} />;
+  return <LayoutManager MachineNumber={MachineNumber} />;
 }

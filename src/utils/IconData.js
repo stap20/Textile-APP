@@ -234,6 +234,24 @@ const iconData = {
     color: iconColors.doneSquare,
     stroke: iconColors.doneSquare,
   },
+
+  'machine-summary-stop-number': {
+    type: 'svg',
+    source: require('@assets/icons/exclamation-square.js'),
+    width: convertPxToDp(50),
+    height: convertPxToDp(50),
+    color: iconColors.exclamationSquare,
+    stroke: iconColors.exclamationSquare,
+  },
+
+  'machine-summary-efficiency': {
+    type: 'svg',
+    source: require('@assets/icons/effieciency-square.js'),
+    width: convertPxToDp(50),
+    height: convertPxToDp(50),
+    color: iconColors.efficiencySquare,
+    stroke: iconColors.efficiencySquare,
+  },
 };
 
 export default iconData;

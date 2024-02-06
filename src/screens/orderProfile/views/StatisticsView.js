@@ -5,17 +5,7 @@ import {useTheme} from '@theme/ThemeProvider';
 import {statisticsViewStyle} from '@styles/screens/orderProfile';
 import {OrderProfileSummaryCard, Chart} from '@components';
 import {OrderProfileHandler} from '@services/graphql';
-
-function prepareDuration(minutes) {
-  // Calculate the number of hours
-  var hours = Math.floor(minutes / 60);
-
-  // Calculate the remaining minutes
-  var remainingMinutes = minutes % 60;
-
-  // Return the result as a string
-  return hours + 'h ' + remainingMinutes + 'm';
-}
+import {prepareDuration} from '@utils';
 
 export default function StatisticsView({orderNumber}) {
   const {theme} = useTheme();
@@ -70,7 +60,7 @@ export default function StatisticsView({orderNumber}) {
 
   const machinesEfficiencyChart = {
     xAxis: {
-      name: 'Days',
+      name: 'Machines',
       type: 'category',
       data: machinesEfficiencyData.xAxis,
     },
@@ -106,7 +96,7 @@ export default function StatisticsView({orderNumber}) {
             config={machinesProductionChart}
             type={'pie'}
             isClickableFilter={false}
-            display={(value, name) => {
+            display={({value, name}) => {
               return `  ${name} \n\n ${value} Roll`;
             }}
           />
@@ -127,7 +117,7 @@ export default function StatisticsView({orderNumber}) {
             config={productionDurationChart}
             type={'pie'}
             isClickableFilter={false}
-            display={(value, name) => {
+            display={({value, name}) => {
               return `${name} \n\n ${prepareDuration(value)}`;
             }}
           />

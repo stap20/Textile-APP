@@ -58,7 +58,7 @@ export function generateLineChartOption({
         align: 'center',
         fontSize: 14,
         fontWeight: 400,
-        rotate: 45,
+        rotate: 90,
         margin: 10,
       },
       ...xAxis,

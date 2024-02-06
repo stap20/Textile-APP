@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
-import {LineChart, PieChart,BarChart} from './components';
+import {LineChart, PieChart, BarChart, GuageChart} from './components';
 
 const chart = {
   line: LineChart,
   pie: PieChart,
   bar: BarChart,
+  guage: GuageChart,
 };
+
 export default function Chart({
   config,
   type,

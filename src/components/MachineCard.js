@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, TouchableOpacity, Text} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import {useTheme} from '@theme/ThemeProvider';
 import machineCardStyle from '@styles/components/machineCardStyle';
 import StatusChip from './StatusChip';
@@ -9,6 +10,7 @@ import ProgressBar from './ProgressBar';
 export default function MachineCard(props) {
   const {theme} = useTheme();
   const styles = machineCardStyle(theme);
+  const navigation = useNavigation();
 
   const {
     machineName = 'Machine-PAILUNG-1',
@@ -76,7 +78,14 @@ export default function MachineCard(props) {
 
             <ProgressBar progress={progress} />
           </View>
-          <TouchableOpacity style={styles.viewBtn} onPress={() => {}}>
+          <TouchableOpacity
+            style={styles.viewBtn}
+            onPress={() => {
+              navigation.navigate('machines', {
+                screen: 'machine_profile_screen',
+                params: {machineNumber: machineNumber},
+              });
+            }}>
             <Text style={styles.viewBtnText}>View Profile</Text>
           </TouchableOpacity>
         </View>

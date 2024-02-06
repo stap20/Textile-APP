@@ -9,6 +9,8 @@ import OrderTable from './OrderTable';
 import MachineTable from './MachineTable';
 import MachineCard from './MachineCard';
 import OrderProfileSummaryCard from './OrderProfileSummaryCard';
+import MachineProfileSummaryCard from './MachineProfileSummaryCard';
+
 export {
   SidebarTabComponent,
   FilterSwitchComponent,
@@ -21,4 +23,5 @@ export {
   MachineCard,
   MachineTable,
   OrderProfileSummaryCard,
+  MachineProfileSummaryCard,
 };

@@ -2,14 +2,14 @@
 import React, {useState} from 'react';
 import {View, Text} from 'react-native';
 import {useTheme} from '@theme/ThemeProvider';
-import {layoutStyles} from '@styles/screens/orderProfile';
+import {layoutStyles} from '@styles/screens/machineProfile';
 import Header from './Header';
-import {StatisticsView, MachinesView, MachinesStopsView} from './views';
+import {StatisticsView, MachineOrdersView, MachinesStopsView} from './views';
 
 const filters = [
   {title: 'Statistics', id: 'statistics', view: StatisticsView},
-  {title: 'Machines', id: 'machines', view: MachinesView},
-  {title: 'Stop History', id: 'stopHistory', view: MachinesStopsView},
+  {title: 'Stops History', id: 'stopHistory', view: MachinesStopsView},
+  {title: 'Order History', id: 'orderHistory', view: MachineOrdersView},
 ]; // Add more filters as needed
 
 export default function LayoutManager({orderNumber}) {

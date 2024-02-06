@@ -1,28 +1,22 @@
 import React, {useState} from 'react';
 import {View} from 'react-native';
 import {useTheme} from '@theme/ThemeProvider';
-import {tableViewStyle} from '@styles/screens/orderProfile';
+import {tableViewStyle} from '@styles/screens/machineProfile';
 import {MachineTable} from '@components';
-import {OrderProfileHandler} from '@services/graphql';
+import {MachineProfileHandler} from '@services/graphql';
 
 const header = [
-  {key: 'machineName', title: 'Machine Name'},
-  {key: 'machineNumber', title: 'Machine Number'},
   {key: 'orderNumber', title: 'Order Number'},
-  {key: 'speed', title: 'Spead Rate'},
-  {key: 'workingHour', title: 'Working Hours'},
-  {key: 'stoppedHour', title: 'Stop Hours'},
-  {key: 'numberOfRoll', title: 'No. of Rolls'},
-  {key: 'efficiency', title: 'Efficiency'},
+  {key: 'duration', title: 'Stop Duration'},
   {key: 'progress', title: 'Progress'},
-  {key: 'status', title: 'Status'},
+  {key: 'status', title: 'Stop Name'},
 ];
 
-export default function MachinesStopsView({orderNumber}) {
+export default function MachinesStopsView({machineNumber}) {
   const {theme} = useTheme();
   const styles = tableViewStyle(theme);
 
-  const data = OrderProfileHandler.Machines.getMachinesStopsData(orderNumber);
+  const data = MachineProfileHandler.Machine.getMachineStopsData(machineNumber);
 
   return (
     <View style={styles.container}>

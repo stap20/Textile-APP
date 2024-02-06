@@ -8,7 +8,6 @@ import {OrderProfileHandler} from '@services/graphql';
 const header = [
   {key: 'machineName', title: 'Machine Name'},
   {key: 'machineNumber', title: 'Machine Number'},
-  {key: 'orderNumber', title: 'Order Number'},
   {key: 'speed', title: 'Spead Rate'},
   {key: 'workingHour', title: 'Working Hours'},
   {key: 'stoppedHour', title: 'Stop Hours'},

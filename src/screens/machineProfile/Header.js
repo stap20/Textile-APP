@@ -1,7 +1,7 @@
 // Header.js
 import React from 'react';
 import {View, Text} from 'react-native';
-import {headerStyles} from '@styles/screens/orderProfile';
+import {headerStyles} from '@styles/screens/machineProfile';
 import {FilterSwitchComponent} from '@components';
 
 export default function Header(props) {
@@ -10,7 +10,7 @@ export default function Header(props) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Order Profile</Text>
+      <Text style={styles.title}>Machine Profile</Text>
       <View style={styles.filterContainer}>
         <FilterSwitchComponent
           items={filters}

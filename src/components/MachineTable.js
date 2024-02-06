@@ -1,6 +1,7 @@
 // LayoutManager.js
 import React, {useState} from 'react';
 import {View, Text, FlatList, TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import {useTheme} from '@theme/ThemeProvider';
 import machineTableStyle from '@styles/components/machineTableStyle';
 import StatusChip from './StatusChip';
@@ -12,13 +13,18 @@ export default function MachineTable({
   headerList,
   isAction = true,
   isClickable = true,
+  isScrollable = true,
+  rowColor = null,
+  rowEvenColor = null,
 }) {
   const {theme} = useTheme();
   const styles = machineTableStyle(theme);
+  const navigation = useNavigation();
 
   const renderHeader = () => {
     return (
-      <View style={styles.headerRow}>
+      <View
+        style={[styles.headerRow, rowColor ? {backgroundColor: rowColor} : {}]}>
         {headerList.map((header, idx) => {
           return (
             <Text key={header.key} style={styles.headerCell}>
@@ -32,30 +38,34 @@ export default function MachineTable({
   };
 
   const renderRow = ({item, index}) => {
-    const Wrapper = ({children, isClickable, onPress}) => {
+    const Wrapper = ({children, isClickable, style, onPress}) => {
       return isClickable ? (
-        <TouchableOpacity
-          style={[
-            styles.dataRow,
-            {backgroundColor: index % 2 == 0 ? '#F7F6FE' : 'white'},
-            index + 1 == data.length ? styles.dataRowLast : {},
-          ]}>
+        <TouchableOpacity style={style} onPress={onPress}>
           {children}
         </TouchableOpacity>
       ) : (
-        <View
-          style={[
-            styles.dataRow,
-            {backgroundColor: index % 2 == 0 ? '#F7F6FE' : 'white'},
-            index + 1 == data.length ? styles.dataRowLast : {},
-          ]}>
-          {children}
-        </View>
+        <View style={style}>{children}</View>
       );
     };
 
     return (
-      <Wrapper isClickable={isClickable}>
+      <Wrapper
+        onPress={() => {
+          navigation.navigate('machines', {
+            screen: 'machine_profile_screen',
+            params: {machineNumber: item.machineNumber},
+          });
+        }}
+        style={[
+          styles.dataRow,
+          {
+            backgroundColor:
+              index % 2 == 0 ? rowEvenColor ?? '#F7F6FE' : rowColor ?? 'white',
+          },
+          rowColor,
+          index + 1 == data.length ? styles.dataRowLast : {},
+        ]}
+        isClickable={isClickable}>
         {headerList.map((header, idx) => {
           const key = header.key;
 
@@ -134,6 +144,7 @@ export default function MachineTable({
         data={data}
         renderItem={renderRow}
         keyExtractor={(item, index) => index.toString()}
+        scrollEnabled={isScrollable}
       />
     </View>
   );

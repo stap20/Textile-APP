@@ -1,5 +1,5 @@
 // LayoutManager.js
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View} from 'react-native';
 import {useTheme} from '@theme/ThemeProvider';
 import {layoutStyles} from '@styles/screens/machines';
@@ -17,16 +17,23 @@ const filters = [
   {title: 'Stopping', id: 'stop'},
 ]; // Add more filters as needed
 
-const data = MachineHandler.Machine.getMachinesData();
-
 export default function LayoutManager() {
   const {theme, toggleTheme} = useTheme();
   const styles = layoutStyles(theme);
 
+  const [data, setData] = useState([]);
   const [activeTab, setActiveTab] = useState(0);
   const [activeFilterTab, setActiveFilterTab] = useState(0);
 
   const CurrentView = tabs[activeTab].view;
+
+  useEffect(() => {
+    const response = MachineHandler.Machine.getMachinesData(
+      filters[activeFilterTab].id,
+    );
+
+    setData(JSON.parse(JSON.stringify(response)));
+  }, [activeFilterTab]);
 
   return (
     <View style={styles.container}>

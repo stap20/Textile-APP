@@ -18,8 +18,6 @@ export function generateBarChartOption({
     }
   });
 
-  console.log(series);
-
   return {
     tooltip: {
       trigger: 'axis',
@@ -28,7 +26,7 @@ export function generateBarChartOption({
       left: 50,
       top: 10,
       right: 10,
-      bottom: 15,
+      bottom: 35,
       containLabel: true,
     },
     xAxis: {
@@ -43,20 +41,20 @@ export function generateBarChartOption({
         show: false,
       },
       nameLocation: 'middle',
-      offset: 20,
+      offset: 5,
       nameTextStyle: {
         color: theme.colors.primary,
         fontSize: 16,
         fontWeight: 500,
-        padding: [30, 0, 0, 0],
+        padding: [10, 0, 0, 0],
       },
       axisLabel: {
         color: theme.colors.primary,
         align: 'center',
-        fontSize: 14,
+        fontSize: 13,
         fontWeight: 400,
-        rotate: 45,
-        margin: 10,
+        rotate: 0,
+        margin: 0,
       },
       ...xAxis,
     },

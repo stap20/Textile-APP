@@ -1,5 +1,5 @@
-import MachinesView from './MachinesView';
+import MachineOrdersView from './MachineOrdersView';
 import StatisticsView from './StatisticsView';
 import MachinesStopsView from './StopsView';
 
-export {MachinesView, StatisticsView, MachinesStopsView};
+export {MachineOrdersView, StatisticsView, MachinesStopsView};

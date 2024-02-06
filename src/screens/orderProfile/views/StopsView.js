@@ -8,14 +8,11 @@ import {OrderProfileHandler} from '@services/graphql';
 const header = [
   {key: 'machineName', title: 'Machine Name'},
   {key: 'machineNumber', title: 'Machine Number'},
-  {key: 'orderNumber', title: 'Order Number'},
-  {key: 'speed', title: 'Spead Rate'},
-  {key: 'workingHour', title: 'Working Hours'},
-  {key: 'stoppedHour', title: 'Stop Hours'},
+  {key: 'duration', title: 'Stop Duration'},
   {key: 'numberOfRoll', title: 'No. of Rolls'},
   {key: 'efficiency', title: 'Efficiency'},
   {key: 'progress', title: 'Progress'},
-  {key: 'status', title: 'Status'},
+  {key: 'status', title: 'Stop Name'},
 ];
 
 export default function MachinesStopsView({orderNumber}) {

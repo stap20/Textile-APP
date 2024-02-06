@@ -8,11 +8,16 @@ import StatusChip from './StatusChip';
 import ProgressBar from './ProgressBar';
 import Icon from './Icon';
 
-export default function OrderTable({data, headerList, isAction = true}) {
+export default function OrderTable({
+  data,
+  headerList,
+  isAction = true,
+  isClickable = true,
+}) {
   const {theme} = useTheme();
   const styles = orderTableStyle(theme);
   const navigation = useNavigation();
-  
+
   const renderHeader = () => {
     return (
       <View style={styles.headerRow}>
@@ -29,8 +34,18 @@ export default function OrderTable({data, headerList, isAction = true}) {
   };
 
   const renderRow = ({item, index}) => {
+    const Wrapper = ({children, isClickable, style, onPress}) => {
+      return isClickable ? (
+        <TouchableOpacity style={style} onPress={onPress}>
+          {children}
+        </TouchableOpacity>
+      ) : (
+        <View style={style}>{children}</View>
+      );
+    };
+
     return (
-      <TouchableOpacity
+      <Wrapper
         onPress={() => {
           navigation.navigate('orders', {
             screen: 'order_profile_screen',
@@ -41,7 +56,8 @@ export default function OrderTable({data, headerList, isAction = true}) {
           styles.dataRow,
           {backgroundColor: index % 2 == 0 ? '#F7F6FE' : 'white'},
           index + 1 == data.length ? styles.dataRowLast : {},
-        ]}>
+        ]}
+        isClickable={isClickable}>
         {headerList.map((header, idx) => {
           const key = header.key;
 
@@ -80,7 +96,7 @@ export default function OrderTable({data, headerList, isAction = true}) {
             </TouchableOpacity>
           </View>
         ) : null}
-      </TouchableOpacity>
+      </Wrapper>
     );
   };
 

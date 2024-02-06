@@ -1,5 +1,6 @@
 import HomeScreen from '@screens/HomeScreen';
 import OrderNavigation from './OrderNavigation';
+import MachineNavigation from './MachineNavigation';
 import MachinesScreen from '@screens/machines'
 
 export default [
@@ -14,7 +15,7 @@ export default [
   },
   {
     name: 'add_machine',
-    component: MachinesScreen,
+    component: MachineNavigation,
     options: {
       active_icon: 'add-square',
       icon: 'add-square-outline',
@@ -23,7 +24,7 @@ export default [
   },
   {
     name: 'machines',
-    component: MachinesScreen,
+    component: MachineNavigation,
     options: {
       active_icon: 'machine',
       icon: 'machine-outline',
@@ -32,7 +33,7 @@ export default [
   },
   {
     name: 'create_order',
-    component: MachinesScreen,
+    component: MachineNavigation,
     options: {
       active_icon: 'additem',
       icon: 'additem-outline',
@@ -50,7 +51,7 @@ export default [
   },
   {
     name: 'create_profile',
-    component: MachinesScreen,
+    component: MachineNavigation,
     options: {
       active_icon: 'folder-add',
       icon: 'folder-add-outline',
@@ -59,7 +60,7 @@ export default [
   },
   {
     name: 'attachments',
-    component: MachinesScreen,
+    component: MachineNavigation,
     options: {
       active_icon: 'attach',
       icon: 'attach-outline',
@@ -68,7 +69,7 @@ export default [
   },
   {
     name: 'users',
-    component: MachinesScreen,
+    component: MachineNavigation,
     options: {
       active_icon: 'users',
       icon: 'users-outline',

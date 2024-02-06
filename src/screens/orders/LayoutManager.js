@@ -1,5 +1,5 @@
 // LayoutManager.js
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text} from 'react-native';
 import {useTheme} from '@theme/ThemeProvider';
 import {layoutStyles} from '@styles/screens/orders';
@@ -52,40 +52,23 @@ const filters = [
   {title: 'In Progress', id: 'inprogress'},
 ]; // Add more filters as needed
 
-const data = OrderHandler.Order.getOrdersData();
-
-const prepareData = data => {
-  return data.map((item, idx) => {
-    const {finishedQuan, totalQuan, startDate, endDate, ...other} = item;
-
-    return {
-      progress: parseInt((finishedQuan / totalQuan) * 100),
-      progressDetails: `${item.finishedQuan} / ${item.totalQuan}`,
-      startDate:
-        startDate.getDate() +
-        ' / ' +
-        (startDate.getMonth() + 1) +
-        ' / ' +
-        startDate.getFullYear(),
-      endDate:
-        endDate.getDate() +
-        ' / ' +
-        (endDate.getMonth() + 1) +
-        ' / ' +
-        endDate.getFullYear(),
-      ...other,
-    };
-  });
-};
-
 export default function LayoutManager() {
   const {theme, toggleTheme} = useTheme();
   const styles = layoutStyles(theme);
 
+  const [data, setData] = useState([]);
   const [activeTab, setActiveTab] = useState(0);
   const [activeFilterTab, setActiveFilterTab] = useState(0);
 
   const CurrentView = tabs[activeTab].view;
+
+  useEffect(() => {
+    const response = OrderHandler.Order.getOrdersData(
+      filters[activeFilterTab].id,
+    );
+
+    setData(JSON.parse(JSON.stringify(response)));
+  }, [activeFilterTab]);
 
   return (
     <View style={styles.container}>
@@ -104,7 +87,7 @@ export default function LayoutManager() {
         />
       </View>
       <View style={styles.mainContainer}>
-        <CurrentView data={prepareData(data)} />
+        <CurrentView data={data} />
       </View>
     </View>
   );

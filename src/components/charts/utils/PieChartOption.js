@@ -5,10 +5,11 @@ export function generatePieChartOption({
   theme,
   display = () => {},
 }) {
+
   const data = chartData.map((item, idx) => {
     if (filterVisibility[item.id]) {
       return {
-        name: display(item.value, item.name),
+        name: display(item),
         value: item.value,
       };
     }
@@ -63,20 +64,10 @@ export function processPieChartData(chartData, theme) {
     };
   });
 
-  const updatedChartData = chartData.map((item, idx) => {
-    const {name, value, id, display} = item;
-
-    return {
-      name,
-      value,
-      id,
-    };
-  });
-
   return {
     visibility,
     filterData,
-    chartData: updatedChartData,
+    chartData,
     colors: colors,
   };
 }

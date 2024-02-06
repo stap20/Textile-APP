@@ -21,6 +21,7 @@ const Icon = ({iconName, iconColor = null}) => {
     iconInfo;
 
   const currentColor = iconColor != null ? iconColor : color;
+  const currentStrokeColor = iconColor != null ? iconColor : stroke;
 
   if (type === 'svg') {
     return (
@@ -29,13 +30,15 @@ const Icon = ({iconName, iconColor = null}) => {
         width={width}
         height={height}
         color={currentColor ?? 'none'}
-        stroke={stroke ?? 'none'}
+        stroke={currentStrokeColor ?? 'none'}
         opacity={opacity ?? 1}
       />
     );
   }
 
-  return <IconWrapper type={type} name={name} size={size} color={currentColor} />;
+  return (
+    <IconWrapper type={type} name={name} size={size} color={currentColor} />
+  );
 };
 
 export default Icon;
