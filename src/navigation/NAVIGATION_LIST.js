@@ -1,7 +1,7 @@
 import HomeScreen from '@screens/HomeScreen';
 import OrderNavigation from './OrderNavigation';
 import MachineNavigation from './MachineNavigation';
-import MachinesScreen from '@screens/machines'
+import AttachmentsScreen from '@screens/attachments'
 
 export default [
   {
@@ -60,7 +60,7 @@ export default [
   },
   {
     name: 'attachments',
-    component: MachineNavigation,
+    component: AttachmentsScreen,
     options: {
       active_icon: 'attach',
       icon: 'attach-outline',
