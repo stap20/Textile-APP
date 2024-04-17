@@ -4,7 +4,7 @@ import {View} from 'react-native';
 import {useTheme} from '@theme/ThemeProvider';
 import {layoutStyles} from '@styles/screens/attachments';
 import Header from './Header';
-import {MachineHandler} from '@services/graphql';
+import {AttachmentsHandler} from '@services/graphql';
 import CardView from './CardView';
 
 const filters = [
@@ -20,7 +20,7 @@ export default function LayoutManager() {
   const [activeFilterTab, setActiveFilterTab] = useState(0);
 
   useEffect(() => {
-    const response = MachineHandler.Machine.getMachinesData(
+    const response = AttachmentsHandler.Attachments.getAttachmentsData(
       filters[activeFilterTab].id,
     );
 

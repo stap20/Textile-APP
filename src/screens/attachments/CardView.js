@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import {View, Text, FlatList, TouchableOpacity} from 'react-native';
 import {useTheme} from '@theme/ThemeProvider';
 import {cardViewStyle} from '@styles/screens/attachments';
-import {Icon, MachineCard} from '@components';
+import {Icon, AttachmentCard} from '@components';
 
 export default function CardView({data, filterName}) {
   const {theme} = useTheme();
@@ -24,7 +24,7 @@ export default function CardView({data, filterName}) {
     return item.static ? (
       <AddBtn style={{marginRight: 'auto'}} />
     ) : (
-      <MachineCard
+      <AttachmentCard
         style={
           index % numColumns !== numColumns - 1 ? {marginRight: 'auto'} : {}
         }

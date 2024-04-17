@@ -1,6 +1,13 @@
 import * as MachineHandler from './machine';
 import * as OrderHandler from './order';
 import * as OrderProfileHandler from './orderProfile';
-import * as MachineProfileHandler from './machineProfile'
+import * as MachineProfileHandler from './machineProfile';
+import * as AttachmentsHandler from './attachments';
 
-export {MachineHandler, OrderHandler, OrderProfileHandler,MachineProfileHandler};
+export {
+  MachineHandler,
+  OrderHandler,
+  OrderProfileHandler,
+  MachineProfileHandler,
+  AttachmentsHandler
+};

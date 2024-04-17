@@ -11,6 +11,7 @@ const lightTheme = {
     summarySeperator: '#3C444666',
     summaryTableRow: '#E6EAED',
     summaryEvenTableRow: '#E6EAED80',
+    attachmentIconContainer: '#D9D9D9',
   },
   filterSymbolColors: [
     '#16cc62',
@@ -50,6 +51,7 @@ const lightTheme = {
     doneSquare: '#198754',
     efficiencySquare: '#474E5E',
     exclamationSquare: '#FFD000',
+    attachmentSetting: '#FFFFFF',
   },
   spacing: {
     small: '8px',

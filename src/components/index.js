@@ -10,6 +10,7 @@ import MachineTable from './MachineTable';
 import MachineCard from './MachineCard';
 import OrderProfileSummaryCard from './OrderProfileSummaryCard';
 import MachineProfileSummaryCard from './MachineProfileSummaryCard';
+import AttachmentCard from './AttachmentCard';
 
 export {
   SidebarTabComponent,
@@ -24,4 +25,5 @@ export {
   MachineTable,
   OrderProfileSummaryCard,
   MachineProfileSummaryCard,
+  AttachmentCard,
 };

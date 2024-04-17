@@ -244,14 +244,15 @@ const iconData = {
     stroke: iconColors.exclamationSquare,
   },
 
-  'machine-summary-efficiency': {
+  'attachment-setting': {
     type: 'svg',
-    source: require('@assets/icons/effieciency-square.js'),
-    width: convertPxToDp(50),
-    height: convertPxToDp(50),
-    color: iconColors.efficiencySquare,
-    stroke: iconColors.efficiencySquare,
+    source: require('@assets/icons/attachment-setting.js'),
+    width: convertPxToDp(40),
+    height: convertPxToDp(40),
+    color: iconColors.attachmentSetting,
   },
+
+
 };
 
 export default iconData;
