@@ -40,29 +40,29 @@ export default function DropDown({
       </TouchableOpacity>
 
       {showDropdown && (
-          <View style={[styles.dropDownWrapper]}>
-            <View style={{flex: 1}}>
-              {options.map((item, index) => (
-                <TouchableOpacity
-                  key={index}
+        <View style={[styles.dropDownWrapper]}>
+          <View style={{flex: 1}}>
+            {options.map((item, index) => (
+              <TouchableOpacity
+                key={index}
+                style={[
+                  styles.dropdownItem,
+                  value && item.id === value.id && styles.activeDropdownItem,
+                ]}
+                onPress={() => handleSelect(item)}>
+                <Text
                   style={[
-                    styles.dropdownItem,
-                    value && item.id === value.id && styles.activeDropdownItem,
-                  ]}
-                  onPress={() => handleSelect(item)}>
-                  <Text
-                    style={[
-                      styles.dropdownItemText,
-                      value &&
-                        item.id === value.id &&
-                        styles.activeDropdownItemText,
-                    ]}>
-                    {item.name}
-                  </Text>
-                </TouchableOpacity>
-              ))}
-            </View>
+                    styles.dropdownItemText,
+                    value &&
+                      item.id === value.id &&
+                      styles.activeDropdownItemText,
+                  ]}>
+                  {item.name}
+                </Text>
+              </TouchableOpacity>
+            ))}
           </View>
+        </View>
       )}
     </View>
   );

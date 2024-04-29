@@ -39,14 +39,7 @@ export default function CreateNewOrderScreen() {
             </View>
             <View style={body.machinesChoiceContainer}>
               <Text style={body.inputTitleText}>Choose Machine</Text>
-              <MultiChoice
-                onUnselect={m =>
-                  setMachines(machines.filter(a => a.id != m.id))
-                }
-                onSelect={m => {
-                  setMachines([...machines, m]);
-                }}
-              />
+              <MultiChoice onChangeValue={setMachines} />
             </View>
           </View>
           <View style={body.thirdRow}>

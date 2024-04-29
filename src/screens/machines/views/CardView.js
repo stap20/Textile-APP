@@ -4,6 +4,7 @@ import {View, Text, FlatList, TouchableOpacity} from 'react-native';
 import {useTheme} from '@theme/ThemeProvider';
 import {cardViewStyle} from '@styles/screens/orders';
 import {Icon, MachineCard} from '@components';
+import {ToastCaller} from '../../../utils';
 
 export default function CardView({data}) {
   const {theme} = useTheme();
@@ -13,9 +14,16 @@ export default function CardView({data}) {
 
   const AddBtn = ({style}) => {
     return (
-      <TouchableOpacity style={[styles.addOrderContainer, style]}>
+      <TouchableOpacity
+        onPress={() => {
+          ToastCaller({
+            type: 'info',
+            text1: 'abdo el ray2',
+          });
+        }}
+        style={[styles.addOrderContainer, style]}>
         <Icon iconName={'add-square'} />
-        <Text style={styles.addOrderText}>Add Machine</Text>
+        <Text style={styles.addOrderText}>Add Machine2</Text>
       </TouchableOpacity>
     );
   };

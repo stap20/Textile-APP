@@ -7,6 +7,8 @@ import LocalizationManager from '@localization/LocalizationManager'; // Import t
 import {ThemeProvider} from '@theme/ThemeProvider';
 import {MainNavigation} from '@navigation';
 
+import Toast from 'react-native-toast-message';
+
 SystemNavigationBar.navigationHide();
 function App() {
   useEffect(() => {
@@ -19,6 +21,7 @@ function App() {
       <SafeAreaView>
         <MainNavigation />
       </SafeAreaView>
+      <Toast autoHide={true} />
     </ThemeProvider>
   );
 }
