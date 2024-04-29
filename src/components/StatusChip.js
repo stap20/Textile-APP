@@ -3,7 +3,11 @@ import {View, Text} from 'react-native';
 import {useTheme} from '@theme/ThemeProvider';
 import statusChipStyle from '@styles/components/statusChipStyle';
 
-export default function StatusChip({status, size = 'lg'}) {
+export default function StatusChip({
+  status,
+  size = 'lg',
+  isUserStatus = false,
+}) {
   const {theme} = useTheme();
   const {state, reason} = status;
 
@@ -11,10 +15,12 @@ export default function StatusChip({status, size = 'lg'}) {
 
   var statusText = {
     finish: 'Finsihed',
-    working:'Working',
+    working: 'Working',
     pending: 'Pending',
     inprogress: 'In Progress',
     stop: 'Stopped : ' + reason,
+    online: 'Online',
+    offline: 'Offline',
   };
 
   const getText = state => {
@@ -23,7 +29,7 @@ export default function StatusChip({status, size = 'lg'}) {
       : status;
   };
   return (
-    <View style={styles.container}>
+    <View style={isUserStatus ? styles.userContainer : styles.container}>
       <View style={styles.symbol} />
       <Text style={styles.statusText}>{getText(state)}</Text>
     </View>

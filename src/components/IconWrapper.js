@@ -1,11 +1,13 @@
 import React from 'react';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 // Import other icon libraries as needed
 
 const iconSets = {
   MaterialCommunityIcons,
   FontAwesome,
+  SimpleLineIcons,
   // Add more icon libraries as needed
 };
 

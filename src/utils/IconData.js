@@ -252,7 +252,69 @@ const iconData = {
     color: iconColors.attachmentSetting,
   },
 
+  'user-privilege': {
+    type: 'svg',
+    source: require('@assets/icons/privilege.js'),
+    width: convertPxToDp(18.82),
+    height: convertPxToDp(18.82),
+    color: iconColors.userProfileIcons,
+  },
 
+  'user-ssn': {
+    type: 'svg',
+    source: require('@assets/icons/ssn.js'),
+    width: convertPxToDp(22.35),
+    height: convertPxToDp(18.82),
+    color: iconColors.userProfileIcons,
+  },
+
+  'user-ssn': {
+    type: 'svg',
+    source: require('@assets/icons/ssn.js'),
+    width: convertPxToDp(22.35),
+    height: convertPxToDp(18.82),
+    color: iconColors.userProfileIcons,
+  },
+
+  'user-birthday': {
+    type: 'svg',
+    source: require('@assets/icons/birthday.js'),
+    width: convertPxToDp(18.82),
+    height: convertPxToDp(18.82),
+    color: iconColors.userProfileIcons,
+  },
+
+  'user-phone': {
+    type: 'svg',
+    source: require('@assets/icons/phone.js'),
+    width: convertPxToDp(18.82),
+    height: convertPxToDp(18.82),
+    color: iconColors.userProfileIcons,
+  },
+
+  'user-email': {
+    type: 'svg',
+    source: require('@assets/icons/email.js'),
+    width: convertPxToDp(16.86),
+    height: convertPxToDp(14.51),
+    color: iconColors.userProfileIcons,
+  },
+
+  'arrow-down': {
+    type: 'svg',
+    source: require('@assets/icons/arrow-down.js'),
+    width: convertPxToDp(30),
+    height: convertPxToDp(30),
+    color: iconColors.arrowDown,
+  },
+
+  'arrow-up': {
+    type: 'svg',
+    source: require('@assets/icons/arrow-up.js'),
+    width: convertPxToDp(30),
+    height: convertPxToDp(30),
+    color: iconColors.arrowUp,
+  },
 };
 
 export default iconData;

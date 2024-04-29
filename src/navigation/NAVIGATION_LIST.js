@@ -1,7 +1,9 @@
 import HomeScreen from '@screens/HomeScreen';
 import OrderNavigation from './OrderNavigation';
 import MachineNavigation from './MachineNavigation';
-import AttachmentsScreen from '@screens/attachments'
+import AttachmentNavigation from './AttachmentNavigation'
+import UserNavigation from './UserNavigation'
+import AddNewOrderScreen from '@screens/addNewOrder';
 
 export default [
   {
@@ -33,7 +35,7 @@ export default [
   },
   {
     name: 'create_order',
-    component: MachineNavigation,
+    component: AddNewOrderScreen,
     options: {
       active_icon: 'additem',
       icon: 'additem-outline',
@@ -60,7 +62,7 @@ export default [
   },
   {
     name: 'attachments',
-    component: AttachmentsScreen,
+    component: AttachmentNavigation,
     options: {
       active_icon: 'attach',
       icon: 'attach-outline',
@@ -69,7 +71,7 @@ export default [
   },
   {
     name: 'users',
-    component: MachineNavigation,
+    component: UserNavigation,
     options: {
       active_icon: 'users',
       icon: 'users-outline',

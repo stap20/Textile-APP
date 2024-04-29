@@ -11,6 +11,7 @@ import MachineCard from './MachineCard';
 import OrderProfileSummaryCard from './OrderProfileSummaryCard';
 import MachineProfileSummaryCard from './MachineProfileSummaryCard';
 import AttachmentCard from './AttachmentCard';
+import UserCard from './UserCard';
 
 export {
   SidebarTabComponent,
@@ -26,4 +27,7 @@ export {
   OrderProfileSummaryCard,
   MachineProfileSummaryCard,
   AttachmentCard,
+  UserCard,
 };
+
+export * from './form';

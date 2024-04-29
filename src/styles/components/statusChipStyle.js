@@ -11,6 +11,10 @@ export default statusChipStyle = (theme, state, size) => {
     color = theme.colors.pendingStatus;
   } else if (state == 'stop') {
     color = theme.colors.stoppedStatus;
+  } else if (state == 'online') {
+    color = theme.colors.onlineStatus;
+  } else if (state == 'offline') {
+    color = theme.colors.offlineStatus;
   } else {
     color = theme.colors.primary;
   }
@@ -22,6 +26,17 @@ export default statusChipStyle = (theme, state, size) => {
       justifyContent: 'center',
       alignItems: 'center',
       padding: convertPxToDp(12),
+      backgroundColor: color + '33',
+      borderRadius: convertPxToDp(15),
+    },
+
+    userContainer: {
+      flexDirection: 'row',
+      alignSelf: 'flex-start',
+      justifyContent: 'center',
+      alignItems: 'center',
+      paddingHorizontal: convertPxToDp(20),
+      paddingVertical:convertPxToDp(14),
       backgroundColor: color + '33',
       borderRadius: convertPxToDp(15),
     },

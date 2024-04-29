@@ -1,6 +1,7 @@
 // LayoutManager.js
 import React, {useState} from 'react';
 import {View, Text, FlatList, TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import {useTheme} from '@theme/ThemeProvider';
 import {cardViewStyle} from '@styles/screens/orders';
 import {Icon, OrderCard} from '@components';
@@ -10,10 +11,17 @@ export default function CardView({data}) {
   const styles = cardViewStyle(theme);
   const numColumns = 3;
   const CardsData = [{id: 'static', static: true}, ...data];
+  const navigation = useNavigation();
 
   const AddBtn = ({style}) => {
     return (
-      <TouchableOpacity style={[styles.addOrderContainer, style]}>
+      <TouchableOpacity
+        style={[styles.addOrderContainer, style]}
+        onPress={() => {
+          navigation.navigate('orders', {
+            screen: 'add_order_screen',
+          });
+        }}>
         <Icon iconName={'add-square'} />
         <Text style={styles.addOrderText}>Add Order</Text>
       </TouchableOpacity>

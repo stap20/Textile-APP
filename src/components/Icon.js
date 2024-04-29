@@ -7,7 +7,7 @@ import {iconData} from '@utils'; // Path to your icon dataset
 
 const Icon = ({iconName, iconColor = null}) => {
   const iconInfo = iconData[iconName];
-
+  
   if (!iconInfo) {
     // Handle unknown icon names gracefully
     return (

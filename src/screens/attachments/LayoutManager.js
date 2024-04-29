@@ -41,7 +41,10 @@ export default function LayoutManager() {
         />
       </View>
       <View style={styles.mainContainer}>
-        <CardView data={data} filterName={filters[activeFilterTab].title} />
+        <CardView
+          data={data}
+          filter={filters[activeFilterTab]}
+        />
       </View>
     </View>
   );
