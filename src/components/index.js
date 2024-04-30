@@ -12,6 +12,7 @@ import OrderProfileSummaryCard from './OrderProfileSummaryCard';
 import MachineProfileSummaryCard from './MachineProfileSummaryCard';
 import AttachmentCard from './AttachmentCard';
 import UserCard from './UserCard';
+import PopUpModal from './PopUpModal';
 
 export {
   SidebarTabComponent,
@@ -28,6 +29,7 @@ export {
   MachineProfileSummaryCard,
   AttachmentCard,
   UserCard,
+  PopUpModal,
 };
 
 export * from './form';
