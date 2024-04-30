@@ -8,7 +8,7 @@ export default function AttachmentCard(props) {
   const {theme} = useTheme();
   const styles = attachmentCardStyle(theme);
 
-  const {type = '1', diameter = 5, style} = props;
+  const {type = '1', diameter = 5,filterName, style} = props;
 
   return (
     <View style={[styles.container, style]}>
@@ -18,7 +18,7 @@ export default function AttachmentCard(props) {
 
       <View style={styles.dataContainer}>
         <View style={styles.dataRowContainer}>
-          <Text style={styles.title}>LFA Type: </Text>
+          <Text style={styles.title}>{filterName} Type: </Text>
           <Text style={styles.data}>{type}</Text>
         </View>
 

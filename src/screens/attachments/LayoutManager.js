@@ -4,7 +4,7 @@ import {View} from 'react-native';
 import {useTheme} from '@theme/ThemeProvider';
 import {layoutStyles} from '@styles/screens/attachments';
 import Header from './Header';
-import {AttachmentsHandler} from '@services/graphql';
+
 import CardView from './CardView';
 
 const filters = [
@@ -12,7 +12,7 @@ const filters = [
   {title: 'LFA', id: 'lfa'},
 ]; // Add more filters as needed
 
-export default function LayoutManager() {
+export default function LayoutManager({fetchData}) {
   const {theme, toggleTheme} = useTheme();
   const styles = layoutStyles(theme);
 
@@ -20,11 +20,10 @@ export default function LayoutManager() {
   const [activeFilterTab, setActiveFilterTab] = useState(0);
 
   useEffect(() => {
-    const response = AttachmentsHandler.Attachments.getAttachmentsData(
-      filters[activeFilterTab].id,
-    );
-
-    setData(JSON.parse(JSON.stringify(response)));
+    fetchData(filters[activeFilterTab].id).then(res => {
+      console.log(res)
+      setData(JSON.parse(JSON.stringify(res)));
+    });
   }, [activeFilterTab]);
 
   return (
@@ -41,10 +40,7 @@ export default function LayoutManager() {
         />
       </View>
       <View style={styles.mainContainer}>
-        <CardView
-          data={data}
-          filter={filters[activeFilterTab]}
-        />
+        <CardView data={data} filter={filters[activeFilterTab]} />
       </View>
     </View>
   );

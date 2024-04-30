@@ -37,6 +37,7 @@ export default function CardView({data, filter}) {
         style={
           index % numColumns !== numColumns - 1 ? {marginRight: 'auto'} : {}
         }
+        filterName={filter.title}
         {...item}
       />
     );

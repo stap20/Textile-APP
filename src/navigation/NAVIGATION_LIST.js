@@ -4,6 +4,7 @@ import MachineNavigation from './MachineNavigation';
 import AttachmentNavigation from './AttachmentNavigation'
 import UserNavigation from './UserNavigation'
 import AddNewOrderScreen from '@screens/addNewOrder';
+import AddNewProfileScreen from '@screens/addNewProfile'
 
 export default [
   {
@@ -53,7 +54,7 @@ export default [
   },
   {
     name: 'create_profile',
-    component: MachineNavigation,
+    component: AddNewProfileScreen,
     options: {
       active_icon: 'folder-add',
       icon: 'folder-add-outline',

@@ -14,12 +14,12 @@ export default function FeederForm({onSave, onCancel}) {
   const [diameter, setDiameter] = useState('');
 
   const handleDiameterValidation = diameter => {
-    const numericValue = diameter.replace(/[^0-9]/g, '');
+    const numericValue = diameter.replace(/[^0-9.]/g, '');
     setDiameter(numericValue);
   };
 
   const handleSave = () => {
-    onSave({feederType: feederType, diameter: diameter});
+    onSave({type: feederType, diameter: diameter});
   };
 
   const handleCancel = () => {
