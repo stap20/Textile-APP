@@ -2,9 +2,10 @@ import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, ScrollView} from 'react-native'; // Import ScrollView
 import {useTheme} from '@theme/ThemeProvider';
 import {dropDownStyle} from '@styles/components/form';
+import {Dropdown} from 'react-native-element-dropdown';
 import Icon from '../Icon';
 
-const MAX_DROPDOWN_HEIGHT = 160;
+const MAX_DROPDOWN_HEIGHT = 250;
 
 export default function DropDown({
   placeHolder,
@@ -16,54 +17,55 @@ export default function DropDown({
 }) {
   const {theme} = useTheme();
   const styles = dropDownStyle(theme);
-
-  const [showDropdown, setShowDropdown] = useState(false);
+  const [isFocus, setIsFocus] = useState(false);
 
   const handleSelect = value => {
     onChange(value);
-    setShowDropdown(false);
   };
 
-  let dropDownHeight = options.length * 40 + 10; //10
-  dropDownHeight = Math.min(dropDownHeight, MAX_DROPDOWN_HEIGHT);
+  const renderItem = item => {
+    return (
+      <View
+        style={[
+          styles.dropdownItem,
+          value && item.id === value.id && styles.activeDropdownItem,
+        ]}>
+        <Text
+          style={[
+            styles.dropdownItemText,
+            value && item.id === value.id && styles.activeDropdownItemText,
+          ]}>
+          {item.name}
+        </Text>
+      </View>
+    );
+  };
+
+  let dropDownHeight = options.length * 33.33; //10
+  dropDownHeight = Math.min(dropDownHeight+25, MAX_DROPDOWN_HEIGHT);
 
   return (
     <View style={[styles.container, style]}>
       <Text style={styles.inputTitle}>{title}</Text>
-      <TouchableOpacity
-        style={[styles.selectorBtn, showDropdown && styles.focused]}
-        onPress={() => setShowDropdown(!showDropdown)}>
-        <Text style={[styles.placeHolder, value && styles.selectedText]}>
-          {value ? value.name : placeHolder}
-        </Text>
-        <Icon iconName={showDropdown ? 'arrow-up' : 'arrow-down'} />
-      </TouchableOpacity>
-
-      {showDropdown && (
-        <View style={[styles.dropDownWrapper]}>
-          <View style={{flex: 1}}>
-            {options.map((item, index) => (
-              <TouchableOpacity
-                key={index}
-                style={[
-                  styles.dropdownItem,
-                  value && item.id === value.id && styles.activeDropdownItem,
-                ]}
-                onPress={() => handleSelect(item)}>
-                <Text
-                  style={[
-                    styles.dropdownItemText,
-                    value &&
-                      item.id === value.id &&
-                      styles.activeDropdownItemText,
-                  ]}>
-                  {item.name}
-                </Text>
-              </TouchableOpacity>
-            ))}
-          </View>
-        </View>
-      )}
+      <Dropdown
+        style={[styles.dropDownSelector, isFocus && styles.focused]}
+        containerStyle={styles.dropDownContainer}
+        placeholderStyle={styles.placeHolder}
+        selectedTextStyle={styles.selectedText}
+        data={options}
+        maxHeight={dropDownHeight}
+        minHeight={dropDownHeight}
+        labelField="name"
+        valueField="id"
+        placeholder={placeHolder}
+        value={value}
+        onChange={handleSelect}
+        renderItem={renderItem}
+        onFocus={() => {
+          setIsFocus(true);
+        }}
+        onBlur={()=>{setIsFocus(false)}}
+      />
     </View>
   );
 }

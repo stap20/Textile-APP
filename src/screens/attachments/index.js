@@ -14,6 +14,19 @@ export default function AttachmentsScreen() {
 
     return response;
   };
-  AttachmentsHandler;
-  return <LayoutManager fetchData={fetchData}/>;
+
+  const deleteAttachment = async (attachmentType, id) => {
+    var res = false;
+    if (attachmentType === 'lfa') {
+      res = await AttachmentsHandler.Lfa.delete(id);
+    } else {
+      res = await AttachmentsHandler.Feeder.delete(id);
+    }
+
+    return res;
+  };
+
+  return (
+    <LayoutManager fetchData={fetchData} deleteAttachment={deleteAttachment} />
+  );
 }

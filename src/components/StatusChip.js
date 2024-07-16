@@ -6,7 +6,7 @@ import statusChipStyle from '@styles/components/statusChipStyle';
 export default function StatusChip({
   status,
   size = 'lg',
-  isUserStatus = false,
+  statusType = 'default',
 }) {
   const {theme} = useTheme();
   const {state, reason} = status;
@@ -21,6 +21,8 @@ export default function StatusChip({
     stop: 'Stopped : ' + reason,
     online: 'Online',
     offline: 'Offline',
+    active: 'Active',
+    inActive: 'Inactive',
   };
 
   const getText = state => {
@@ -28,8 +30,15 @@ export default function StatusChip({
       ? statusText[state]
       : status;
   };
+
+  const containerStyles = {
+    default: styles.container,
+    user: styles.userContainer,
+    profile: styles.profileContainer,
+  };
+
   return (
-    <View style={isUserStatus ? styles.userContainer : styles.container}>
+    <View style={containerStyles[statusType]}>
       <View style={styles.symbol} />
       <Text style={styles.statusText}>{getText(state)}</Text>
     </View>

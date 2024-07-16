@@ -47,9 +47,7 @@ export default function FormView({onSave, onCancel}) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>User Details</Text>
-      <KeyboardAwareScrollView
-        extraHeight={120}
-        enableOnAndroid={true}>
+      <KeyboardAwareScrollView extraHeight={120} enableOnAndroid={true}>
         <View style={styles.formRowContainer}>
           <Input
             value={formData.first_name}
@@ -86,10 +84,12 @@ export default function FormView({onSave, onCancel}) {
             style={styles.textInputContainer}
           />
 
-          <Input
-            value={formData.ssn}
-            onChange={text => handleChange('ssn', text)}
-            title={'S/N'}
+          <DropDown
+            placeHolder={'Select Privilege'}
+            options={privilege}
+            value={formData.privilege}
+            onChange={text => handleChange('privilege', text)}
+            title={'Privilege'}
             style={styles.textInputContainer}
           />
         </View>
@@ -108,12 +108,10 @@ export default function FormView({onSave, onCancel}) {
             style={styles.textInputContainer}
           />
 
-          <DropDown
-            placeHolder={'Select Privilege'}
-            options={privilege}
-            value={formData.privilege}
-            onChange={text => handleChange('privilege', text)}
-            title={'Privilege'}
+          <Input
+            value={formData.ssn}
+            onChange={text => handleChange('ssn', text)}
+            title={'S/N'}
             style={styles.textInputContainer}
           />
         </View>

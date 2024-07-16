@@ -315,6 +315,55 @@ const iconData = {
     height: convertPxToDp(30),
     color: iconColors.arrowUp,
   },
+
+  'modal-warning': {
+    type: 'svg',
+    source: require('@assets/icons/warning.js'),
+    width: convertPxToDp(80),
+    height: convertPxToDp(80),
+    color: iconColors.warningIconBackground,
+    stroke: iconColors.warningIcon,
+  },
+
+  'trash-modal': {
+    type: 'svg',
+    source: require('@assets/icons/trash.js'),
+    width: convertPxToDp(28),
+    height: convertPxToDp(28),
+    stroke: iconColors.modalTrash,
+  },
+
+  'stepper-check': {
+    type: 'svg',
+    source: require('@assets/icons/stepper-check.js'),
+    width: convertPxToDp(30),
+    height: convertPxToDp(23),
+    stroke: iconColors.stepperCheck,
+  },
+
+  plus: {
+    type: 'svg',
+    source: require('@assets/icons/plus.js'),
+    width: convertPxToDp(18),
+    height: convertPxToDp(18),
+    stroke: iconColors.counterInputIcons,
+  },
+
+  minus: {
+    type: 'svg',
+    source: require('@assets/icons/minus.js'),
+    width: convertPxToDp(18),
+    height: convertPxToDp(6),
+    stroke: iconColors.counterInputIcons,
+  },
+
+  'trash-form-crud': {
+    type: 'svg',
+    source: require('@assets/icons/form-crud-trash.js'),
+    width: convertPxToDp(28),
+    height: convertPxToDp(28),
+    color: iconColors.formCrudTrash,
+  },
 };
 
 export default iconData;

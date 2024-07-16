@@ -7,10 +7,7 @@ export default dropDownStyle = theme => {
       flex: 1,
     },
 
-    selectorBtn: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
+    dropDownSelector: {
       height: convertPxToDp(65),
       borderWidth: convertPxToDp(4),
       borderRadius: convertPxToDp(20),
@@ -21,6 +18,16 @@ export default dropDownStyle = theme => {
       borderColor: theme.borderColors.formField,
     },
 
+    dropDownContainer: {
+      backgroundColor: 'white',
+      borderRadius: convertPxToDp(20),
+      borderWidth: convertPxToDp(4),
+      paddingHorizontal: convertPxToDp(12),
+      paddingVertical: convertPxToDp(16),
+      borderColor: theme.borderColors.focusedFormField,
+      flex: 1,
+    },
+
     placeHolder: {
       fontSize: convertPxToDp(20),
       fontWeight: '500',
@@ -29,25 +36,6 @@ export default dropDownStyle = theme => {
 
     selectedText: {
       color: theme.colors.primary,
-    },
-
-    dropDownContainer: {
-      width: '100%',
-      justifyContent: 'center',
-      position: 'absolute',
-      top: convertPxToDp(134),
-      zIndex: 1,
-      
-    },
-
-    dropDownWrapper: {
-      backgroundColor: 'white',
-      borderRadius: convertPxToDp(20),
-      borderWidth: convertPxToDp(4),
-      paddingHorizontal: convertPxToDp(12),
-      paddingVertical: convertPxToDp(16),
-      borderColor: theme.borderColors.focusedFormField,
-      flex: 1,
     },
 
     dropdownItem: {
@@ -62,13 +50,13 @@ export default dropDownStyle = theme => {
 
     dropdownItemText: {
       fontSize: convertPxToDp(20),
-      fontWeight: '500',
+      fontWeight: '400',
       color: theme.colors.primary,
     },
 
     activeDropdownItemText: {
       fontSize: convertPxToDp(20),
-      fontWeight: '500',
+      fontWeight: '400',
       color: 'white',
     },
 
@@ -77,10 +65,6 @@ export default dropDownStyle = theme => {
       fontWeight: '500',
       color: theme.colors.primary,
       marginBottom: convertPxToDp(23),
-    },
-
-    focused: {
-      borderColor: theme.borderColors.focusedFormField,
     },
   });
 };

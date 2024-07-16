@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import {useTheme} from '@theme/ThemeProvider';
 import attachmentCardStyle from '@styles/components/attachmentCardStyle';
 import Icon from './Icon';
@@ -8,10 +8,12 @@ export default function AttachmentCard(props) {
   const {theme} = useTheme();
   const styles = attachmentCardStyle(theme);
 
-  const {type = '1', diameter = 5,filterName, style} = props;
+  const {id, type = '1', diameter = 5, filterName, style, onLongPress} = props;
 
   return (
-    <View style={[styles.container, style]}>
+    <TouchableOpacity
+      style={[styles.container, style]}
+      onLongPress={onLongPress}>
       <View style={styles.iconContainer}>
         <Icon iconName={'attachment-setting'} />
       </View>
@@ -27,6 +29,6 @@ export default function AttachmentCard(props) {
           <Text style={styles.data}>{diameter}</Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }

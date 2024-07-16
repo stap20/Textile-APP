@@ -51,7 +51,7 @@ export default function UserCard(props) {
           </View>
         </View>
 
-        <StatusChip status={status} isUserStatus={true} />
+        <StatusChip status={status} statusType={'user'} />
       </View>
       <View style={styles.detailsContainer}>
         <View style={styles.detailsRow}>

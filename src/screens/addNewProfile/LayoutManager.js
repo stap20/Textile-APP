@@ -4,7 +4,7 @@ import {View} from 'react-native';
 import {useTheme} from '@theme/ThemeProvider';
 import {layoutStyles} from '@styles/screens/addNewProfile';
 import Header from './Header';
-import FormView from './FormView';
+import FormView from './view';
 
 export default function LayoutManager({onSave, onCancel}) {
   const {theme, toggleTheme} = useTheme();

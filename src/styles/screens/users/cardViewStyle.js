@@ -8,6 +8,7 @@ export default cardViewStyle = theme => {
     },
     addOrderContainer: {
       width: convertPxToDp(539),
+      height: convertPxToDp(300),
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'center',

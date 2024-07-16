@@ -12,7 +12,10 @@ const lightTheme = {
     summaryTableRow: '#E6EAED',
     summaryEvenTableRow: '#E6EAED80',
     attachmentIconContainer: '#D9D9D9',
-    dropDownSelectedItem:'#3C4446'
+    dropDownSelectedItem: '#3C4446',
+
+    stepperStep: '#E9E9E9',
+    stepperActiveStep: '#3C4446',
   },
   filterSymbolColors: [
     '#16cc62',
@@ -29,6 +32,7 @@ const lightTheme = {
     tabSwitchActiveTab: '#FFF',
     formField: '#EBECEC',
     focusedFormField: '#3C4446',
+    stepperSeperator: '#EBECEC',
   },
   colors: {
     primary: '#3C4446',
@@ -45,6 +49,9 @@ const lightTheme = {
 
     onlineStatus: '#198754',
     offlineStatus: '#DC3545',
+
+    activeStatus: '#198754',
+    inActiveStatus: '#DC3545',
 
     placeHolder: '#757D8A',
     calendarText: '#757D8A',
@@ -65,6 +72,12 @@ const lightTheme = {
     userProfileIcons: '#FFFFFF',
     arrowDown: '#757D8A',
     arrowUp: '#3C4446',
+    warningIconBackground: '#DC354526',
+    warningIcon: '#DC3545',
+    modalTrash: 'white',
+    stepperCheck: 'white',
+    counterInputIcons: '#757D8A',
+    formCrudTrash:'#EB5757'
   },
   spacing: {
     small: '8px',

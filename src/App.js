@@ -8,7 +8,6 @@ import {ThemeProvider} from '@theme/ThemeProvider';
 import {MainNavigation} from '@navigation';
 
 import Toast from 'react-native-toast-message';
-import {PopUpModal} from '@components';
 
 SystemNavigationBar.navigationHide();
 function App() {
@@ -23,7 +22,6 @@ function App() {
         <MainNavigation />
       </SafeAreaView>
       <Toast autoHide={true} />
-      <PopUpModal status={true} />
     </ThemeProvider>
   );
 }

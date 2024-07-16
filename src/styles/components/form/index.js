@@ -4,7 +4,7 @@ import dropDownStyle from './dropDownStyle';
 import newDropDownStyle from './newDropDownStyle';
 import multiChoiceStyle from './multiChoiceStyle';
 import choicesStyle from './choicesStyle';
-
+import counterInputStyle from './counterInputStyle';
 export {
   inputStyle,
   datePickerStyle,
@@ -12,4 +12,5 @@ export {
   newDropDownStyle,
   multiChoiceStyle,
   choicesStyle,
+  counterInputStyle,
 };

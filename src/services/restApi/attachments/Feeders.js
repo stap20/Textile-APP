@@ -14,7 +14,7 @@ export default Feeder = {
         return false;
       }
 
-      ToastCaller('info', response.data.message);
+      ToastCaller('success', response.data.message);
       return response.data.success;
     } catch (error) {
       console.error('Error:', error);
@@ -55,8 +55,16 @@ export default Feeder = {
       };
 
       const data = {id};
+      
       const response = await API.post(`${apiPrefix}/delete`, data, config);
-      ToastCaller('info', response.data.message);
+
+
+      if (!response.data.success) {
+        ToastCaller('error', 'Issue found please try again');
+        return false;
+      }
+      
+      ToastCaller('success', response.data.message);
       return response.data.success;
     } catch (error) {
       console.error('Error:', error);

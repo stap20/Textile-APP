@@ -1,15 +1,16 @@
-import HomeScreen from '@screens/HomeScreen';
 import OrderNavigation from './OrderNavigation';
 import MachineNavigation from './MachineNavigation';
 import AttachmentNavigation from './AttachmentNavigation'
 import UserNavigation from './UserNavigation'
 import AddNewOrderScreen from '@screens/addNewOrder';
-import AddNewProfileScreen from '@screens/addNewProfile'
+import ProfileNavigation from './ProfileNavigation'
+import DashboardScreen from '@screens/dashboard'
+import AddNewMachineScreen from '@screens/addNewMachine'
 
 export default [
   {
     name: 'dashboard',
-    component: HomeScreen,
+    component: DashboardScreen,
     options: {
       active_icon: 'dashboard',
       icon: 'dashboard-outline',
@@ -18,7 +19,7 @@ export default [
   },
   {
     name: 'add_machine',
-    component: MachineNavigation,
+    component: AddNewMachineScreen,
     options: {
       active_icon: 'add-square',
       icon: 'add-square-outline',
@@ -53,12 +54,12 @@ export default [
     },
   },
   {
-    name: 'create_profile',
-    component: AddNewProfileScreen,
+    name: 'profiles',
+    component: ProfileNavigation,
     options: {
       active_icon: 'folder-add',
       icon: 'folder-add-outline',
-      tabName: 'Create New Profile',
+      tabName: 'Profiles',
     },
   },
   {

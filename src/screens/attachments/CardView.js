@@ -4,14 +4,34 @@ import {View, Text, FlatList, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {useTheme} from '@theme/ThemeProvider';
 import {cardViewStyle} from '@styles/screens/attachments';
-import {Icon, AttachmentCard} from '@components';
+import {Icon, AttachmentCard, PopUpModal} from '@components';
 
-export default function CardView({data, filter}) {
+export default function CardView({data, filter, deleteAttachment}) {
   const {theme} = useTheme();
   const styles = cardViewStyle(theme);
   const numColumns = 3;
   const CardsData = [{id: 'static', static: true}, ...data];
+  const [deleteModal, triggerDeleteModal] = useState(false);
+  const [selectedId, setSelectedId] = useState(null);
+
   const navigation = useNavigation();
+
+  const onCloseModal = () => {
+    triggerDeleteModal(false);
+  };
+
+  const openModel = selectedId => {
+    setSelectedId(selectedId);
+    triggerDeleteModal(true);
+  };
+
+  const onDelete = () => {
+    deleteAttachment(filter.id, selectedId).then(res => {
+      if (res) {
+        onCloseModal();
+      }
+    });
+  };
 
   const AddBtn = ({style}) => {
     return (
@@ -38,6 +58,9 @@ export default function CardView({data, filter}) {
           index % numColumns !== numColumns - 1 ? {marginRight: 'auto'} : {}
         }
         filterName={filter.title}
+        onLongPress={() => {
+          openModel(item.id);
+        }}
         {...item}
       />
     );
@@ -52,6 +75,11 @@ export default function CardView({data, filter}) {
         scrollEnabled={true}
         numColumns={numColumns}
         showsVerticalScrollIndicator={false}
+      />
+      <PopUpModal
+        status={deleteModal}
+        onCancel={onCloseModal}
+        onDelete={onDelete}
       />
     </View>
   );

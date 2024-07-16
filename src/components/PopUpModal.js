@@ -7,11 +7,13 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  StatusBar
 } from 'react-native';
 import Modal from 'react-native-modal';
 import {useTheme} from '@theme/ThemeProvider';
 import popUpModalStyle from '@styles/components/popUpModalStyle';
 import convertPxToDp from './../utils/ConvertPxToDp';
+import Icon from './Icon';
 
 export default function PopUpModal(props) {
   const {status, onCancel, onDelete} = props;
@@ -27,15 +29,10 @@ export default function PopUpModal(props) {
       hideModalContentWhileAnimating={true}
       backdropColor={'#4b4b4a'}
       backdropOpacity={0.9}>
+        <StatusBar hidden={status} />
       <View style={styles.container}>
         <View style={styles.iconContainer}>
-          <View
-            style={{
-              width: convertPxToDp(80),
-              height: convertPxToDp(80),
-              backgroundColor: 'orange',
-            }}
-          />
+          <Icon iconName={'modal-warning'} />
         </View>
         <View style={styles.detailsContainer}>
           <Text style={styles.titleText}>{`Sure you want to delete?`}</Text>
@@ -53,13 +50,8 @@ export default function PopUpModal(props) {
           <TouchableOpacity
             onPress={() => onDelete()}
             style={styles.deleteBtnContainer}>
-            <View
-              style={{
-                width: convertPxToDp(29),
-                height: convertPxToDp(27),
-                backgroundColor: 'orange',
-              }}
-            />
+            <Icon iconName={'trash-modal'} />
+
             <Text style={styles.deleteBtnText}>Delete</Text>
           </TouchableOpacity>
         </View>

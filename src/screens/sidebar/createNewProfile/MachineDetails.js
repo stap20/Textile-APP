@@ -2,25 +2,19 @@
 import React, {useState} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import {useTheme} from '@theme/ThemeProvider';
-import {formViewStyle} from '@styles/screens/addNewProfile';
+import {machineDetailsFormStyle} from '@styles/screens/addNewProfile';
 import {Input, DatePicker, DropDown} from '@components';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 const initialFormState = {
-  first_name: '',
-  last_name: '',
-  username: '',
-  phone_number: '',
-  email: '',
-  birth_date: null,
-  ssn: '',
-  privilege: null,
-  password: '',
+  machine_name: '',
+  machine_number: '',
+  model_number: '',
 };
 
-export default function FormView({onSave, onCancel}) {
+export default function MachineDetailsForm() {
   const {theme} = useTheme();
-  const styles = formViewStyle(theme);
+  const styles = machineDetailsFormStyle(theme);
 
   const [formData, setFormData] = useState(initialFormState);
 
@@ -31,22 +25,10 @@ export default function FormView({onSave, onCancel}) {
     });
   };
 
-  const handleSave = () => {
-    onSave(formData);
-  };
-
-  const handleCancel = () => {
-    onCancel();
-  };
-
-  const privilege = [
-    {name: 'User', id: 'user'},
-    {name: 'Admin', id: 'admin'},
-  ];
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>User Details</Text>
+      <Text style={styles.title}>Machine Details</Text>
       <KeyboardAwareScrollView
         extraHeight={120}
         enableOnAndroid={true}>
@@ -119,16 +101,6 @@ export default function FormView({onSave, onCancel}) {
         </View>
       </KeyboardAwareScrollView>
 
-      <View style={styles.btnsContainer}>
-        <View style={styles.btnsWrapper}>
-          <TouchableOpacity onPress={handleCancel} style={styles.cancelBtn}>
-            <Text style={styles.cancelBtnTxt}>Cancel</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={handleSave} style={styles.saveBtn}>
-            <Text style={styles.saveBtnTxt}>Save</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
     </View>
   );
 }

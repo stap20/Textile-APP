@@ -12,19 +12,32 @@ const filters = [
   {title: 'LFA', id: 'lfa'},
 ]; // Add more filters as needed
 
-export default function LayoutManager({fetchData}) {
+export default function LayoutManager({fetchData, deleteAttachment}) {
   const {theme, toggleTheme} = useTheme();
   const styles = layoutStyles(theme);
 
   const [data, setData] = useState([]);
   const [activeFilterTab, setActiveFilterTab] = useState(0);
 
-  useEffect(() => {
+  const dataFetcher = () => {
     fetchData(filters[activeFilterTab].id).then(res => {
-      console.log(res)
       setData(JSON.parse(JSON.stringify(res)));
     });
+  };
+
+  useEffect(() => {
+    dataFetcher();
   }, [activeFilterTab]);
+
+  const onDeleteAttachment = async (attachmentType, id) => {
+    const res = await deleteAttachment(attachmentType, id);
+
+    if (res) {
+      dataFetcher();
+    }
+
+    return res;
+  };
 
   return (
     <View style={styles.container}>
@@ -40,7 +53,11 @@ export default function LayoutManager({fetchData}) {
         />
       </View>
       <View style={styles.mainContainer}>
-        <CardView data={data} filter={filters[activeFilterTab]} />
+        <CardView
+          data={data}
+          filter={filters[activeFilterTab]}
+          deleteAttachment={onDeleteAttachment}
+        />
       </View>
     </View>
   );

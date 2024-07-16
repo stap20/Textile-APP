@@ -22,7 +22,7 @@ export default inputStyle = theme => {
       borderColor: theme.borderColors.formField,
 
       fontSize: convertPxToDp(20),
-      fontWeight: '500',
+      fontWeight: '400',
       color: theme.colors.primary,
     },
 
